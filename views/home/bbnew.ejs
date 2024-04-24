@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    
+
+    
+    .mitr-extralight {
+      font-family: "Mitr", sans-serif;
+      font-weight: 200;
+      font-style: normal;
+    }
+
+    .mitr-light {
+      font-family: "Mitr", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .mitr-regular {
+      font-family: "Mitr", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .mitr-medium {
+      font-family: "Mitr", sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .mitr-semibold {
+      font-family: "Mitr", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .mitr-bold {
+      font-family: "Mitr", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+
+    
+  </style>
+
+</head>
+
+
+<body>
+  <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+      <!-- Breadcrumb Section -->
+      <%- include('../partials/breadcrumb-lms'); -%>
+        <!-- End Breadcrumb Section -->
+        <!-- Two Block -->
+        <div class="container  space-bottom-lg-2 mt-5" style="border-style: solid;">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="headd" style="">สำนักงาน</h1>
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="s">สถานะ</span>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>

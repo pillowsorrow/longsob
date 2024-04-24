@@ -213,6 +213,17 @@ app.get(DIR + ":site/gg", async (req, res) => {
   });
 });
 
+app.get(DIR + ":site/bbnew", async (req, res) => {
+  res.render("home/bbnew", {
+    title: req.i18n_texts.term_and_condition_breadcrumb,
+    isLoggedIn: req.session.isLoggedIn,
+    isAdmin: req.session.role || 2,
+    breadcrumbs: [{
+      label: req.i18n_texts.term_and_condition_breadcrumb,
+      url: "#",
+    }, ]
+  });
+});
 
 
 
