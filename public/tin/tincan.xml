@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tincan xmlns="https://www.mylearntime.com/lrs_nacc/lec_03/tincan.xsd">
+<activities>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/lec_03" type="http://adlnet.gov/expapi/activities/course">
+		<name>หลักสูตรสร้างวิทยากรผู้นำการเปลี่ยนแปลงสู่สังคมที่ไม่ทนต่อการทุจริต</name>
+		<description lang="en-US">หลักสูตรสร้างวิทยากรผู้นำการเปลี่ยนแปลงสู่สังคมที่ไม่ทนต่อการทุจริต</description>
+		<launch lang="en-us">index.html</launch>
+	</activity>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/lec_03/data/m01/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">วิขาที่ 3 การประยุกต์หลักความพอเพียงด้วยโมเดล STRONG : จิตพอเพียงต้านทุจริต</name>
+		<description lang="und">วิขาที่ 3 การประยุกต์หลักความพอเพียงด้วยโมเดล STRONG : จิตพอเพียงต้านทุจริต</description>
+		
+	</activity>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/lec_03/data/posttest/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">แบบทดสอบหลังเรียน</name>
+		<description lang="und">แบบทดสอบหลังเรียน</description>
+		
+	</activity>
+   
+</activities>
+</tincan>

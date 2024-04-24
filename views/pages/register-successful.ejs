@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb'); -%>
+    </div>
+    <!-- End Viwer Section -->
+    <div class="container space-bottom-xs-1 mt-4 py-2 px-sm-0">
+      <div class="row">
+        <div class="text-center col-12">
+          <form action="<%= original_source %>/" method="get">
+            <div >
+              <div class="alert alert-success registration_successful" role="alert">
+                <h4 class="alert-heading"> <%= translation.registration_successful1 %> </h4>
+                <p><%= translation.registration_successful2 %></p>
+              </div>
+              <div class="form-actions text-center">
+                <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><%= translation.close_txt%></button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script>
+    function feedPage() {}
+  </script>
+</body>
+
+</html>

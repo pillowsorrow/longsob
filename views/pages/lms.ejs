@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+    <!-- Two Block -->
+    <div class="container space-1 space-bottom-lg-2">
+      <div class="row lms-block">
+        <!-- Left block -->
+        <div class="col-lg-12">
+          <ul class="list-unstyled">
+            <% classroom_data.forEach((classroom) => { %>
+            <!-- Products -->
+            <li class="card card-frame mb-5 bg-theme-second">
+              <div class="row">
+                <div class="col-lg-3 col-sm-12 pr-0 img-hover">
+                  <img class="card-img-top" src="<%= classroom.cover %>">
+                </div>
+                <div class="col-lg-9 col-md-12">
+                  <div class="card-body py-2 px-md-4">
+                    <div class="mb-2">
+
+                      <span class="btn text-secondary btn-pill mb-2"></span>
+                      <a href="<%= original_source %>/course/<%= classroom.course_id %>/detail" class="text-">
+                        <h4 class="h5 d-flex justify-content-between text-primary-theme heading-subject-text"><%= classroom.course_subject %></h4>                        
+                      </a>
+                      <ul class="list-group list-group-flush list-group-borderless">
+
+                        <% classroom.lesson.forEach((lesson) => { 
+                          let lesson_link = '#';
+                          let goto_lesson = '';
+                          let badge_color = '';
+                          if((classroom.paymentstatus == 1 ) && (classroom.user_paymentstatus == 0)){
+                            goto_lesson = translation.text_payment_waiting3;
+                            badge_color = 'badge-danger';
+                          }else if((classroom.paymentstatus == 1 ) && (classroom.user_paymentstatus == 2)){
+                            goto_lesson = translation.text_payment_waiting2;
+                            badge_color = 'badge-warning';
+                          }else{
+                            lesson_link = original_source +'/subject/'+ lesson.url;
+                            goto_lesson = translation.lms_learn;
+                            badge_color = 'badge-success';
+                          }
+                        %>  
+                          <li class="list-group-item">
+                            <a href="<%=lesson_link%>">
+                              <div class="d-flex align-items-center">
+                                <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-3">
+                                  <i class="fas fa-arrow-circle-right btn-icon__inner"></i>
+                                </span>
+                                <%= lesson.subject %> <span class="badge <%= badge_color %> badge-pill ml-auto p-2"><%= goto_lesson %></span>
+                              </div>
+                            </a>
+                          </li>
+                        <% }) %>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- End Products -->
+            <% }) %>
+            <li class="classZeroRow"><%= translation.lms_classroom_not_result %></li>
+          </ul>
+        </div>
+        <!-- End Left block -->
+
+        <!-- Filters -->
+      </div>
+    </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> 
+  <%- include('../partials/script'); -%>
+  <script>
+    function feedPage(){
+      let list_block = $('.lms-block ul > li').length;
+      if(list_block == 1){
+        $('.lms-block ul > li').addClass('classZeroRowDisplay');
+      }
+    }
+  </script>
+
+</body>
+
+</html>

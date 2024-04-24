@@ -1,0 +1,405 @@
+<aside id="sidebarContent" class="u-sidebar" aria-labelledby="sidebarNavToggler">
+    <div class="u-sidebar__scroller">
+        <div class="u-sidebar__container">
+            <div class="u-header-sidebar__footer-offset">
+                <!-- Toggle Button -->
+                <div class="d-flex align-items-center pt-4 px-7">
+                    <% if (isLoggedIn) { %>
+                    <a href="<%= original_source %>/member/profile/?clang=<%= i18n_lang %>" class="MemberDisplay"><img
+                            class="u-sidebar--account-primary-theme__toggle-img mr-1"
+                            src="/images/icon_user-01.png" onerror="this.onerror=null;this.src='/images/icon_user-01.png';"></a> <a
+                        href="<%= original_source %>/member/profile/?clang=<%= i18n_lang %>">
+                        <h2 class="h6 mb-0 mr-5"> <%= translation.aside_my_account%></h2>
+                    </a><small id="SessionTimeOut" class="text-danger">show time</small>
+
+                    <% } %>
+                    <button type="button" class="close ml-auto" aria-controls="sidebarContent" aria-haspopup="true"
+                        aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false"
+                        data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+                        data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight"
+                        data-unfold-duration="500">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <!-- End Toggle Button -->
+                <!-- Content -->
+                <div class="js-scrollbar u-sidebar__body">
+                    <% if (isLoggedIn) { %>
+                    <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside"
+                        style="max-height: none" tabindex="0">
+                        <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
+                            style="position: relative; top: 0; left: 0" dir="ltr">
+                            <!-- Holder Info -->
+                            <!-- End Holder Info -->
+                            <div class="u-sidebar__content--account pt-1 ">
+                                <!-- List Links -->
+                                <ul class="list-unstyled u-sidebar--account-primary-theme__list">
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="<%= original_source %>/lms/?clang=<%= i18n_lang %>">
+                                            <span class="fas fa-chalkboard-teacher mr-2"></span>
+                                            <%= translation.aside_classroom%>
+                                        </a>
+                                    </li>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="<%= original_source %>/lms/register/?clang=<%= i18n_lang %>">
+                                            <span class="fas fa-edit mr-2"></span>
+                                            <%= translation.aside_register%>
+                                        </a>
+                                    </li>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link" 
+                                            href="<%= original_source %>/lms/inbox/?clang=<%= i18n_lang %>">
+                                          <span class="fas fa-envelope  fa-lg mr-2"></span>
+                                          <%= translation.aside_inbox%>
+                                          </a>
+                                    </li>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="<%= original_source %>/lms/history/?clang=<%= i18n_lang %>">
+                                            <span class="fas fa-history '. $iconactive['history'].' mr-2"></span>
+                                            <%= translation.aside_history%>
+                                        </a>
+                                    </li>
+                                    <% /* %>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="#">
+                                            <span class="fas fa-users mr-2"></span>
+                                            <%= translation.aside_cop%>
+                                        </a>
+                                    </li>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="#">
+                                            <span class="fab fa-blogger-b mr-2"></span>
+                                            <%= translation.aside_knowledge_forum%>
+                                        </a>
+                                    </li>
+                                    <% */ %>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link aside_menu_profile"
+                                            href="<%= original_source %>/member/profile/?clang=<%= i18n_lang %>">
+                                            <span class="fas fa-user-circle fa-lg mr-2"></span>
+                                            <%= translation.aside_profile%>
+                                        </a>
+                                    </li>
+                                    <% if (isAdmin == 1) { %>
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="https://backend.longsobdi.com/">
+                                            <span class="fas fa-cog fa-lg mr-2"></span>
+                                            <%= translation.aside_administrator%>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <!-- End List Links -->
+                                <!-- <div class="u-sidebar--account-primary-theme__list-divider"></div> -->
+                                <!-- List Links -->
+                                <ul class="list-unstyled u-sidebar--account-primary-theme__list">
+                                    <li class="u-sidebar--account-primary-theme__list-item">
+                                        <a class="u-sidebar--account-primary-theme__list-link"
+                                            href="<%= original_source %>/logout/?clang=<%= i18n_lang %>">
+                                            <span class="fas fa-power-off text-danger mr-2"></span>
+                                            <%= translation.aside_logout%>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- End List Links -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mCSB_1_scrollbar_vertical"
+                        class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical"
+                        style="display: none">
+                        <div class="mCSB_draggerContainer">
+                            <div id="mCSB_1_dragger_vertical" class="mCSB_dragger">
+                                <div class="mCSB_dragger_bar" style="line-height: 50px"></div>
+                            </div>
+                            <div class="mCSB_draggerRail"></div>
+                        </div>
+                    </div>
+
+                    <% } else { %>
+                    <div class="u-sidebar__content u-header-sidebar__content">
+                        <form id="form-login" action="#" method="post" accept-charset="utf-8">
+                            <div id="login" data-target-group="idForm">
+                                <!-- Title -->
+                                <header class="text-center mb-7">
+                                    <h2 class="h4 mb-0">Longsobdi</h2>
+                                    <p><%= translation.menu_text_login_title%></p>
+                                </header>
+                                <!-- End Title -->
+
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only"
+                                            for="signinEmail"><%= translation.menu_text_login_username%></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="signinEmailLabel">
+                                                    <span class="fas fa-user"></span>
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" name="uname" id="signinEmail"
+                                                placeholder="<%= translation.menu_text_login_username%>"
+                                                aria-label="Email" aria-describedby="signinEmailLabel" required
+                                                data-msg="<%= translation.login_email_invalid%>"
+                                                data-error-class="u-has-error" data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only"
+                                            for="signinPassword"><%= translation.menu_text_login_password%></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend viewpass" id="id_signinPassword">
+                                                <span class="input-group-text" id="signinPasswordLabel">
+                                                    <span class="fas fa-eye" id="icon_signinPassword"></span>
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control" name="pass" autocomplete="off" id="signinPassword"
+                                                placeholder="********" aria-label="Password"
+                                                aria-describedby="signinPasswordLabel" required
+                                                data-msg="<%= translation.login_password_invalid%>"
+                                                data-error-class="u-has-error" data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Form Group -->
+                                <div class="d-flex justify-content-end mb-4">
+                                    <a class="js-animation-link small link-muted" href="#"
+                                        id="linkforgotpassword" data-target="#forgotPassword" data-link-group="idForm"
+                                        data-animation-in="slideInUp"><%= translation.menu_text_login_forgot%></a>
+                                </div>
+
+                                <div class="mb-2">
+                                    <button type="submit"
+                                        class="btn btn-block btn-sm btn-primary-theme transition-3d-hover">
+                                        <%= translation.login_txt%>
+                                    </button>
+                                </div>
+                                <div class="mb-2 mt-4">
+                                    <a class="btn btn-block btn-sm btn-secondary transition-3d-hover"
+                                        href="<%= original_source %>/pdpa/?clang=<%= i18n_lang %>"><%= translation.menu_text_login_register2%></a>
+                                </div>
+                            </div>
+                            
+                        </form>
+
+                        <!-- Forgot Password -->
+                        <form action="<%= original_source %>/member/forgot" method="post" accept-charset="utf-8">
+                            
+                            <div id="forgotPassword" style="display: none; opacity: 0" data-target-group="idForm">
+                                <!-- Title -->
+                                <header class="text-center mb-7">
+                                    <h2 class="h4 mb-0">
+                                        <%= translation.menu_text_login_forgot%>
+                                    </h2>
+                                    <p><%= translation.enter_your_email%></p>
+                                </header>
+                                <!-- End Title -->
+                                <% if(from_email_validate == 'true') { %>
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only" for="recoverEmail"><%= translation.email%></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="recoverEmailLabel">
+                                                    <span class="fas fa-user"></span>
+                                                </span>
+                                            </div>
+                                            <input type="email" class="form-control" name="recoveremail"
+                                                id="recoverEmail" placeholder="<%= translation.email%>" aria-label="email"
+                                                aria-describedby="recoverEmailLabel" required
+                                                data-msg="<%= translation.enter_your_email%>" data-error-class="u-has-error"
+                                                data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Form Group -->
+                                <% }else{ %>  
+
+                                    <!-- Form Group -->
+                                    <div class="form-group">
+                                        <div class="js-form-message js-focus-state">
+                                            <label class="sr-only"
+                                                for="signinEmail"><%= translation.menu_text_login_username%></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="signinEmailLabel">
+                                                        <span class="fas fa-user"></span>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" name="recoveruname"
+                                                    placeholder="<%= translation.menu_text_login_username%>"
+                                                    aria-label="username" required
+                                                    data-msg="<%= translation.login_email_invalid%>"
+                                                    data-error-class="u-has-error" data-success-class="u-has-success" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Form Group -->
+                                    <!-- Form Group -->
+                                    <div class="form-group">
+                                        <div class="js-form-message js-focus-state">
+                                            <label class="sr-only" for="recoverIDCard"><%= translation.text_idcard%></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="recoverIDCardLabel">
+                                                        <i class="fas fa-id-card"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="text" class="form-control" name="recoveridcard"
+                                                    id="recoverIDCard" placeholder="<%= translation.text_idcard%>" aria-label="idcard"
+                                                    aria-describedby="recoverIDCardLabel" required
+                                                    data-msg="<%= translation.text_idcard%>" data-error-class="u-has-error"
+                                                    data-success-class="u-has-success" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Form Group -->
+                                <% } %>
+                                <div class="mb-2">
+                                    <button type="submit"
+                                        class="btn btn-block btn-sm btn-primary-theme transition-3d-hover">
+                                        <%= translation.menu_text_login_forgot%>
+                                    </button>
+                                </div>
+
+                                <div class="text-center mb-4">
+                                    <span class="small text-muted"><%= translation.remember_your_password%></span>
+                                    <a class="js-animation-link small" href="<%= original_source %>/login" data-target="#login"
+                                        data-link-group="idForm" data-animation-in="slideInUp">
+                                        <%= translation.login_txt%>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- End Forgot Password -->
+
+                        <!-- Sign Up -->
+                        <form action="#" method="post" accept-charset="utf-8">
+                            <div id="signup" style="display: none; opacity: 0" data-target-group="idForm">
+                                <!-- Title -->
+                                <header class="text-center mb-7">
+                                    <h2 class="h4 mb-0">
+                                        <%= translation.menu_text_login_register%>
+                                    </h2>
+                                    <p><%= translation.menu_text_login_title%></p>
+                                </header>
+                                <!-- End Title -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only" for="signupEmail"><%= translation.email%></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="signupEmailLabel">
+                                                    <span class="fas fa-user"></span>
+                                                </span>
+                                            </div>
+                                            <input type="email" class="form-control" name="email" id="signupEmail"
+                                                placeholder="Email" aria-label="Email"
+                                                aria-describedby="signupEmailLabel" required
+                                                data-msg="Please enter a valid email address."
+                                                data-error-class="u-has-error" data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only" for="signupPassword">Password</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="signupPasswordLabel">
+                                                    <span class="fas fa-lock"></span>
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control" name="password" autocomplete="off"
+                                                id="signupPassword" placeholder="Password" aria-label="Password"
+                                                aria-describedby="signupPasswordLabel" required
+                                                data-msg="Your password is invalid. Please try again."
+                                                data-error-class="u-has-error" data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <div class="js-form-message js-focus-state">
+                                        <label class="sr-only" for="signupConfirmPassword">Confirm Password</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="signupConfirmPasswordLabel">
+                                                    <span class="fas fa-key"></span>
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control" name="confirmPassword" autocomplete="off"
+                                                id="signupConfirmPassword" placeholder="Confirm Password"
+                                                aria-label="Confirm Password"
+                                                aria-describedby="signupConfirmPasswordLabel" required
+                                                data-msg="Password does not match the confirm password."
+                                                data-error-class="u-has-error" data-success-class="u-has-success" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Input -->
+                                <div class="mb-2">
+                                    <button type="submit"
+                                        class="btn btn-block btn-sm btn-secondary transition-3d-hover">
+                                        <%= translation.menu_text_login_register2%>
+                                    </button>
+                                </div>
+                                <div class="text-center mb-4">
+                                    <span class="small text-muted">กลับไปยังหน้า</span>
+                                    <a class="js-animation-link small" href="javascript:;" data-target="#login"
+                                        data-link-group="idForm" data-animation-in="slideInUp">Login
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                        <!--End Sign Up -->
+                    </div>
+                    <% } %>
+                </div>
+                <!-- End Content -->
+            </div>
+
+            <!-- Footer -->
+            <footer id="SVGwaveWithDots" class="svg-preloader u-sidebar__footer u-sidebar__footer--account">
+                <!-- SVG Background Shape -->
+                <div class="position-absolute right-0 bottom-0 left-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 300 126.5" style="enable-background: new 0 0 300 126.5" xml:space="preserve"
+                        class="injected-svg js-svg-injector" data-parent="#SVGwaveWithDots">
+                        <path class="wave-bottom-with-dots-0 fill-primary-theme" opacity=".6"
+                            d="M0,58.9c0-0.9,5.1-2,5.8-2.2c6-0.8,11.8,2.2,17.2,4.6c4.5,2.1,8.6,5.3,13.3,7.1C48.2,73.3,61,73.8,73,69  c43-16.9,40-7.9,84-2.2c44,5.7,83-31.5,143-10.1v69.8H0C0,126.5,0,59,0,58.9z">
+                        </path>
+                        <path class="wave-bottom-with-dots-1 fill-primary-theme"
+                            d="M300,68.5v58H0v-58c0,0,43-16.7,82,5.6c12.4,7.1,26.5,9.6,40.2,5.9c7.5-2.1,14.5-6.1,20.9-11  c6.2-4.7,12-10.4,18.8-13.8c7.3-3.8,15.6-5.2,23.6-5.2c16.1,0.1,30.7,8.2,45,16.1c13.4,7.4,28.1,12.2,43.3,11.2  C282.5,76.7,292.7,74.4,300,68.5z">
+                        </path>
+                        <g>
+                            <circle class="wave-bottom-with-dots-2 fill-danger" cx="259.5" cy="17" r="13"></circle>
+                            <circle class="wave-bottom-with-dots-1 fill-primary" cx="290" cy="35.5" r="8.5"></circle>
+                            <circle class="wave-bottom-with-dots-3 fill-success" cx="288" cy="5.5" r="5.5"></circle>
+                            <circle class="wave-bottom-with-dots-4 fill-warning" cx="232.5" cy="34" r="2"></circle>
+                        </g>
+                    </svg>
+                </div>
+                <!-- End SVG Background Shape -->
+            </footer>
+            <!-- End Footer -->
+        </div>
+    </div>
+</aside>

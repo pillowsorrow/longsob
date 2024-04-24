@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css"
+    integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.32/sweetalert2.min.css" integrity="sha512-IScV5kvJo+TIPbxENerxZcEpu9VrLUGh1qYWv6Z9aylhxWE4k4Fch3CHl0IYYmN+jrnWQBPlpoTVoWfSMakoKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Content Section -->
+    <div class="bg-light">
+      <div class="container space-1">
+        <div class="card bg-theme-second">
+          <div class="card-header px-0 mx-4 bg-theme-second">
+            <div class="col-md-5 col-lg-4 mb-2 mb-md-0  text-primary-theme">
+              <h4><span class="fas fa-envelope mr-2"></span><%= translation.aside_inbox%></h4>
+            </div>
+            <!-- End Activity Menu -->
+          </div>
+          <div class="card-body px-4 py-0">
+            <!-- Activity Table -->
+            <div id="printdatatable" class="table-responsive-md u-datatable ">
+              <table
+                class="js-datatable table table-border-success u-datatable__striped u-datatable__content u-datatable__trigger mb-5">
+                <thead>
+                  <tr class="text-uppercase text-center">
+                    <th class="font-weight-medium text-center"><%= translation.lms_order%></th>
+                    <th class="font-weight-medium text-left"><%= translation.inbox_item%></th>
+                    <th class="font-weight-medium"><%= translation.inbox_channel%></th>
+                    <th class="font-weight-medium"> <%= translation.inbox_manage%></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% inboxs.forEach(function(inbox, index){ %>
+                  <tr>
+                    <td class="align-middle text-center text-secondary"><%= index + 1 %></td>
+                    <td class="align-middle text-secondary font-weight-normal">
+                      <%= translation.inbox_from%> <%= inbox.fullname %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= inbox.course_subject %>
+                    </td>
+                    <td class="align-middle text-center text-secondary font-weight-normal">
+                      <span class="fas fa-eye fa-lg text-<%= inbox.read%> pointer"
+                        id="viewmessage_<%= inbox.invite_id %>"
+                        onclick="viewmessage(<%= inbox.invite_id %>);"></span>&nbsp;&nbsp;&nbsp;<span
+                        class="fas fa-trash-alt fa-lg  pointer delMsg" id="deletemessage_29"
+                        onclick="delMsg(<%= inbox.invite_id %>);"></span>
+                      <input type="hidden" id="detail<%= inbox.invite_id %>" value="<%= inbox.message %>">
+                      <input type="hidden" id="title<%= inbox.invite_id %>" value="<%= translation.inbox_from%> <%= inbox.fullname %>">
+                    </td>
+
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Activity Table -->
+
+            <!-- Pagination -->
+            <div class="d-flex align-items-center">
+              <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+
+              <small id="datatableInfo" class="text-secondary ml-auto"></small>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="viewmessage">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title text-center" id="headtext"> View message</h4>
+            <button type="button" class="close" onclick="closeModal();">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p id="bodytext"></p>
+          </div>
+          <!-- Footer -->
+          <div class="card-footer d-flex justify-content-end">
+            <button type="button" class="btn btn-sm btn-soft-secondary transition-3d-hover"
+            onclick="closeModal();">Closed</button>
+          </div>
+          <!-- End Footer -->
+        </div>
+      </div>
+      <input type="hidden" id="message_id">
+    </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+    integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.32/sweetalert2.all.min.js" integrity="sha512-zB7yJLSASiSevQmWCrQaq+z/f5zRIa884hwWgmK1oI3MfolIzKcpDtyfBsrGqUi/hMCObVwr/+SZTByOqh0zkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/components/jquery.dataTables.min.js"></script>
+  <script>
+    function feedPage() {
+
+    }
+
+    $(document).ready(function () {
+      let table = new DataTable('#printdatatable table');
+    });
+
+    function viewmessage(id) {
+      $("#headtext").html($("#title" + id).val());
+      $("#bodytext").html($("#detail" + id).val());
+      $("#message_id").val(id);
+      $("#viewmessage").css('background-color', 'rgba(0,0,0,0.5)').show().addClass("show");
+      updateMsg(id,1);
+    }
+    function closeModal(){
+      $("#viewmessage").hide().removeClass("show");
+    }
+    function delMsg(id) {
+    Swal.fire({
+      icon: 'warning',
+      title: '<%= translation.inbox_delete2%>',
+      showCancelButton: true,
+      confirmButtonText: '<%= translation.inbox_delete1%>',
+      cancelButtonText: '<%= translation.inbox_cancel%>',
+      confirmButtonColor: '#A71928',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        updateMsg(id,0);
+      }
+    })
+  }
+
+    function updateMsg(id,status){
+
+      $.ajax({
+        url: local_api + "lms/contact-status",
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + access_token,
+        },
+        data: JSON.stringify({
+          contact: id,
+          status: status
+        })
+      })
+      .done(function (data) {
+        if(status == 1){
+          $('#viewmessage_'+id).removeClass('text-danger').addClass('text-success');
+        }else{
+          window.location.reload();
+        }
+      })
+    }
+  </script>
+
+</body>
+
+</html>

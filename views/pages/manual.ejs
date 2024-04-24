@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+  <head>
+    <%- include('../partials/head'); -%> 
+    <%- include('../partials/nav'); -%>
+  </head>
+
+  <body>
+    <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <div class="bg-theme-second">
+            <%- include('../partials/breadcrumb'); -%>
+        </div>
+      <!-- End Viwer Section -->
+        <div class="container space-bottom-xs-1 mt-4 py-2 px-sm-0">
+            <div class="mb-2 ">
+                <h4 class="h4 mb-4 text-primary-theme heading-subject-text"> <%= translation.title_manual %></h4>
+            </div>
+            <div class="row d-none">
+              <form class="js-focus-state form-inline input-group input-group-sm shadow-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="docsSearch">
+                    <span class="fas fa-search"></span>
+                  </span>
+                </div>
+                <input class="js-hs-docs-search form-control ui-autocomplete-input" type="text" placeholder="Search..." aria-label="Search..." aria-describedby="docsSearch" data-url="../documentation/assets/include/ajax/autocomplete-data-for-starter-search.json" autocomplete="off">
+                <ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"></ul>
+              </form>
+            </div>
+            <!-- Property Item -->
+          
+            <div class="pb-5 mb-5">
+              <div class="row">
+                <% if (data && data.length > 0) { %>
+                <% data.forEach((item) => { %>
+                        <div class="col-sm-12 col-md-6 pb-3 mb-3">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-6 px-0">
+                        <img class="img-fluid manual_cover" src="<%= file_path %><%= item.cover %>" alt="<%= item.title %>" onerror="this.onerror=null;this.src='/images/square-default-logo.png'">
+                      </div>
+                      <div class="col-md-6 py-sm-2 main">
+                        <div class="card-body pl-0">
+                          <a href="<%= file_path %><%= item.path %>" target="_blank">
+                            <h5 class="mb-1 fix-line text-primary-theme text-line-clamp"><%= item.title %></h5>
+                          </a>
+                            <p class="mb-0 text-black-70 fix-line-50 text-truncate"></p>
+                        </div>
+                        <div class="card-footer px-0">
+                          <div class="media align-items-center">
+                            <div class="media-body">
+                            <h4 class="text-black-70 mb-0"><%= translation.text_make_by%> : <%= author %></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% }) %>
+                <% } else { %>
+                  <p>No data available</p>
+                <% } %>
+                </div>
+            </div>
+            <!-- End Property Item -->
+        </div>
+      <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%> 
+    <%- include('../partials/script'); -%>
+    <script> function feedPage(){ } </script>
+  </body>
+</html>

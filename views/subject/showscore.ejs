@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav_without_goto'); -%>
+		<div class="container mt-3 mb-6" id="score_page">
+			<div class="row">
+
+				<div class="col-lg-8 tab-content p-0 mb-6 animated fadeInUp ">
+					<!-- space-lg-2 -->
+					<div class="card shadow-soft p-1 pt-3 pl-0 pr-0 ">
+						<div class="col-lg-12 tab-pane active" id="tab-f-pretest" role="tabpanel"
+							aria-labelledby="tab-1">
+							<div class="d-lg-flex justify-content-lg-between">
+								<h4 class="h5 d-flex justify-content-between text-primary-theme">ผลการสอบ</h4>
+							</div>
+						</div> <!-- tab-1 -->
+						<hr class="my-1">
+						<div class="col-lg-12">
+							<!-- Stats -->
+							<div class="card mb-7 mb-lg-0 border-0 ">
+								<!-- Deposit Info -->
+								<div class="row mb-5">
+									<div class="col-sm-8 mb-4 mb-sm-0">
+										<span class="font-size-5 font-weight-medium text-lh-sm text-success"><%= data.score %> / <%= data.full_score %></span>
+										<div class="mb-1"><span class="text-danger font-size-2">คุณได้คะแนน</span><span
+												class="text-danger font-weight-medium font-size-2"> <%= data.percent %> %</span></div>
+										<div>
+
+										</div>
+									</div>
+									<div class="circle col-sm-4 mb-4 mb-sm-0" id="circles-1"></div>
+
+								</div>
+								<div class="text-center">
+									<% if(data.lesson_id == 0){ %>
+										<a href="<%= original_source %>/subject/<%= data.courseID %>/<%= data.pageID %>/<%= data.redirect_url %>"
+										class="btn btn-wide  btn-primary transition-3d-hover "><i
+											class="fas fa-book-reader"></i> กลับหน้าหลัก</a>
+									<% }else{ %>
+										<% if(data.redirect == 0){ %>
+											<a href="<%= original_source %>/subject/exercise/<%= data.courseID %>/<%= data.pageID %>/<%= data.redirect_url %>"
+												class="btn btn-wide  btn-primary transition-3d-hover "><i
+													class="fas fa-book-reader"></i> กลับหน้าแบบฝึกหัด</a>
+											<% }else{ %>
+												<% if(data.pass_score <= data.percent){ %>
+													<a href="<%= original_source %>/subject/<%= data.courseID %>/<%= data.pageID %>/<%= data.redirect_url %>"
+														class="btn btn-wide  btn-primary transition-3d-hover "><i
+															class="fas fa-book-reader"></i> กลับหน้าหลัก</a>
+													<% }else{ %>
+									<a href="<%= original_source %>/subject/<%= data.courseID %>/<%= data.pageID %>/lesson/<%= data.lesson_id %>/<%= data.lesson_title %>"
+										class="btn btn-wide  btn-primary transition-3d-hover "><i
+											class="fas fa-book-reader"></i> เข้าเรียน</a>
+											<%} %>
+											<%} %>
+											<%} %>
+										</div><!-- End Deposit Info -->
+								<hr class="my-3">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sticky Block End Point -->
+				<div id="stickyBlockEndPoint"></div>
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+
+	<!-- End Go to Top -->
+	<%- include('../subject/partials/script'); -%>
+	<script async defer src="/javascripts/components/circles.min.js"></script>
+	<script async defer src="/javascripts/exam.js"></script>
+	<script>
+		$(document).ready(function () {
+			pie_display(<%= data.percent %>);
+		});
+	</script>
+
+</html>

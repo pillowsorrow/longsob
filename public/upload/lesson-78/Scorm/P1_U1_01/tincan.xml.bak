@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tincan xmlns="http://projecttincan.com/tincan.xsd">
+<activities>
+	
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/poo1_1" type="http://adlnet.gov/expapi/activities/course">
+		<name>หลักสูตรการป้องกันการทุจริต ระดับชั้นมัธยมศึกษาปีที่ 1 หน่วยที่ 1</name>
+		<description lang="en-US">หลักสูตรการป้องกันการทุจริต ระดับปประถมศึกษาปีที่ 1  หน่วยที่ 1</description>
+		<launch lang="en-us">index.html</launch>
+	</activity>
+	
+	
+
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/poo1_1/data/m01/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">หน่วยที่ 1 การคิดแยกแยะระหว่างผลประโยชน์ส่วนตนและผลประโยชน์ส่วนรวม</name>
+		<description lang="und">หน่วยที่ 1 การคิดแยกแยะระหว่างผลประโยชน์ส่วนตนและผลประโยชน์ส่วนรวม</description>
+	</activity>
+	
+	
+	
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/poo1_1/data/posttest/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">แบบทดสอบท้ายบท</name>
+		<description lang="und">แบบทดสอบท้ายบท</description>
+	</activity>
+	
+	
+   
+</activities>
+</tincan>

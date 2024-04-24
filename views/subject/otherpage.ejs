@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav'); -%>
+		<div class="container mt-3 mb-6 container-fullpage">
+			<div class="row ">
+				<!-- Learn Menu -->
+				<div id="stickyBlockStartPoint" class="col-md-4 col-lg-4 mb-7 mb-md-0 d-lg-block d-xl-block">
+					<%- include('../subject/partials/aside'); -%>
+				</div>
+				<!-- End Learn menu -->
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6">
+					<!-- shadow-sm space-lg-2 -->
+
+					<!-- card block 1-->
+					<div class="card shadow-soft p-1 pt-1 pl-0 pr-0 ">
+						<!-- title block -->
+
+						<!-- title block -->
+						<div class="col-lg-12 tab-pane active" id="tab-f-index" role="tabpanel" aria-labelledby="tab-1">
+							<div class="d-flex">
+								<h4 class="h5 text-primary-theme mt-1">
+									<% if(aside == 4){ %>
+									<%= translation.text_teacher %>
+									<% }else if(aside == 5){ %>
+									<%= translation.text_score %>
+									<% }else if(aside == 6){ %>
+									<%= translation.text_history %>
+									<% } %>
+								</h4>
+							</div>
+						</div>
+						<!-- end title block  -->
+						<hr class="my-1">
+						<!-- detail block  -->
+						<div class="col-lg-12">
+							<!-- Accordion -->
+							<% if(aside == 4){ %>
+							<div id="teacherDetails" class="accordion mb-9">
+								<!-- Card -->
+								<div>
+									<div class="container space-1">
+										<div class="row justify-content-between align-items-center mb-4">
+											<div class="card-deck">
+												<% if(teachers.length > 0){ %>
+												<% 
+												var i = 1;
+												teachers.forEach(function(teacher, index){ %>
+												<div class="card text-center mb-3 ">
+													<div class="card-body p-6">
+
+														<div class="mb-4">
+															<div class="position-relative u-lg-avatar mx-auto mb-3">
+																<a>
+																	<img class="u-lg-avatar rounded-circle"  onerror="this.onerror=null;this.src='/images/icon_user-01.png';"
+																		src="<%= teacher.avatar %>">
+																	<!-- <span
+																		class="badge badge-xs badge-outline-danger badge-pos badge-pos--bottom-left rounded-circle"></span></a> -->
+															</div>
+															<h2 class="h6 mb-0"><%= teacher.name %></h2>
+
+														</div>
+
+
+														<ul class="list-inline mb-0 d-none">
+															<li class="list-inline-item">
+																<a
+																	class="btn btn-sm btn-icon btn-soft-primary rounded-circle">
+																	<span class="fab fa-line btn-icon__inner"></span>
+																</a>
+															</li>
+															<li class="list-inline-item">
+																<a
+																	class="btn btn-sm btn-icon btn-soft-primary rounded-circle">
+																	<span
+																		class="fab fa-facebook-f btn-icon__inner"></span>
+																</a>
+															</li>
+															<li class="list-inline-item">
+																<a
+																	class="btn btn-sm btn-icon btn-soft-primary rounded-circle">
+																	<span class="fab fa-twitter btn-icon__inner"></span>
+																</a>
+															</li>
+															<li class="list-inline-item">
+																<a
+																	class="btn btn-sm btn-icon btn-soft-primary rounded-circle">
+																	<span
+																		class="fab fa-instagram btn-icon__inner"></span>
+																</a>
+															</li>
+														</ul>
+
+													</div>
+													<div class="card-footer py-4 px-6">
+														<a class="contact_user btn btn-sm btn-soft-primary transition-3d-hover"
+															onclick="contact_user(<%= teacher.id %>,'<%= teacher.name %>'); return false;"
+															href="#modalmessage">
+															<span class="far fa-envelope mr-2"></span>
+															Send a Message
+														</a>
+													</div>
+												</div>
+
+
+
+												<% if(i == 2){ %>
+											</div>
+											<div class="card-deck">
+												<% } i++; %>
+												<% }) %>
+												<%  }else{ %>
+												<div class="teacher-nofound"><%= translation.text_teacher_zero %></div>
+												<% } %>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- End Card -->
+							<% }else if(aside == 5){ %>
+							<!-- detail block  -->
+							<div class="col-lg-12" id="scoreDetails">
+								<% if(scores.length > 0){ %>
+								<div class="col-md-12 order-md-1">
+
+									<!-- Nav Classic -->
+									<ul class="nav nav-classic  nav-borderless px-0" id="pills-tab" role="tablist">
+										<li class="nav-item nav-item-theme-subject">
+											<a class="nav-link small text-secondary bg-white active" id="pills-1-tab"
+												data-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1"
+												aria-selected="true"><%= translation.exam_pre_test %></a>
+										</li>
+										<li class="nav-item nav-item-theme-subject">
+											<a class="nav-link small text-secondary bg-white" id="pills-2-tab"
+												data-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2"
+												aria-selected="false"><%= translation.exam_post_test %></a>
+										</li>
+
+									</ul>
+									<!-- End Nav Classic -->
+								</div>
+								<!-- Datatable -->
+								<div class="tab-content" id="pills-tabContent">
+									<% 
+									var show = true;
+									scores.forEach(function(score, index){ 
+									var row = (+index) + 1;	
+									%>
+									<!-- Content -->
+									<% if(show){ %>
+									<div class="tab-pane fade active show" id="pills-<%=row%>" role="tabpanel"
+										aria-labelledby="pills-<%=row%>-tab">
+										<% show = false; 
+									}else{ %>
+										<div class="tab-pane fade " id="pills-<%=row%>" role="tabpanel"
+											aria-labelledby="pills-<%=row%>-tab">
+											<% } %>
+											<div class="text-center py-4 small">
+												<% score.score_data.forEach(function(item, index){ %>
+												<div class="row ">
+													<div class="col-2 text-left text-secondary py-3"><%=item.ordinal %>
+													</div>
+													<div class="col-3 text-left text-secondary py-3">
+														<%=item.startdate %>
+													</div>
+													<div class="col-2 text-left text-secondary py-3">
+														<%=item.exam_status %></div>
+													<div class="col-5 border-left py-3">
+														<div class="js-hr-progress progress align-middle"
+															style="height: 30px;">
+															<div class="js-hr-progress-bar progress-bar  bg-theme-primary text-white"
+																role="progressbar" style="width: <%=item.percent %>%;"
+																aria-valuenow="<%=item.percent %>" aria-valuemin="0"
+																aria-valuemax="100"><%=item.percent %>%</div>
+															<p class="text-secondary ml-2 mt-1">
+																<%=item.score %>/<%=item.fullscore %></p>
+														</div>
+													</div>
+												</div>
+												<% }) %>
+											</div>
+										</div>
+										<!-- End Content  -->
+										<% }) %>
+										<!-- End Datatable -->
+										<%  }else{ %>
+										<div class="score-nofound"><%= translation.text_score_no %></div>
+										<% } %>
+									</div>
+									<!-- end detail block  -->
+
+									<% }else if(aside == 6){ %>
+									<div class="table-responsive-md u-datatable" id="historyDetails">
+										<table
+											class="js-datatable table table-borderless u-datatable__striped u-datatable__content"
+											data-dt-info="#datatableInfo" data-dt-search="#datatableSearch"
+											data-dt-entries="#datatableEntries" data-dt-page-length="10"
+											data-dt-is-responsive="false" data-dt-is-show-paging="true"
+											data-dt-pagination="datatablePagination"
+											data-dt-pagination-classes="pagination mb-0"
+											data-dt-pagination-items-classes="page-item"
+											data-dt-pagination-links-classes="page-link"
+											data-dt-pagination-next-classes="page-item"
+											data-dt-pagination-next-link-classes="page-link"
+											data-dt-pagination-next-link-markup="<span aria-hidden='true'>&raquo;</span>"
+											data-dt-pagination-prev-classes="page-item"
+											data-dt-pagination-prev-link-classes="page-link"
+											data-dt-pagination-prev-link-markup="<span aria-hidden='true'>&laquo;</span>">
+											<thead>
+												<tr class="text-uppercase font-size-1">
+													<th scope="col" class="font-weight-medium">
+														<div class="d-flex justify-content-between align-items-center">
+															<div class="ml-2"><%= translation.text_history_lesson %>
+															</div>
+														</div>
+													</th>
+													<th scope="col" class="font-weight-medium">
+														<div class="d-flex justify-content-between align-items-center">
+															<div class="ml-2"><%= translation.text_history_study_time %>
+															</div>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody class="font-size-1">
+												<% histories.forEach(function(history, index){ %>
+												<tr>
+													<td class="align-middle font-weight-medium">
+														<%=history.lesson_title%></td>
+													<td class="align-middle lesson_duration">
+														<% if(history.lesson_duration > 0){ %>
+														<%= history.lesson_duration_convert %>
+														<% }else{ %>
+														<%= translation.text_history_never %>
+														<% } %>
+													</td>
+												</tr>
+												<% }) %>
+											</tbody>
+											<tfoot class="font-size-1">
+												<tr>
+													<td class="align-middle font-weight-medium">
+														<%= translation.text_history_total %> </td>
+													<td class="align-middle"> <%= data.total_learn %> </td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+									<% } %>
+									<!-- End Accordion -->
+								</div>
+								<!-- end detail block  -->
+							</div>
+							<!-- end detail block  -->
+						</div>
+						<!-- end card block 1 -->
+					</div>
+					<!--End Learn Detail -->
+				</div>
+			</div>
+			<!-- End Content Section -->
+
+			<% if(aside == 4){ %>
+			<div class="modal fade" id="modal-contactus">
+				<div class="modal-dialog modal-xs">
+					<div class="modal-content">
+						<form action="?" id="contact_form"
+							class="js-validate" method="post" enctype="multipart/form-data" accept-charset="utf-8"
+							novalidate="novalidate">
+							<div class="modal-header">
+								<h4 class="modal-title"><i class="fa fa-inbox" aria-hidden="true"></i>
+									ส่งข้อความ ถึง <span></span></h4>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+										class="fa fa-times-circle " aria-hidden="true" onclick="contact_close();"></i></button>
+							</div>
+							<div class="modal-body" style="padding: 2em 0;">
+								<div class="row" id="form-ReportProblem ">
+									<div class="col-md-12 col-sm-12 ">
+										<div class="row ml-3 mr-3 mb-6">
+											<span id="msg_status" style="height: 30px;"></span>
+											<textarea id="msg_send" name="msg" rows="3" cols="50"></textarea>
+										</div>
+										<div class="row float-right text-right mr-3">
+											<button type="button" id="submit"
+												class="btn btn-sm btn-danger transition-3d-hover mr-3"  onclick="contact_send();"><i
+													class="fa fa-paper-plane" aria-hidden="true"></i>
+													ส่งข้อความ</button>
+											<button type="button" class="btn btn-sm btn-soft-secondary transition-3d-hover" onclick="contact_close();">ปิด</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<% } %>
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+
+	<!-- Go to Top -->
+
+	<a class="js-go-to u-go-to animated" href="javascript:#"
+		data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400"
+		data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown"
+		style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+		<span class="fas fa-arrow-up u-go-to__inner"></span>
+	</a>
+	<!-- End Go to Top -->
+	<%- include('../subject/partials/script'); -%>
+	<script src="/javascripts/components/jquery.dataTables.min.js"></script>
+	<script>
+		const pageID = <%=pageID%>;
+		$(document).ready(function () {
+			var table = $('.js-datatable').DataTable({
+				pageLength: 150
+			})
+		});
+	</script>
+
+</html>

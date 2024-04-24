@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css"
+    integrity="sha512-IBfPhioJ2AoH2nST7c0jwU0A3RJ7hwIb3t+nYR4EJ5n9P6Nb/wclzcQNbTd4QFX1lgRAtTT+axLyK7VUCDtjWA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.css"
+    integrity="sha512-U7c1CgCHBkedUvS/lsK7fbE4LH/pRlAimNRHCSKgBJZy17ZZr0Y2dMfpaZZWPaRwr0uoT6BAf2/lfa+GraUDLA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css"
+    integrity="sha512-/Jnt6fX98n8zZyuCt4K81+1eQJhWQn/vyMph1UvHywyziYDbu9DFGcJoW8U73m/rkaQBIEAJeoEj+2Rrx4tFyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css"
+    integrity="sha512-CN6oL2X5VC0thwTbojxZ02e8CVs7rii0yhTLsgsdId8JDlcLENaqISvkSLFUuZk6NcPeB+FbaTfZorhbSqcRYg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb'); -%>
+    </div>
+    <!-- End Viwer Section -->
+
+    <div class="container space-top-1 bg-white space-bottom-xs-1 text-secondary" id="formRegister">
+      <form method="post" action="<%= original_source %>/register/new">
+        <div class="row justify-content-between align-items-center mb-4">
+          <div class="col-lg">
+            <% if (error) { %>
+            <div class="alert alert-danger" role="alert"> <%= error_message %> </div>
+            <% } %>
+            <h6 class="card-header"> <%= translation.personal_information %> </h6>
+            <div class="card-body">
+              <% /* %>
+              <!-- form row -->
+              <div class="form-row ">
+                <label for="usertype" class="col-md-3"><%= translation.profile_type %> </label>
+                <div class="col-md-9 mb-3">
+                  <div class="custom-control custom-control-inline custom-radio mr-3">
+                    <input type="radio" class="custom-control-input usertypeselect" name="user_type" id="usertype1"
+                      value="1" checked>
+                    <label class="custom-control-label" for="usertype1"><%= translation.profile_type_officer %></label>
+                  </div>
+                  <div class="custom-control custom-control-inline custom-radio mr-3">
+                    <input type="radio" class="custom-control-input usertypeselect" name="user_type" id="usertype2"
+                      value="2">
+                    <label class="custom-control-label" for="usertype2"><%= translation.profile_type_individuals %></label>
+                  </div>
+
+                </div>
+              </div>
+              <!-- /form row -->
+              <% */ %>
+              <input type="hidden" name="user_type" value="2">
+              <!-- form row -->
+              <div class="form-row">
+                <label for="username" class="col-md-3">Username <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="text" class="form-control form-control-sm inputuname " id="username"
+                    name="username" pattern="[A-Za-z0-9\-_\.]{8,20}" placeholder="Username" value="" minlength="5" maxlength="20">
+                  <small class="form-text text-muted"><%= translation.user_min_char %></small>
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row">
+                <label for="password" class="col-md-3"> <%= translation.menu_text_login_password %> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="password" class="form-control form-control-sm" id="password" name="password"
+                    value="" placeholder="<%= translation.menu_text_login_password %>" minlength="8" maxlength="20"><small
+                    class="form-text text-muted"><%= translation.profile_password_warning %></small>
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row">
+                <label for="confirm_password" class="col-md-3"> <%= translation.menu_text_login_repassword %> <span
+                    class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="password" class="form-control form-control-sm" value="" id="confirm_password"
+                    name="confirm_password" placeholder="<%= translation.menu_text_login_repassword %>" minlength="8">
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row">
+                <label for="input04" class="col-md-3"><%= translation.profile_gender%></label>
+                <div class="col-md-9 mb-3">
+                  <div class="custom-control custom-control-inline custom-radio">
+                    <input type="radio" class="custom-control-input " name="gender" id="male" value="1" checked>
+                    <label class="custom-control-label" for="male"><%= translation.profile_gender_male%></label>
+                  </div>
+                  <div class="custom-control custom-control-inline custom-radio">
+                    <input type="radio" class="custom-control-input " name="gender" id="female" value="2">
+                    <label class="custom-control-label" for="female"><%= translation.profile_gender_female%></label>
+                  </div>
+                  <div class="custom-control custom-control-inline custom-radio">
+                    <input type="radio" class="custom-control-input " name="gender" id="other" value="3">
+                    <label class="custom-control-label" for="other"><%= translation.profile_gender_other%></label>
+                  </div>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row">
+                <label for="firstname" class="col-md-3"><%= translation.profile_name%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="text" class="form-control form-control-sm" value="" id="firstname"
+                    name="firstname" placeholder="<%= translation.profile_name%>">
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+              <!-- form row -->
+              <div class="form-row">
+                <label for="middlename" class="col-md-3"><%= translation.profile_midname%> </label>
+                <div class="col-md-9 mb-3">
+                  <input type="text" class="form-control form-control-sm" value="" id="middlename" name="middlename"
+                    placeholder="<%= translation.profile_midname%>">
+                  <span class="err"></span>
+                </div>
+              </div> 
+              <!-- /form row -->
+              <!-- form row -->
+              <div class="form-row">
+                <label for="lastname" class="col-md-3"><%= translation.profile_lastname%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="text" class="form-control form-control-sm" value="" id="lastname"
+                    name="lastname" placeholder="<%= translation.profile_lastname%>">
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row">
+                <label for="birthday" class="col-md-3"> <%= translation.text_birthday %> </label>
+                <div class="col-md-9 mb-3">
+                  <input required="" id="birthday" type="date" class="form-control form-control-sm" value=""
+                    name="birthday" min="1920-01-01" placeholder="<%= translation.text_birthday %>" >
+           
+                    <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+
+       
+              <!-- form row -->
+              <div class="form-row ">
+                <label for="email" class="col-md-3"><%= translation.email%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="email" class="form-control form-control-sm" value="" id="email" name="email"
+                    placeholder="<%= translation.email%>">
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row ">
+                <label for="mobile" class="col-md-3"><%= translation.profile_mobile%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <input required="" type="text" class="form-control form-control-sm number" value="" id="mobile"
+                    name="mobile" placeholder="<%= translation.profile_mobile%>" maxlength="10">
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row ">
+                <label for="workplace" class="col-md-3"><%= translation.profile_address%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <textarea type="text" class="form-control form-control-sm" value="" id="workplace" name="workplace"
+                    placeholder="<%= translation.profile_address%> "></textarea>
+                  <span class="err"></span>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row ">
+                <label for="province_id" class="col-md-3"><%= translation.profile_address_province%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <select required="" id="province_id" name="province_id"
+                    class="form-control form-control-sm text-secondary" data-toggle="select2" data-placeholder="<%= translation.profile_address_province%>"
+                    data-allow-clear="false">
+                    <option value="0"><%= translation.profile_address_province%></option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row " id="set_district_id">
+                <label for="district_id" class="col-md-3"><%= translation.profile_address_district%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <select required="" id="district_id" name="district_id"
+                    class="form-control form-control-sm text-secondary" data-toggle="select2"
+                    data-placeholder="<%= translation.profile_address_district%>" data-allow-clear="false">
+                    <option value="0"><%= translation.profile_address_district%></option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row " id="set_subdistrict_id">
+                <label for="subdistrict_id" class="col-md-3"><%= translation.profile_address_subdistrict%> <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <select required="" id="subdistrict_id" name="subdistrict_id"
+                    class="form-control form-control-sm text-secondary" data-toggle="select2"
+                    data-placeholder="<%= translation.profile_address_subdistrict%>" data-allow-clear="false">
+                    <option value="0"><%= translation.profile_address_subdistrict%></option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+
+
+              <% /* %>
+              <!-- form row -->
+              <div class="form-row d-none" id="set_pos_level">
+                <label for="pos_level" class="col-md-3">ระดับตำแหน่ง <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <select id="pos_level" name="pos_level" class="form-control form-control-sm" data-toggle="select2"
+                    data-placeholder="ระดับตำแหน่ง" data-allow-clear="false">
+                    <option value="0">โปรดเลือกระดับตำแหน่ง</option>
+                    <option value="1">ระดับปฏิบัติงาน </option>
+                    <option value="2">ระดับชำนาญงาน </option>
+                    <option value="3">ระดับอาวุโส </option>
+                    <option value="4">ระดับทักษะพิเศษ </option>
+                    <option value="5">ระดับปฏิบัติการ </option>
+                    <option value="6">ระดับชำนาญการ </option>
+                    <option value="7">ระดับชำนาญการพิเศษ </option>
+                    <option value="8">ระดับเชี่ยวชาญ </option>
+                    <option value="9">ระดับทรงคุณวุฒิ </option>
+                    <option value="10">ระดับอำนวยการต้น </option>
+                    <option value="11">ระดับอำนวยการสูง </option>
+                    <option value="12">ระดับบริหารต้น </option>
+                    <option value="13">ระดับบริหารสูง </option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row d-none" id="set_sector_id">
+                <label for="sector_id" class="col-md-3">ส่วนกลาง / ต่างจังหวัด <span
+                    class="text-primary-theme">*</span></label>
+                <div class="col-md-9 col-lg-9 mb-3">
+                  <select id="sector_id" name="sector_id" class="form-control form-control-sm" data-toggle="select2"
+                    data-placeholder="ส่วนกลาง/ต่างจังหวัด" data-allow-clear="false">
+                    <option value="0">โปรดเลือกส่วนกลาง/ต่างจังหวัด</option>
+                    <option value="1">ภาค1 </option>
+                    <option value="2">ภาค2 </option>
+                    <option value="3">ภาค3 </option>
+                    <option value="4">ภาค4 </option>
+                    <option value="5">ภาค5 </option>
+                    <option value="6">ภาค6 </option>
+                    <option value="7">ภาค7 </option>
+                    <option value="8">ภาค8 </option>
+                    <option value="9">ภาค9 </option>
+                    <option value="10">ส่วนกลาง </option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+
+              <!-- form row -->
+              <div class="form-row d-none" id="set_office_id">
+                <label for="office_id" class="col-md-3">สำนักงาน <span class="text-primary-theme">*</span></label>
+                <div class="col-md-9 mb-3">
+                  <select id="office_id" name="office_id" class="form-control form-control-sm" data-toggle="select2"
+                    data-placeholder="สำนักงาน" data-allow-clear="false">
+                    <option value="0">โปรดเลือกสำนักงาน</option>
+                  </select>
+                </div>
+              </div>
+              <!-- /form row -->
+              <% */ %>
+            </div>
+            <div class="container">
+              <div class="form-actions text-center">
+                <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><i class="far fa-save"></i>
+                  <%= translation.save_text%></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+    </form>
+
+
+
+
+    <div class="modal fade" id="modal-contactus">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form action="#" id="contact_form" class="js-validate"
+            method="post" enctype="multipart/form-data" accept-charset="utf-8" novalidate="novalidate">
+            <div class="modal-header">
+              <h4 class="modal-title "><i class="fa fa-inbox" aria-hidden="true"></i> แจ้งปัญหาการใช้งาน</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle "
+                  aria-hidden="true"></i></button>
+            </div>
+            <div class="modal-body"
+              style="padding: 2em 0;">
+              <div class="row" id="form-ReportProblem ">
+                <div class="col-md-12 col-sm-12 ">
+                  <div class="row ml-3 mr-3 small">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="form-group">
+                        <label for="">ชื่อ</label>
+                        <input class="form-control" placeholder="ชื่อ" name="firstname" id="ReportProblem_firstname"
+                          type="text" maxlength="255" required="" data-error-class="u-has-error"
+                          data-success-class="u-has-success">
+
+                      </div>
+                      <div class="form-group hidden-xs">
+                        <label for="">เบอร์โทรศัพท์</label>
+                        <input class="form-control" placeholder="เบอร์โทรศัพท์" name="telephone" id="ReportProblem_tel"
+                          type="text" maxlength="50" required="" data-error-class="u-has-error"
+                          data-success-class="u-has-success">
+
+                      </div>
+
+                      <div class="form-group hidden-xs">
+                        <label for="">ประเภทปัญหา</label>
+                        <select class="form-control" style="width:100%" name="problem_type"
+                          id="ReportProblem_report_type">
+                          <option value="1">ปัญหาการใช้งานระบบ</option>
+                          <option value="2">ปัญหาการเรียน</option>
+                          <option value="3">ปัญหาการทำข้อสอบ</option>
+                          <option value="4">ปัญหาการทำแบบสอบถาม</option>
+                          <option value="5">ปัญหาการพิมพ์ใบประกาศไปรษณียบัตร</option>
+                          <option value="0">ปัญหาอื่น ๆ</option>
+                        </select>
+
+                      </div>
+                      <div class="form-group">
+                        <label for="">ข้อความ</label>
+                        <textarea class="form-control" placeholder="ข้อความ" rows="3" name="detail"
+                          id="ReportProblem_report_detail"></textarea>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                      <div class="form-group">
+                        <label for="">นามสกุล</label>
+                        <input class="form-control" placeholder="นามสกุล" name="lastname" id="ReportProblem_lastname"
+                          type="text" maxlength="255" data-error-class="u-has-error" data-success-class="u-has-success">
+
+                      </div>
+
+                      <div class="form-group">
+                        <label for="">อีเมล์</label>
+                        <input class="form-control" placeholder="อีเมล์" name="email" id="ReportProblem_email"
+                          type="text" maxlength="255" required="" data-error-class="u-has-error"
+                          data-success-class="u-has-success">
+
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="">หัวข้อ</label>
+                        <input class="form-control" placeholder="หัวข้อ" name="title" id="ReportProblem_report_title"
+                          type="text" maxlength="255" required="" data-error-class="u-has-error"
+                          data-success-class="u-has-success">
+
+                      </div>
+
+                      <div class="form-group">
+                        <label for="">รูปภาพ</label><br>
+                        <label class="btn btn-sm btn-light transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1"
+                          for="ReportProblemImage">
+                          แนบรูปภาพ
+                          <input id="reportproblemimage" name="reportproblemimage" type="file"
+                            class="file-attachment-btn__label">
+                        </label>
+
+
+                      </div>
+
+
+
+                      <div class="clearfix"></div>
+                    </div>
+
+                  </div>
+                  <div class="row float-right text-right mr-3">
+                    <button type="submit" id="submit" class="btn btn-sm btn-danger transition-3d-hover "><i
+                        class="fa fa-paper-plane" aria-hidden="true"></i> แจ้งปัญหาการใช้งาน</button>
+                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div class="modal fade" id="forgotpassword">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title text-center">ลืมรหัสผ่าน</h4>
+            <button type="button" class="close" data-dismiss="modal">x</button>
+          </div>
+          <!-- Modal body -->
+          <div class="card-body">
+            <p> <i class="fas fa-phone fa-lg text-success"></i> <a href="tel:02-507-6413">0x-xxx-xxx</a> เบอร์ภายใน
+              xxxx </p>
+            <p> <i class="fas fa-envelope fa-lg text-success"></i> <a href="mailto:admin@TGC.go.th?subject=ลืมรหัสผ่าน"
+                target="_top">admin</a></p>
+
+          </div>
+
+          <!-- Footer -->
+          <div class="card-footer d-flex justify-content-end">
+            <button type="button" class="btn btn-sm btn-soft-primary transition-3d-hover"
+              data-dismiss="modal">ปิด</button>
+          </div>
+          <!-- End Footer -->
+        </div>
+      </div>
+    </div>
+
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script src="/javascripts/register.js"></script>
+    <script>
+   let department_selected = <%=department_page%>;
+
+  </script>
+    <%- captcha %>
+</body>
+
+</html>

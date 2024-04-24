@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+    <!-- oncontextmenu="return false"-->
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <% if (typeof(survey) != 'undefined') { %>
+        <%- include('../subject/partials/nav_survey'); -%>
+        <% }else{ %>    
+		<%- include('../subject/partials/nav_without_goto'); -%>
+        <% } %>  
+        <div class="container mt-3 mb-6">
+            <div class="row ">
+                <% if(isForm == 'true') { %>
+                <!-- card block 1-->
+                <div class="col-lg-12  shadow-soft p-1 pt-1 pl-0 pr-0  " id="survey-form">
+                    <!-- title block -->
+                    <div class="col-lg-12 tab-pane active" id="tab-f-index" role="tabpanel" aria-labelledby="tab-1">
+                        <div class="d-flex">
+                            <h4 class="h5 text-primary-theme mt-1">แบบสำรวจ</h4>
+
+                        </div>
+                    </div>
+                    <!-- end title block  -->
+                    <hr class="my-1">
+
+                    <!-- detail block  -->
+                    <div class="col-lg-12">
+                        <form action="<%= original_source %>/survey/<%=data.pageID%>/savesurvey" method="post"
+                            accept-charset="utf-8">
+                            <input type="hidden" name="survey_id" value="<%=data.pageID%>">
+                            <% if(score_id > 0) { %>
+                                <input type="hidden" name="score_id" value="<%=score_id%>">
+                                <input type="hidden" name="courseID" value="<%= courseID %>">
+                                <% }else if(score_id == 'page') { %>
+                                    <input type="hidden" name="score_id" value="page">
+                            <% } %>
+                            <!-- My Network -->
+                            <% data.surveys.forEach(function(survey, index){ %>
+                            <div>
+                                <div id="question_<%- survey.id %>"
+                                    class="row justify-content-between align-items-end ">
+                                    <!-- Title-->
+                                    <div class="col-12">
+                                        <h2 class="h5 mt-3 mb-3"><%= (index+1) %>) <%- survey.title %></h2>
+                                    </div>
+                                    <!-- End Title -->
+                                </div>
+                                <% if(survey.type == 1) { %>
+                                <% survey.choice.forEach(function(choice, index){ %>
+                                <div class="custom-control custom-radio ml-2 mb-3">
+                                    <input type="radio" name="response[<%- survey.id %>]" value="<%- choice.key %>"
+                                        class="custom-control-input " required
+                                        id="response<%- survey.id %>_<%- choice.key %>" "="" data-error-class="
+                                        u-has-error" data-success-class="u-has-success">
+                                    <label class="custom-control-label"
+                                        for="response<%- survey.id %>_<%- choice.key %>">
+                                        <span class="d-block   text-secondary "> <%- choice.name %> </span>
+
+                                    </label>
+                                </div>
+                                <% }) %>
+                                <% }else if(survey.type == 2) { %>
+                                <% survey.choice.forEach(function(choice, index){ %>
+                                <div class="table-responsive-md">
+                                    <table class="table table-bordered">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <td class="text-center" rowspan="2">
+                                                    รายการ
+                                                </td>
+                                                <td class="text-center" colspan="<%= choice.key.length %>">ระดับความพึงพอใจ </td>
+                                            </tr>
+                                            <tr class="info">
+                                                <% choice.key.forEach(function(scoring_key, index){ %>
+                                                <td class="text-center"><%= scoring_key %></td>
+                                                <% }) %>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% choice.name.forEach(function(name, index){ %>
+                                            <tr>
+                                                <td> <%= name %></td>
+
+                                                <% choice.key.forEach(function(scoring_key, index2){ %>
+                                                <td class="text-center ">
+                                                    <div class="custom-control custom-radio-second-theme "><input
+                                                            required type="radio"
+                                                            name="response[<%- survey.id %>][<%= index %>]"
+                                                            value="<%= index2+1 %>" class="custom-control-input"
+                                                            id="answer_<%- survey.id %>_<%= index %>_<%= index2 %>"><label
+                                                            class="custom-control-label"
+                                                            for="answer_<%- survey.id %>_<%= index %>_<%= index2 %>"></label>
+                                                    </div>
+                                                </td>
+                                                <% }) %>
+                                            </tr>
+                                            <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <% }) %>
+                                <% }else if(survey.type == 3) { %>
+                                <div class="input-group">
+                                    <textarea class="form-control" rows="4" required name="response[<%- survey.id %>]"
+                                        id="response<%- survey.id %>" placeholder="ความคิดเห็น" aria-label="ความคิดเห็น"
+                                        data-msg="ความคิดเห็น" data-error-class="u-has-error"
+                                        data-success-class="u-has-success"></textarea>
+                                </div>
+                                <% } %>
+                            </div>
+                            <% }) %>
+
+                            <hr class="my-1">
+                            <div class="text-center"><button type="submit"
+                                    class="btn  btn-primary-theme btn-wide transition-3d-hover">ส่งแบบสำรวจ</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end detail block  -->
+                </div>
+                <% }else{ %>
+                    <div class="col-lg-12 tab-content p-0 mb-6 ">
+                    <div id="SVGheroBgElements" class="position-relative overflow-hidden" style="">
+                        <div class="container space-top-3 space-bottom-3 space-top-md-3 space-lg-3">
+                          <div class="w-md-80 w-lg-50 text-center mx-md-auto">
+                            <h1 class="text-primary-theme">แบบสำรวจ</h1>
+                            <p class="lead">ส่งแบบสำรวจเรียบร้อย</p>
+                          </div>
+                        </div>
+                  
+                        <!-- SVG Bottom Shape -->
+                        <figure class="position-absolute right-0 bottom-0 left-0">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 1920 347.1" style="margin-bottom: -9px; enable-background:new 0 0 1920 347.1;" xml:space="preserve" class="injected-svg js-svg-injector" data-parent="#SVGheroBgElements">
+                  <style type="text/css">
+                      .wave-4-bottom-0{fill:#FFFFFF;}
+                  </style>
+                    <linearGradient id="wave4Bottom" gradientUnits="userSpaceOnUse" x1="960" y1="347.082" x2="960" y2="50.6077">
+                      <stop class="stop-color-primary" offset="1.500162e-07" stop-opacity="0.3" style="stop-color:#377DFF"></stop>
+                      <stop class="stop-color-white" offset="1" stop-opacity="0.3" style="stop-color:#FFFFFF"></stop>
+                    </linearGradient>
+                    <path fill="url(#wave4Bottom)" d="M0,233c0,0,311.2-97,706.6-35.5c152.8,23.8,304.3,73.9,459.2,81.8c69.2,3.5,138.2-4.1,205.7-19.6     c43.2-9.9,85.8-22.8,127.7-37.3c74.1-25.6,144.2-61.1,210-103.5c62.4-40.2,134.7-74.7,210.9-67.3c0,0,0,295.5,0,295.5H0.5L0,233z"></path>
+                    <path class="wave-4-bottom-0 fill-white" d="M0,326.1c0,0,321-226.7,960.5-76.4S1920,0,1920,0v347H0L0,326.1z"></path>
+                  </svg>
+                        </figure>
+                        <!-- End SVG Bottom Shape -->
+                      </div>
+                      <% if(score_id > 0) { %>
+                      <div class="text-center"><a href="<%= original_source %>/exam/<%= courseID %>/<%= data.subject_id %>/displayscore/<%= score_id %>" class="btn  btn-primary btn-wide transition-3d-hover">แสดงคะแนน</a></div>
+                      <% } %>
+                    </div> 
+                <% } %>
+            </div>
+        </div>
+        <!-- end card block 1-->
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+
+    <!-- End Go to Top -->
+    <%- include('../subject/partials/script'); -%>
+    <script>
+        function cb(token) {
+
+            var input = document.createElement('input')
+            input.setAttribute('type', 'text')
+            input.setAttribute('name', 'g-recaptcha-response')
+            input.setAttribute('value', token)
+            document.getElementsByTagName('form')[0].appendChild(input)
+        }
+    </script>
+    <%- captcha %>
+</html>

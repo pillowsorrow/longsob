@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    font-family: 'Sarabun', sans-serif;
+}
+
+#mainBG {
+    /* background-image: url('./asset/bg.png');
+    background-size: cover; */
+}
+
+.bgimage {
+    background-image: url(asset/spacer.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    font-family: THSarabunPSKBold;
+    font-size: 26
+}
+
+body {
+    background: transparent;
+}
+
+.bgimage1 {
+    background-image: url(asset/ans.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    font-family: THSarabunPSKBold;
+    font-size: 26
+}
+
+.choice {
+    cursor: pointer
+}
+
+@font-face {
+    font-family: 'THSarabunPSKBold';
+    src:    url('thsarabunnew_bold-webfont.eot');
+    src:    url('thsarabunnew_bold-webfont.eot?#iefix') format('embedded-opentype'), 
+            url('thsarabunnew_bold-webfont.woff') format('woff'), 
+            url('thsarabunnew_bold-webfont.ttf') format('truetype'), 
+            url('thsarabunnew_bold-webfont.svg#THSarabunPSKBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+font {
+    font-family: 'THSarabunPSKBold';
+    font-size: 26px;
+}

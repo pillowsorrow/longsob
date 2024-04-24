@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+
+    <div class="container space-bottom-xs-1 mt-4 py-2 px-sm-0">
+      <div class="row">
+        <div class="text-center col-12">
+          <form action="<%= original_source %>/" method="get">
+            <div >
+              <% if (error == 0) { %>
+              <div class="alert alert-success registration_successful" role="alert">
+                <h4 class="alert-heading"> <%= translation.forgot_successful1 %> </h4>
+                <p><%= translation.forgot_successful2 %></p>
+              </div>
+              <div class="form-actions text-center">
+                <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><%= translation.close_txt%></button>
+              </div>
+              <% }else{ %>
+                <% if (error == 1) { %>
+                <div class="alert alert-danger registration_successful" role="alert">
+                  <h4 class="alert-heading"> <%= translation.forgot_unsuccessful1 %> </h4>
+                  <p><%= translation.forgot_unsuccessful2 %></p>
+                </div>
+                <div class="form-actions text-center">
+                  <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><%= translation.close_txt%></button>
+                </div>
+                <% }else if (error == 2) { %>
+                  <div class="alert alert-danger registration_successful" role="alert">
+                    <h4 class="alert-heading"> <%= translation.forgot_unsuccessful3 %> </h4>
+                    <p><%= translation.forgot_unsuccessful4 %></p>
+                  </div>
+                  <div class="form-actions text-center">
+                    <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><%= translation.close_txt%></button>
+                  </div>
+                  <% }else if (error == 3) { %>
+                    <div class="alert alert-danger registration_successful" role="alert">
+                      <h4 class="alert-heading"> <%= translation.forgot_unsuccessful5 %> </h4>
+                      <p><%= translation.forgot_unsuccessful6 %></p>
+                    </div>
+                    <div class="form-actions text-center">
+                      <button type="button" onclick="history.back()" class="btn btn-primary-theme ml-auto btn-md"><%= translation.back_txt%></button>
+                    </div>
+                    <% }else if (error == 4) { %>
+                      <div class="alert alert-danger registration_successful" role="alert">
+                        <h4 class="alert-heading"> <%= translation.forgot_unsuccessful3 %> </h4>
+                        <p><%= translation.forgot_unsuccessful4 %></p>
+                      </div>
+                      <div class="form-actions text-center">
+                        <a href="<%= original_source %>" class="btn btn-primary-theme ml-auto btn-md"><%= translation.back_txt%></a>
+                      </div>
+                <% } %>
+              <% } %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script>
+    function feedPage() {}
+  </script>
+</body>
+
+</html>

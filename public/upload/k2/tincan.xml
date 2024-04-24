@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tincan xmlns="http://projecttincan.com/tincan.xsd">
+<activities>
+	
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/k2" type="http://adlnet.gov/expapi/activities/course">
+		<name>“รายวิชาเพิ่มเติม การป้องกันการทุจริต” ระดับปฐมวัย</name>
+		<description lang="en-US">“รายวิชาเพิ่มเติม การป้องกันการทุจริต” ระดับปฐมวัย</description>
+		<launch lang="en-us">index.html</launch>
+	</activity>
+	
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/k2/data/k01_2_1/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">หน่วยที่ 2 ความละอายและความไม่ทนต่อการทุจริต - เล่นของเล่นอย่างไรดี</name>
+		<description lang="und">หน่วยที่ 2 ความละอายและความไม่ทนต่อการทุจริต - เล่นของเล่นอย่างไรดี</description>
+	</activity>
+	<activity id="https://nacc.mylearntime.com/lrs_nacc/k2/data/k01_2_2/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">หน่วยที่ 2 ความละอายและความไม่ทนต่อการทุจริต - คนไหนน่าละอาย</name>
+		<description lang="und">หน่วยที่ 2 ความละอายและความไม่ทนต่อการทุจริต - คนไหนน่าละอาย</description>
+	</activity>
+   
+   <activity id="https://nacc.mylearntime.com/lrs_nacc/k2/data/posttest/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">แบบทดสอบท้ายบท</name>
+		<description lang="und">แบบทดสอบท้ายบท</description>
+	</activity>
+</activities>
+</tincan>

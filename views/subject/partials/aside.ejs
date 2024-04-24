@@ -1,0 +1,204 @@
+<div class=" sidemenu_top card shadow-sm bg-white shadow-soft mt-3 p-0" data-parent="#stickyBlockStartPoint2" data-sticky-view="lg" data-start-point="#stickyBlockStartPoint2" data-end-point="#stickyBlockEndPoint2" data-offset-top="80" data-offset-bottom="24">
+	<ul class="js-scroll-nav list-group list-group-transparent list-group-flush list-group-borderless list-unstyled animated fadeInUp"
+	id="sidebarNav" role="tablist">
+
+	<li class="pt-1 pb-1" onclick="$( '.sidemenu1 , .sidemenu2' ).toggleClass( 'sidemenu' )">
+		<!-- border-bottom -->
+		<a class="list-group-item list-group-item-action-primary-theme font-weight-medium" href="#" role="tab">
+			<span class="media ml-3 mr-3">				
+				<span class="media-body"><i class="fas fa-bars"></i> <%= translation.text_menu %></span>
+			</span>
+		</a>
+	</li>
+	</ul>
+</div>
+					
+					<div class="card shadow-sm bg-white shadow-soft p-0 sidemenu sidemenu1 mr-8" data-parent="#stickyBlockStartPoint" data-sticky-view="lg"
+						data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint" data-offset-top="80"
+						data-offset-bottom="24">
+						<!-- js-sticky-block -->
+						<ul class="js-scroll-nav list-group list-group-transparent list-group-flush list-group-borderless list-unstyled animated fadeInUp"
+							id="sidebarNav" role="tablist">
+
+							<li class="pt-1 pb-1">
+								<!-- border-bottom -->
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 1){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<!-- icon_page_learn-01.png -->
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/HOMECASTLE.png">
+										<span class="media-body"><%= translation.text_subject_main %></span>
+									</span>
+								</a>
+							</li>
+
+							<li class="pt-1 pb-1">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse "
+									href="<%= original_source %>/subject/<%= courseID %>/<%= pageID %>/lesson/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/Bookslearns.png">
+										<span class="media-body"><%= translation.text_lesson %></span>
+									</span>
+								</a>
+							</li>
+
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 3){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/exercise/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/Calculatorlearns.png">
+										<span class="media-body"><%= translation.text_exercise %></span>
+									</span>
+								</a>
+							</li>
+
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 3){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/exercise/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/Listlearns.png">
+										<span class="media-body"><%= translation.text_example %></span>
+									</span>
+								</a>
+							</li>
+
+
+							<!-- <li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 5){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/score/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/learn/icon_page_learn-06.png">
+										<span class="media-body"><%= translation.text_score %></span>
+									</span>
+								</a>
+							</li> -->
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 6){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/history/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/Medalslearns.png">
+										<span class="media-body"><%= translation.text_score %></span>
+									</span>
+								</a>
+							</li>
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse 
+								<% if(aside == 4){ %>
+								active text-primary-theme bg-theme-second
+								<% } %>
+								" href="<%= original_source %>/subject/teacher/<%= courseID %>/<%= pageID %>/<%= data.url %>?clang=<%= i18n_lang %>" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/Contactlearns.png">
+										<span class="media-body"><%= translation.text_teacher %></span>
+									</span>
+								</a>
+							</li>
+
+
+
+
+
+						</ul>
+					</div>
+
+
+					<li class="pt-1 pb-1 ">
+						<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse  "
+							href="#" role="tab">
+							<span class="media ml-3 mr-3">
+								<img class="u-sidebar--account__toggle-img mr-3"
+									src="<%= path_source %>/images/iconslearn/TCCTTEACHER.png" alt="Image Description">
+								<span class="media-body">กระดานถาม-ตอบ</span>
+								<div class="card">
+									<h1>card here</h1>
+								</div>
+
+							</span>
+						</a>
+					</li>
+
+					
+					<!-- End Sidebar Content -->
+
+					<div class="card shadow-sm bg-white shadow-soft mt-3 p-0 sidemenu sidemenu2 mr-8" data-parent="#stickyBlockStartPoint2"
+						data-sticky-view="lg" data-start-point="#stickyBlockStartPoint2" data-end-point="#stickyBlockEndPoint2"
+						data-offset-top="80" data-offset-bottom="24">
+						<!-- js-sticky-block -->
+						<ul class="js-scroll-nav list-group list-group-transparent list-group-flush list-group-borderless list-unstyled pt-1 pb-1 animated fadeInUp"
+							id="sidebarNav2" role="tablist">
+							
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse  "
+									href="#" role="tab">
+									<span class="media ml-3 mr-3">
+										<!-- icon_page_learn-01.png -->
+										<!-- <span class="fas fa-play-circle mr-1"></span>  -->
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/VC.png" alt="Image Description">
+										<span class="media-body">ห้องเรียนเสมือน</span>
+									</span>
+								</a>
+							</li>
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse  "
+									href="#" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/chat.png" alt="Image Description">
+										<span class="media-body">สนทนา</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="pt-1 pb-1 ">
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse  "
+									href="#" role="tab">
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/FAQ.png" alt="Image Description">
+										<span class="media-body">กระดานถาม-ตอบ</span>
+									</span>
+								</a>
+							</li>
+						
+							<li class="pt-1 pb-1 ">
+								<% if (isAdmin == 1) { %>
+									<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse"
+										href="#" onclick="gotobigbluebutton('<%= vc_path %>','<%= data.subject_title %>','moderator'); return false;" role="tab">
+								<% }else{ %>
+								<a class="list-group-item list-group-item-action-primary-theme font-weight-medium dropdown-toggle-collapse"
+									href="#" onclick="gotobigbluebutton('<%= vc_path %>','<%= data.subject_title %>','attendee'); return false;" role="tab">
+								<% } %>
+									<span class="media ml-3 mr-3">
+										<img class="u-sidebar--account__toggle-img mr-3"
+											src="<%= path_source %>/images/iconslearn/survey.png" alt="Image Description">
+										<span class="media-body">แบบสำรวจ</span>
+									</span>
+								</a>
+							</li>
+
+
+						</ul>
+					</div>

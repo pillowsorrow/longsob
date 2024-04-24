@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ยินดีกับการสำเร็จหลักสูตร</title>
+    <style>
+        body: {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 1px solid white;  width: 100%">
+        <div style="padding:10px 30px 30px 30px; background: transparent linear-gradient(180deg, #fff 0%, #e5f0f3 100%) 0% 0% no-repeat padding-box;">          
+            {{>header}}
+            <p style="font-family: Verdana; font-size: 18px ;">สวัสดี</p>
+   
+            <p style="font-weight: 100; font-size: 16px ; line-height: 37px;  font-family: Verdana; color: #1C1E3A; font-family: Verdana;">ยินดีด้วยคุณจบหลักสูตร "{{ course }}"</p>
+            <p style="font-weight: 100; font-size: 16px ; line-height: 37px;  font-family: Verdana; color: #1C1E3A; font-family: Verdana;">คุณสามารถตรวจสอบผลการเรียนได้ที่หน้า "ประวัติการเรียน"</p>          <br>
+            <p style="font-family: Verdana; font-size: 18px ;">Hi,</p>
+            <p style="font-weight: 100; font-size: 16px ; line-height: 37px;  font-family: Verdana; color: #1C1E3A; font-family: Verdana;">Congratulations, you have completed the course.</p>
+            <p style="font-weight: 100; font-size: 16px ; line-height: 37px;  font-family: Verdana; color: #1C1E3A; font-family: Verdana;"> You can check your academic results on the page. "History".</p>
+
+            <br>
+        </div>
+        {{>footer}}        
+    </div>
+</body>
+</html>
+

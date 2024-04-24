@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        li,
+
+        
+        .mitr-extralight {
+          font-family: "Mitr", sans-serif;
+          font-weight: 200;
+          font-style: normal;
+        }
+
+        .mitr-light {
+          font-family: "Mitr", sans-serif;
+          font-weight: 300;
+          font-style: normal;
+        }
+
+        .mitr-regular {
+          font-family: "Mitr", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        .mitr-medium {
+          font-family: "Mitr", sans-serif;
+          font-weight: 500;
+          font-style: normal;
+        }
+
+        .mitr-semibold {
+          font-family: "Mitr", sans-serif;
+          font-weight: 600;
+          font-style: normal;
+        }
+
+        .mitr-bold {
+          font-family: "Mitr", sans-serif;
+          font-weight: 700;
+          font-style: normal;
+        }
+
+
+        
+      </style>
+
+
+
+
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+      <!-- Breadcrumb Section -->
+      <%- include('../partials/breadcrumb-lms'); -%>
+        <!-- End Breadcrumb Section -->
+        <!-- Two Block -->
+      
+        <style>
+          .full-width-button {
+            width: 100%;
+          }
+        </style>
+
+
+        <div class="container mt-5 rounded-lg  "
+          style="border:1px solid rgb(190,209,241);background-color: rgba(235,235,235,255);">
+
+
+
+          <div class="conatiner">
+            <h1 style="color: rgb(100, 18, 18);">หลักสูตรเตรียมสอบภาค ก. ปริญญาตรี สำนักงาน ก.พ.</h1>
+            <table class="table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">สถานะ</th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">คะแนนล่าสุด</th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">รายงานโดยละเอียด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      ความสามารถในการคิดวิเคราะห์ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+
+
+                    </p>
+                  </th>
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,118,0,255);border-style: none;">25%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">10
+                      : D</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      วิชาภาษาอังกฤษ
+                    </p>
+                  </th>
+
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(238,255,0,255);border-style: none;">60%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">80
+                      : A</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      วิชาความรู้และลักษณะการเป็นข้าราชการที่ดี
+                    </p>
+                  </th>
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">42%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">40
+                      : C</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+              </tbody>
+            </table>
+
+            <div class="conatiner">
+              <h1 style="color: rgb(100, 18, 18);">ข้อสอบ ภาค ก ปริญญาตรี สำนักงาน ก.พ.</h1>
+              <table class="table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
+
+
+
+
+                      </p>
+                    </th>
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">20
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 2
+                      </p>
+                    </th>
+
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 3
+                      </p>
+                    </th>
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">50
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 4
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">30
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 5
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 6
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 7
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">60
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 8
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">33
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 9
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">0
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 10
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">25
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+              </table>
+              <br>
+
+
+              <style>
+                .responsive-span {
+                  display: flex;
+                  width: inherit;
+
+                }
+
+                .status-text {
+                  color: black;
+                  font-size: 2vw;
+                  margin: 0;
+                }
+              </style>
+
+
+
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div class="position-relative">
+                      <button class="btn btn-primary rounded-lg w-100 mb-4"
+                        style="height: 100px; font-size: 24px; background-color: rgb(0, 0, 0); border-style: none;">
+                        <p style="position: absolute;font-size: 1.65vw;color: white;">ประเมินผลการเตรียมตัวสอบของคุณ</p>
+                        <div class="d-flex align-items-center justify-content-center">
+
+
+
+                          <span class="responsive-span w-20 ml-5"
+                            style="color: white;width: 100px;height: 60px;background-color: white;margin-left: 200px;">
+                            <img class="rounded-circle" src="/images/iconslearn/notpass.png"
+                              style='width: 45px;height: 50px;margin-left: 5px ;margin-top: 5px;' alt="notpass"> <span>
+                              <p class="result-text"
+                                style="color: black;position: absolute; top: 39%; left: 55%; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 2.3vw;;">
+                                ไม่ผ่าน</p>
+                            </span>
+
+                          </span>
+
+
+                          <p class="status-text"
+                            style="position: absolute; top: 20%; left: 85%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            มีผู้ผ่านจำนวน&nbsp;&nbsp;&nbsp;&nbsp;5คน&nbsp;&nbsp;5%</p>
+                          <p
+                            style="position: absolute; top: 43%; left: 85%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            มีผู้ผ่านจำนวน&nbsp;&nbsp;&nbsp;&nbsp;85คน&nbsp;85%</p>
+                          <p
+                            style="position: absolute; top: 64%; left: 84%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            มีกำลังสอบจำนวน 10คน&nbsp;10%</p>
+                        </div>
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 " style="padding-left: 30px;padding-right: 30px;">
+                  <button class="btn btn-primary rounded-lg w-100 mb-3"
+                    style="height: 100px; background-color: rgb(255, 187, 0); border-color: rgb(0, 0, 0);">
+                    <h1 style="color: white;font-size: 2vw;">ผลประเมินผลการเตรียมตัวสอบของคุณในภาพรวมของหลักสูตรนี้</h1>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <!-- Filters -->
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="container mt-5 rounded-lg  "
+          style="border:1px solid rgb(190,209,241);background-color: rgba(235,235,235,255);">
+
+
+
+          <div class="conatiner">
+            <h1 style="color: rgb(100, 18, 18);">หลักสูตรเตรียมสอบภาค ก. ปริญญาตรี สำนักงาน ก.พ.</h1>
+            <table class="table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">สถานะ</th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">คะแนนล่าสุด</th>
+                  <th scope="col" style="text-align: center;padding-bottom: 10px;font-size: 15px;">รายงานโดยละเอียด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      ความสามารถในการคิดวิเคราะห์ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+
+
+
+                    </p>
+                  </th>
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,118,0,255);border-style: none;">25%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">10
+                      : D</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      วิชาภาษาอังกฤษ
+                    </p>
+                  </th>
+
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(238,255,0,255);border-style: none;">60%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">80
+                      : A</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                        src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                      วิชาความรู้และลักษณะการเป็นข้าราชการที่ดี
+                    </p>
+                  </th>
+                  <td> <button class="rounded-lg "
+                      style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">42%</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">40
+                      : C</button>
+                  </td>
+                  <td> <button class="rounded-lg"
+                      style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                  </td>
+              </tbody>
+            </table>
+
+            <div class="conatiner">
+              <h1 style="color: rgb(100, 18, 18);">ข้อสอบ ภาค ก ปริญญาตรี สำนักงาน ก.พ.</h1>
+              <table class="table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                    <th scope="col" style="text-align: center;"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                      </p>
+                    </th>
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">20
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 2
+                      </p>
+                    </th>
+
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                          src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                        ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 3
+                      </p>
+                    </th>
+                    <td> <button class="rounded-lg "
+                        style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                    </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">50
+                        /
+                        100</button> </td>
+                    <td> <button class="rounded-lg"
+                        style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                    </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 4
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">30
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 5
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 6
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">00
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 7
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">60
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 8
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">33
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 9
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(255,0,0,255);color: white;border-style: none;">ยังไม่ทำ</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);color: rgba(243,96,80,255);border-style: none;">0
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color:rgba(162,164,168,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+                <th scope="row">
+                  <p style="margin-left: 70px;color: rgb(100, 18, 18);"><img class="rounded-circle"
+                      src="/images/iconslearn/Pass.png" style='width: 30px;' alt="pass">
+                    ข้อสอบ ภาค ก. ปริญญาตรีสำนักงาน ก.พ. ชุดที่ 10
+                  </p>
+                </th>
+                <td> <button class="rounded-lg "
+                    style="width:200px;height: 47px;margin-left: 10px;background-color: rgba(253,190,0,255);border-style: none;">ทำแล้ว</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(251,212,155,255);border-style: none;">25
+                    / 100</button>
+                </td>
+                <td> <button class="rounded-lg"
+                    style="width: 200px;height: 47px;margin-left: 10px;background-color: rgba(64,27,3,255);color: white;border-style: none;">ดูรายละเอียด</button>
+                </td>
+                </tbody>
+              </table>
+              <br>
+
+
+              <style>
+                .responsive-span {
+                  display: flex;
+                  width: inherit;
+
+                }
+
+                .status-text {
+                  color: black;
+                  font-size: 2vw;
+                  margin: 0;
+                }
+              </style>
+
+
+
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col">
+                    <div class="position-relative">
+                      <button class="btn btn-primary rounded-lg w-100 mb-4"
+                        style="height: 100px; font-size: 24px; background-color: rgb(0, 0, 0); border-style: none;">
+                        <p style="position: absolute;font-size: 1.65vw;color: white;">ประเมินผลการเตรียมตัวสอบของคุณ</p>
+                        <div class="d-flex align-items-center justify-content-center">
+
+
+
+                          <span class="responsive-span w-20 ml-5"
+                            style="color: white;width: 100px;height: 60px;background-color: white;margin-left: 200px;">
+                            <img class="rounded-circle" src="/images/iconslearn/passex.png"
+                              style='width: 45px;height: 50px;margin-left: 5px ;margin-top: 5px;' alt="passex"> <span>
+                              <p class="result-text"
+                                style="color: black;position: absolute; top: 39%; left: 55%; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 2.3vw;;">
+                                ผ่าน</p>
+                            </span>
+
+                          </span>
+
+
+                          <p class="status-text"
+                            style="position: absolute; top: 20%; left: 85%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            มีผู้ผ่านจำนวน&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5คน&nbsp;&nbsp;5%</p>
+                          <p
+                            style="position: absolute; top: 43%; left: 85%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            มีผู้ผ่านจำนวน&nbsp;&nbsp;&nbsp;&nbsp;85คน&nbsp;85%</p>
+                          <p
+                            style="position: absolute; top: 64%; left: 85%; transform: translate(-50%, -50%); color: white; font-size: 0.7vw;">
+                            &nbsp;&nbsp;มีกำลังสอบจำนวน 10คน&nbsp;10%</p>
+                        </div>
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 "style="padding-left: 30px;padding-right: 30px;">
+                  <button class="btn btn-primary rounded-lg w-100 mb-3"
+                    style="height: 100px; background-color: rgb(255, 187, 0); border-color: rgb(0, 0, 0);">
+                    <h1 style="color: white;font-size: 2vw;">ผลประเมินผลการเตรียมตัวสอบของคุณในภาพรวมของหลักสูตรนี้</h1>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+            <!-- Filters -->
+          </div>
+        </div>
+
+        <style>
+          ul {
+            text-align: right;
+          }
+        </style>
+        
+        <div class="page-number mt-6 pb-1  ">
+          <style>
+            ul {
+              text-align: right;
+              display: flex;
+              justify-content:flex-end;
+              list-style: none;
+            }
+          </style>
+          
+          <ul class="number-page" style="margin-right: 140px;color: black;font-size: 1.3vw  ;">
+            <li><<&nbsp;</li>
+            <li>&nbsp;1&nbsp;</li>
+            <li>&nbsp;2&nbsp;</li>
+            <li>&nbsp;3&nbsp;</li>
+            <li>&nbsp;4&nbsp;</li>
+            <li>&nbsp;5&nbsp;</li>
+            <li>&nbsp;6&nbsp;</li>
+            <li>&nbsp;7&nbsp;</li>
+            <li>&nbsp;8&nbsp;</li>
+            <li>&nbsp;9&nbsp;</li>
+            <li>&nbsp;10&nbsp;</li>
+            <li>&nbsp;>></li>
+          </ul>
+        <!-- End Two Block -->
+        <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%>
+      <%- include('../partials/script'); -%>
+        <script>
+          function feedPage() {
+            let list_block = $('.lms-block ul > li').length;
+            if (list_block == 1) {
+              $('.lms-block ul > li').addClass('classZeroRowDisplay');
+            }
+          }
+        </script>
+
+</body>
+
+</html>

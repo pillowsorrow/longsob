@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="/plugin/flatpickr/flatpickr.min.css">
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Content Section -->
+    <!-- Apply For Job Section -->
+    <div id="TrainingForm" class="container space-1">
+      <% if (displayError == 'error') { %>
+        <div class="row">
+          <div class="text-center col-12">
+            <div class="alert alert-danger profile_successful" role="alert">
+              <h4 class="alert-heading"> <%= translation.profile_update_failed_title %> </h4>
+              <p><%= translation.profile_update_failed_detail %></p>
+            </div>
+          </div>
+        </div>
+        <% }else if (displayError == 'successful') { %>
+      <div class="row">
+        <div class="text-center col-12">
+          <div class="alert alert-success profile_successful" role="alert">
+            <h4 class="alert-heading"> <%= translation.profile_update_successful_title %> </h4>
+            <p><%= translation.profile_update_successful_detail %></p>
+          </div>
+        </div>
+      </div>
+      <% }else if (displayError == 'new') { %>
+    <div class="row">
+      <div class="text-center col-12">
+        <div class="alert alert-success profile_successful" role="alert">
+          <h4 class="alert-heading"> <%= translation.lms_training_successful_title %> </h4>
+          <p><%= translation.lms_training_successful_detail %></p>
+        </div>
+      </div>
+    </div>
+      <% }%>
+      <div class="card shadow-sm py-5 px-5">
+        <!-- Title -->
+        <div class="text-center mb-7">
+          <h2 class="h3 font-weight-normal"> <%= translation.lms_training_title %> </h2>
+        </div>
+        <!-- End Title -->
+        <!-- Apply Form -->
+        <form action="<%= original_source %>/<%= training.postpath %>" enctype="multipart/form-data" method="post"
+          accept-charset="utf-8">
+          <div class="row">
+
+            <div class="col-md-6 mb-5">
+              <label class="form-label"><%= translation.lms_training_start_date %></label>
+              <!-- Datepicker -->
+              <div id="datepickerstartdate" class="js-focus-state u-datepicker w-auto input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <span class="fas fa-calendar"></span>
+                  </span>
+                </div>
+                <input type="date" name="startdate" class="js-range-datepicker form-control bg-white rounded-right"
+                  readonly data-rp-wrapper="#datepickerstartdate" data-rp-is-inline="false" data-rp-date-format="d M Y"
+                  data-rp-default-date='["<%= training.startdate %>"]' data-rp-is-disable-future-dates="true"
+                  value="<%= training.startdate %>">
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-5">
+              <label class="form-label"><%= translation.lms_training_end_date %></label>
+              <!-- Datepicker -->
+              <div id="datepickerenddate" class="js-focus-state u-datepicker w-auto input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <span class="fas fa-calendar"></span>
+                  </span>
+                </div>
+                <input type="date" name="enddate" class="js-range-datepicker form-control bg-white rounded-right"
+                  readonly data-rp-wrapper="#datepickerenddate" data-changeYear="true" data-rp-date-format="d M Y"
+                  data-rp-default-date='["<%= training.enddate %>"]' data-rp-is-disable-future-dates="true"
+                  value="<%= training.enddate %>">
+              </div>
+            </div>
+
+
+
+            <div class="col-md-12 mb-5">
+              <!-- Input -->
+              <div class="js-form-message">
+                <label class="form-label" for="title"><%= translation.title_course %> <span
+                    class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="title" id="title"
+                    placeholder="<%= translation.title_course %>" aria-label="<%= translation.title_course %>"
+                    required="" value="<%= training.title %>"
+                    data-msg="<%= translation.lms_training_enter_your_title %>" data-error-class="u-has-error"
+                    data-success-class="u-has-success">
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+            <div class="col-md-12 mb-5">
+              <!-- Input -->
+              <div class="js-form-message">
+                <label class="form-label" for="institution"><%= translation.lms_training_institution %> <span
+                    class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="institution" id="institution"
+                    placeholder="<%= translation.lms_training_institution %>"
+                    aria-label="<%= translation.lms_training_institution %>" required=""
+                    value="<%= training.institution %>" data-msg="<%= translation.lms_training_enter_your_title %>"
+                    data-error-class="u-has-error" data-success-class="u-has-success">
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+
+            <div class="col-md-12 mb-5">
+              <!-- Input -->
+              <div class="js-form-message">
+                <label class="form-label" for="attach"> <%= translation.lms_training_attachment %></label>
+                <div class="input-group">
+                  <input type="file" class="form-control" name="attach" id="attach" value="" placeholder="Attach"
+                    aria-label="Attach" data-msg="" data-error-class="u-has-error" data-success-class="u-has-success">
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+
+          </div>
+          <% if (training.memetype == "image") { %>
+          <div class="row">
+            <div class="col-md-6 mb-5 attach-zone">
+              <div class="delete-status">
+                <div class="delete-status-body">
+                  <%= translation.lms_training_confirm_delete_certificate1 %>
+                  <br />
+                  <%= translation.lms_training_confirm_delete_certificate2 %>
+                </div>
+              </div>
+              <img src="<%= path_source %>/upload/<%= training.attach %>" class="image w100">
+            </div>
+            <div class="col-md-6  mb-5">
+              <button type="button" class="btn btn-danger transition-3d-hover deleted-btn"><i
+                  class="fas fa-trash"></i></button>
+                  <input type="hidden" name="old_file" value="<%= training.attach %>" />
+              <input type="hidden" name="status_attach" value="false" />
+            </div>
+          </div>
+          <% }else if (training.memetype == "iframe") { %>
+          <div class="row">
+            <div class="col-md-6 attach-zone  mb-5">
+              <div class="delete-status">
+                <div class="delete-status-body">
+                  <%= translation.lms_training_confirm_delete_certificate1 %>
+                  <br />
+                  <%= translation.lms_training_confirm_delete_certificate2 %>
+                </div>
+              </div>
+              <iframe src="<%= path_source %>/upload/<%= training.attach %>"></iframe>
+            </div>
+            <div class="col-md-6  mb-5">
+              <button type="button" class="btn btn-danger transition-3d-hover deleted-btn"><i
+                  class="fas fa-trash"></i></button>
+              <input type="hidden" name="old_file" value="<%= training.attach %>" />
+              <input type="hidden" name="status_attach" value="false" />
+            </div>
+          </div>
+          <% }else{ %>
+            <input type="hidden" name="old_file" value="" />
+            <input type="hidden" name="status_attach" value="false" />
+          <% } %>
+
+          <div class="text-right">
+            <a href="<%= original_source %>/lms/training" class="btn btn-primary transition-3d-hover"><i class="fas fa-arrow-circle-left"></i>
+              <%= translation.back_txt%></a>
+            <button type="submit" class="btn btn-primary transition-3d-hover"><i class="fas fa-save"></i>
+              <%= translation.save_text %></button>
+          </div>
+        </form>
+        <!-- End Apply Form -->
+      </div>
+    </div>
+    <!-- Apply For Job Section -->
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script src="/plugin/flatpickr/flatpickr.min.js"></script>
+  <script src="/javascripts/components/hs.range-datepicker.js"></script>
+
+  <script>
+    let training_id = <%= training.id %> ;
+
+    function feedPage() {}
+
+    $(document).ready(function () {
+      // initialization of range datepicker
+      $.HSCore.components.HSRangeDatepicker.init(".js-range-datepicker");
+      $(".deleted-btn").on("click", function () {
+        let status = $('input[name="status_attach"]').val();
+        console.log(status);
+        if(status == 'true'){
+          $('.attach-zone .delete-status').css('display', 'none');
+          $('input[name="status_attach"]').val('false');
+          $('.deleted-btn i').removeClass('fa fa-times').addClass('fas fa-trash');
+          
+        }else{
+          $('.attach-zone .delete-status').css('display', 'flex');
+          $('input[name="status_attach"]').val('true');
+          $('.deleted-btn i').removeClass('fas fa-trash').addClass('fa fa-times');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

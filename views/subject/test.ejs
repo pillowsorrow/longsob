@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<div id="searchPushTop" class="u-search-push-top u-unfold--jquery-slide u-unfold--hidden p-4">
+			<div class="container position-relative">
+				<div class="u-search-push-top__content ">
+					<!-- Close Button -->
+					<button type="button" class="close u-search-push-top__close-btn target-of-invoker-has-unfolds"
+						aria-haspopup="true" aria-expanded="false" aria-controls="searchPushTop"
+						data-unfold-type="jquery-slide" data-unfold-target="#searchPushTop">
+						<span aria-hidden="true">×</span>
+					</button>
+					<!-- End Close Button -->
+					<!-- Input -->
+					<form class="js-focus-state input-group">
+						<input type="search" class="form-control" placeholder="ค้นหา" aria-label="ค้นหา">
+						<div class="input-group-append">
+							<button type="button" class="btn btn-warning">ค้นหา</button>
+						</div>
+					</form>
+					<!-- End Input -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Search  -->
+		<div class="bg-theme-primary">
+			<div class="float-right">
+				<div class="ml-lg-auto pt-3">
+					<ul class="list-inline ml-2 mb-0 animated pulse">
+						<!-- Search -->
+						<li class="list-inline-item mr-3 d-none " style="z-index: 999 !important;">
+							<a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+								href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"
+								aria-controls="searchPushTop" data-unfold-type="jquery-slide"
+								data-unfold-target="#searchPushTop">
+								<span class="fas fa-search btn-icon__inner fa-2x"></span>
+							</a>
+						</li>
+						<!-- End Search -->
+						<!-- notification -->
+						<li class="list-inline-item mr-3 d-none" style="z-index: 999 !important;">
+							<a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+								href="javascript:;" role="button">
+								<span class="fas fa-bell btn-icon__inner fa-2x"></span>
+								<span class="badge badge-sm badge-danger badge-pos rounded-circle">3</span>
+							</a>
+						</li>
+						<!-- End notification -->
+						<!-- Account Login -->
+						<li class="list-inline-item mr-3 " style="z-index: 999 !important;">
+							<!-- Account Sidebar Toggle Button -->
+
+							<a id="sidebarNavToggler"
+								class="btn btn-xs btn-text-white u-sidebar--account__toggle-bg ml-3" href="javascript:;"
+								role="button" aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false"
+								data-unfold-event="click" data-unfold-hide-on-scroll="false"
+								data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+								data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight"
+								data-unfold-duration="500">
+
+								<span class="position-relative">
+									<span class=" btn-icon__inner font-size-3">
+										<img class="u-sm-avatar rounded-circle"
+											src="https://aced.dlex.ai/childhood/assets/image/WEB_01/IMG_Web_01/icon_user-01.png?1690190740"></span>
+								</span>
+							</a>
+							<!-- End Account Sidebar Toggle Button -->
+						</li>
+						<!-- End Account Login -->
+						<!-- notification -->
+						<li class="list-inline-item mr-3 ml-3 ">
+							<a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+								href="https://aced.dlex.ai/childhood/lms.html" role="button">
+								<span class="fas fa-times btn-icon__inner fa-3x"></span>
+							</a>
+						</li>
+						<!-- End notification -->
+					</ul>
+				</div>
+			</div><!-- end float-right -->
+			<div
+				class="container ml-xs-0 ml-sm-0 ml-md-auto ml-lg-auto ml-xl-auto pl-xs-0 pl-sm-0 pl-md-auto pl-lg-auto pl-xl-auto">
+				<div class="p-2 ml-0 pl-0 col-7 ">
+					<ul class="list-inline mb-0 animated pulse pl-0 ">
+						<li class="list-inline-item mr-2 d-lg-none d-xl-none">
+							<a id="sidebarNavTogglerMenu2"
+								class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+								href="javascript:;" role="button" aria-controls="sidebarContentMenu"
+								aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
+								data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContentMenu"
+								data-unfold-type="css-animation" data-unfold-animation-in="fadeInLeft"
+								data-unfold-animation-out="fadeOutLeft" data-unfold-duration="500">
+								<span class="fas fa-bars btn-icon__inner fa-2x"></span>
+							</a>
+						</li>
+						<li class="list-inline-item mr-0 ml-0">
+							<a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mr-0 "
+								href="https://aced.dlex.ai/childhood/lms.html" aria-label="Front">
+								<span class="badge badge-white"><img class="img-fluid" style="height:30px"
+										src="https://aced.dlex.ai/childhood/admin/upload-files/logo/logo.png"
+										alt="logo"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- end container-->
+		</div>
+		<div class="bg-theme-second">
+			<div class="container">
+				<div class="d-lg-flex justify-content-lg-between">
+					<div class="d-flex justify-content-between w-md-100 w-lg-100 pt-1">
+						<h4 class="heading-subject-text text-primary-theme animated fadeInRight p-1 pt-2">
+							<i class="fas fa-book-reader"></i> <%= data.subject_title %> </h4>
+					</div>
+
+					<a class="my-2" href="https://aced.dlex.ai/childhood/subject/goto.html">
+						<button type="button"
+							class="btn btn-sm btn-primary-theme btn-sm-wide btn-pill transition-3d-hover mr-1">
+							<span class="fas fa-play-circle  mr-2"></span> เข้าเรียน
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="container mt-3 mb-6">
+			<div class="row ">
+				<!-- Learn Menu -->
+				<div id="stickyBlockStartPoint" class="col-md-4 col-lg-4 mb-7 mb-md-0  d-none d-lg-block d-xl-block">
+					<%- include('../subject/partials/aside'); -%>
+				</div>
+				<!-- End Learn menu -->
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6">
+					<!-- shadow-sm space-lg-2 -->
+
+					<!-- card block 1-->
+					<div class="card shadow-soft p-1 pt-1 pl-0 pr-0 ">
+						<!-- title block -->
+						<div class="col-lg-12 tab-pane subject-title-tab active" id="tab-f-index" role="tabpanel" aria-labelledby="tab-1">
+							<div class="d-flex">
+								<h4 class="text-primary-theme mt-1">หน้าหลัก</h4>
+								<div class="ml-auto text-right">
+									<div class="align-items-center pt-0 mt-0">
+										<div class="align-items-center progress-tab">
+
+											<small class="text-primary-theme">ความคืบหน้า</small>
+											<div class="js-hr-progress progress bg-soft-secondary">
+												<div class="js-hr-progress-bar progress-bar bg-theme-primary text-white"
+													role="progressbar" style="width: <%= data.process %>%;" aria-valuenow="<%= data.process %>"
+													aria-valuemin="0" aria-valuemax="<%= data.process %>"><%= data.process %>%</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end title block  -->
+						<hr class="my-1">
+
+						<!-- detail block  -->
+						<div class="col-lg-12">
+							<!-- Alert -->
+							<div class="p-4 mb-5 d-none" role="alert">
+								<h2 class="h5 mt-5 mb-0"><span
+										class="fas fa-magic font-size-2 mt-1 mr-3 text-primary-theme"></span><span
+										class="link-muted text-primary-theme">แนะนำวิชา</span></h2>
+								<p class="text-black-70 py-2">-</p>
+							</div>
+							<h2 class="h5 mt-5 mb-0 d-none"><span class="link-muted">ข่าวประชาสัมพันธ์</span></h2>
+
+
+
+							<div class="row col-lg-12 col-md-12 col-sm-12">
+								<div class="col-lg-12 col-md-12 col-sm-12 position-relative text-left img-hover mt-3">
+									<img class="card-img-top"
+										src="<%= data.banner %>"
+										alt="Image Description" style="width: 100%">
+								</div>
+
+							</div>
+
+
+							<div class="d-none dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll"
+								data-options='{direction: "normal"}'>
+								<!-- Apply your Parallax background image here -->
+								<div class="divimage dzsparallaxer--target"
+									style="height: 130%; background-image: url(<%= data.banner %>);">
+								</div>
+
+								<div class="container ">
+									<div class="text-center w-lg-80 mx-auto">
+										<h1 class="text-white display-1 font-size-md-down-5 font-weight-semi-bold">
+											&nbsp;</h1>
+									</div>
+
+									<div class="text-center w-lg-40 mx-auto">
+										<p class="lead text-white-70"><br>&nbsp;<br>&nbsp;</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						
+						<!-- <hr class="mt-3 mb-3"> -->
+						<h2 class="h5 mt-5 mb-0 px-2"><span class="link-muted text-primary-theme"><%= translation.page_course_description %></span></h2>
+						<p class="text-black-70 py-2 px-2"><%- data.description %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_learning_objectives %></span></h2>
+						<p class="text-black-70 py-2"><%- data.objectives %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_evaluation %></span></h2>
+						<p class="text-black-70 py-2"><%- data.evaluation %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_schedule %></span></h2>
+						<p class="text-black-70 py-2"><%- data.schedule %></p>
+						<hr class="mt-3 mb-3">
+
+						<hr class="mt-3 mb-3">
+						<div class="row col-lg-12 col-md-12 col-sm-12">
+							<% data.teachers.forEach(function(teacher, index){ %>
+							<div class="col-lg-4 col-md-4 col-sm-12 mt-3 text-center">
+								<img class="u-lg-avatar rounded-circle" style="width: 150px;height:150px"
+									src="<%= teacher.avatar %>">
+								<div class="card-body  text-center">
+									<h2 class="h6 font-weight-normal">
+										<span class="text-black-70"><%= teacher.name %></span><br />
+										<span class="text-black-70">ผู้สอน</span>
+									</h2>
+								</div>
+							</div>
+							<% }) %>
+
+						</div>
+					</div>
+					<!-- end detail block  -->
+				</div>
+				<!-- end card block 1 -->
+			</div>
+			<!--End Learn Detail -->
+		</div>
+		</div>
+		<!-- End Content Section -->
+
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+	
+	<!-- Go to Top -->
+
+	<a class="js-go-to u-go-to animated" href="javascript:#"
+		data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400"
+		data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown"
+		style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+		<span class="fas fa-arrow-up u-go-to__inner"></span>
+	</a>
+	<!-- End Go to Top -->
+<%- include('../subject/partials/script'); -%>
+
+</html>

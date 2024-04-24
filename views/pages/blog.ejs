@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" class="content-blog" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb-ebook'); -%>
+    </div>
+    <!-- End Viwer Section -->
+    <div class="container">
+      <div class="row space-bottom-xs-1 py-2">
+        <div class="col-lg-9">&nbsp;</div>
+        <div class="col-6 col-sm-4 col-md-3">
+          <select class="form-control custom-select d-none" name="sortby" id="sortby">
+            <option value="1" selected="">เรียงตามวันที่</option>
+            <option value="2">เรียงตามเปิดดู</option>
+            <option value="3">เรียงตามถูกใจ</option>
+            <option value="4">เรียงตามความคิดเห็น</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row" id="Blogpage">
+        <!-- Blog List News -->
+        <div class="col-lg-9 order-lg-2 mb-9 mb-lg-0">
+          <!-- Blog Classic Section -->
+          <div class="mb-2">
+            <!-- text-center -->
+            <h4 class="h4 mb-4 text-tcg-info heading-subject-text">
+              <%= category_active %>
+            </h4>
+          </div>
+            <% if(total_blog > 0){ 
+              var index = 0; %>
+              <div class="card-deck d-block d-md-flex card-md-gutters-2">
+            <% many_blog.forEach((blog) => { %>
+            <!-- Blog Grid -->
+            <article class="card border-0 shadow-sm mb-3 transition-3d-hover bg-soft-primary">
+              <a href="<%= original_source %>/knowledge/detail/<%= blog.blog_url %>">
+                <div class="card-body p-5 blog_column">
+                  <small class="text-black-70 d-block text-muted mb-2">
+                    <i class="fas fa-calendar-alt"></i> <%= blog.web_date %>
+                    <i class="fas fa-clock"></i> <%= blog.web_time %></small>
+                  <h2 class="h4 fix-line-80"><%= blog.subject %></h2>
+                  <p class="mb-0 text-black-70 fix-line-80"><%- blog.blog_detail %></p>
+                  <div class="row justify-content-center">
+                    <span class="h5 text-black-70"><span class="far fa-eye ml-1 text-success"></span> <%- blog.blog_numview %>
+                      &nbsp;&nbsp;</span>
+                    <span class="h5 text-black-70"><span class="far fas fa-heart ml-1 text-primary"></span>
+                    <%- blog.blog_numlike %> &nbsp;&nbsp;</span>
+                  </div>
+                </div>
+              </a>
+
+              <div class="card-footer pb-5 px-0 mx-5" style="background-color: transparent !important">
+                <div class="media align-items-center">
+                  <div class="u-sm-avatar mr-3">
+                    <img class="img-fluid rounded-circle"
+                      src="<%= path_source %>/images/avatar.jpg" />
+                  </div>
+                  <div class="media-body">
+                    <!-- <a href="#"> -->
+                      <h4 class="h6 text-tcg-info mb-0"><%- blog.author %></h4>
+                    <!-- </a> -->
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- End Blog Grid -->
+            <% index++; 
+                if(index == 3){ %>
+                </div><div class="card-deck d-block d-md-flex card-md-gutters-2">
+            <%  index = 0; 
+                }
+             }) %>
+             <% if(index == 2){ %>
+              <article class="card border-0 shadow-sm mb-3 transition-3d-hover bg-soft-primary" style="visibility:hidden;"> </article>
+              <% } if(index == 1){ %>
+                <article class="card border-0 shadow-sm mb-3 transition-3d-hover bg-soft-primary" style="visibility:hidden;"> </article>
+                <article class="card border-0 shadow-sm mb-3 transition-3d-hover bg-soft-primary" style="visibility:hidden;"> </article>
+              <% } %>
+            </div>
+              <% }else{ %>
+                <div>
+                  <article class="d-block card border-0 mb-7">
+                    <span class="no_block"><%= translation.no_blog%></span>
+                  </article>
+                </div>
+            <% } %>
+          <% if(pagination > 1){ %>
+          <!-- Pagination -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination mb-0">
+              <% for(var i=1; i <= pagination; i++) {%>
+              <% if(page_active == i){ %>
+              <li class="page-item active"><a class="page-link"
+                  href="#"><%= i %></a>
+                <% }else{ 
+                  var link_page = search_path.category_id + '/' + i;
+                  if(search_path.query != 0){
+                    link_page = link_page + '?search=' + search_path.query
+                  }   
+                %>
+              <li class="page-item">
+                <a class="page-link" href="<%= original_source %>/knowledge/<%= link_page %>"><%= i %></a>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </nav>
+          <!-- End Pagination -->
+          <% } %>
+          
+          <div class="space-bottom-2"></div>
+        </div>
+        <div id="stickyBlockStartPoint" class="col-lg-3 order-lg-1">
+          <div class="js-sticky-block" data-offset-target="#logoAndNav" data-parent="#stickyBlockStartPoint"
+            data-sticky-view="lg" data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint"
+            data-offset-top="32" data-offset-bottom="170" style="top: 193.275px">
+            <h3 class="h4 text-tcg-info heading-subject-text mb-4">
+              <%= translation.menu_text_category%>
+            </h3>
+
+            <% sidebar_datas.forEach((sidebar_data) => { %>
+            <article class="card border-0 mb-5 transition-3d-hover">
+              <div class="card-body p-0">
+                <div class="media">
+                    <% /* %>
+                    <div class="u-avatar mr-3">
+                    <img class="img-fluid rounded" src="<%= sidebar_data.category_cover %>"
+                      alt="Image Description" />
+                    </div>
+                      <% */ %>
+                      <div class="u-avatar">
+                      <i class="fas fa-chalkboard-teacher font-size-3 text-primary-theme"></i>
+                    </div>
+                  <div class="media-body">
+                    <h4 class="h6 font-weight-normal mb-0">
+                      <a href="<%= original_source %>/knowledge/blog/<%= sidebar_data.category_id%>"
+                        class=""><%= sidebar_data.category_title %></a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <% }) %>
+            <hr class="my-7" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+    <script>
+      function feedPage(){}
+    </script>
+</body>
+
+</html>

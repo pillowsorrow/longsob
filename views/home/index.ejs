@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- <META HTTP-EQUIV="Refresh" CONTENT="0;URL=https://www.longsobdi.com/LSD"> -->
+  <%- include('meta'); -%>
+
+</head>
+<% /* %>
+<body>
+ 
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+
+    <!-- Pricing Section -->
+    <div class="container space-top-1">
+    	<!-- space-top-3 -->
+    	<div class="row d-flex">
+
+    		<div class="col-md-12 pl-md-0">
+    			    <div class="mb-2 text-center">
+    					<!--  -->
+    				<h3 class="h3 mb-4 text-primary-theme heading-subject-text">
+              <img src="images/main_Logo.png" alt="หลักสูตรต้านทุจริตศึกษา Anti-Corruption Education" />
+            </h3>
+    				</div>
+    				<div class="row">
+              
+            <% department_display.forEach((department) => { %> %>
+    					    <div class="col-sm-12 col-md-6 col-lg-4 pb-3">
+    							<!-- Product -->
+    							<div class="card">
+    								<div class="position-relative  img-hover">
+                                    <a href="<%=original_source%><%=department.site_name%>/?clang=th"><img class="card-img-top" src="<%=file_path%><%=department.site_logo%>" alt="Image Description" ></a>
+    								</div>
+    								<div class="card-body pt-4 px-3 pb-0 bg-theme-second">
+    									<div class="mb-2 text-center">
+    										<a href="<%=original_source%><%=department.site_name%>/?clang=th">
+    											<h2 class="h5 mb-0 fix-line department_name text-black-70 mb-1"><%=department.department_name%></h2>
+    										</a>
+    									</div>
+    								</div>
+
+    							</div>
+    							<!-- End Product -->
+    						</div>
+            <% }) %>
+
+
+    					 </div>
+    			    </div>
+    	</div>
+    </div>
+    
+
+
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+<!-- ========== FOOTER ========== -->
+<footer class="mt-4">
+    <!-- Lists -->
+    <div class="border-0" style="background-color: #2A2A2A;">
+
+
+        <!-- Copyright -->
+    <div class="border-0 bg-theme-primary">
+      <div class="container py-3 text-center">
+        <div class="row d-flex justify-content-sm-between">
+          <div class="col-sm-12 mb-sm-0">
+            <h5 class="small text-white mb-0 " style="letter-spacing: 2px !important;">สงวนลิขสิทธิ์ โดยสำนักงานคณะกรรมการป้องกันและปราบปรามการทุจริตแห่งชาติ </h5>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End Copyright -->
+</footer>
+
+<!-- ========== END FOOTER ========== -->
+<!-- Go to Top -->
+
+<a class="js-go-to u-go-to animated" href="javascript:#" data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400" data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown" style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+  <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+
+  <!-- Go to Top -->
+  <a class="js-go-to u-go-to" href="#"
+    data-position='{"bottom": 15, "right": 15 }'
+    data-type="fixed"
+    data-offset-top="400"
+    data-compensation="#header"
+    data-show-effect="slideInUp"
+    data-hide-effect="slideOutDown">
+    <span class="fas fa-arrow-up u-go-to__inner"></span>
+  </a>
+  <!-- End Go to Top -->
+
+</body>
+
+</html>
+<% */ %>

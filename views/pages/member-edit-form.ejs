@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="container space-1">
+      <% if (displayError == 'show') { %>
+      <div class="row">
+        <div class="text-center col-12">
+          <div class="alert alert-danger profile_successful" role="alert">
+            <h4 class="alert-heading"> <%= translation.profile_update_failed_title %> </h4>
+            <p><%= translation.profile_update_failed_detail %></p>
+          </div>
+        </div>
+      </div>
+      <% }else if (displayError == 'successful') { %>
+      <div class="row">
+        <div class="text-center col-12">
+          <div class="alert alert-success profile_successful" role="alert">
+            <h4 class="alert-heading"> <%= translation.profile_update_successful_title %> </h4>
+            <p><%= translation.profile_update_successful_detail %></p>
+          </div>
+        </div>
+      </div>
+      <% }%>
+      <div class="card  bg-theme-second">
+        <div class="card-header py-4 px-0 mx-4  bg-theme-second">
+          <form action="<%= original_source %>/member/saveavatar" id="formavatar" class="media align-items-center mb-7"
+            method="post" enctype="multipart/form-data" accept-charset="utf-8">
+
+
+            <div class="row  col-sm-12 align-items-sm-center">
+              <div class="col-md-12 mb-2 mb-md-0  text-primary-theme">
+                <h4><span class="fas fa-user-tie  mr-2 mb-4"></span><%= translation.profile_titles%></h4>
+              </div>
+              <div class="col-sm-12 mt-4">
+                <div class="media-body">
+                  <img class="u-lg-avatar rounded-circle" style="width: 150px; height: 150px;"
+                    src="<%= profile.avatar %>" alt="<%= profile.username %>">
+                  <label class="btn btn-sm btn-primary-theme transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1"
+                    for="avatar">
+                    <%= translation.profile_change_avatar%> <input id="avatar" name="avatar" type="file"
+                      accept="image/png, image/gif, image/jpeg" class="file-attachment-btn__label"
+                      onchange="$('#formavatar').submit(); ">
+                  </label>
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="card-body">
+          <form action="<%= original_source %>/member/saveprofile" id="EditProfile" class="js-validate" method="post"
+            accept-charset="utf-8">
+            <div class="row">
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label id="nameLabel" class="form-label">
+                    <%= translation.profile_name%> <span class="text-danger">*</span>
+                  </label>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" name="firstname"
+                      value="<%= profile.firstname %>" placeholder="<%= translation.profile_name%>"
+                      aria-label="<%= translation.profile_name%>" required="" aria-describedby="nameLabel"
+                      data-msg="<%= translation.profile_name%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label id="nameLabel" class="form-label">
+                    <%= translation.profile_midname%> <span class="text-danger"></span>
+                  </label>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" name="middlename"
+                      value="<%= profile.middlename %>" placeholder="<%= translation.profile_midname%>"
+                      aria-label="<%= translation.profile_midname%>" aria-describedby="nameLabel"
+                      data-msg="<%= translation.profile_midname%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+            <div class="row">
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label id="usernameLabel" class="form-label">
+                    <%= translation.profile_lastname%><span class="text-danger">*</span></label>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" name="lastname" required=""
+                      value="<%= profile.lastname %>" placeholder="<%= translation.profile_lastname%>"
+                      aria-label="<%= translation.profile_lastname%>" aria-describedby="usernameLabel"
+                      data-msg="<%= translation.profile_lastname%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+            <div class="row">
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label class="form-label"><%= translation.profile_gender%> </label>
+                  <div class="form-group">
+                    <select name="gender" id="gender" class="form-control form-control-sm" required=""
+                      data-msg="<%= translation.profile_gender%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                      <option value=""> <%= translation.profile_gender_choice%> </option>
+                      <option value="1" <% if(profile.gender == 1){ %> selected <% } %>>
+                        <%= translation.profile_gender_male%> </option>
+                      <option value="2" <% if(profile.gender == 2){ %> selected <% } %>>
+                        <%= translation.profile_gender_female%> </option>
+                      <option value="3" <% if(profile.gender == 3){ %> selected <% } %>>
+                        <%= translation.profile_gender_other%> </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label id="passwordLabel" class="form-label"><%= translation.profile_citizen_id%><span
+                      class="text-danger">*</span></label>
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-sm" required="" name="citizen_id"
+                      value="<%= profile.citizen_id %>">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+            <div class="row">
+              <!-- Input -->
+              <div class="col-sm-6">
+                <div class="js-form-message">
+                  <label id="emailLabel" class="form-label"><%= translation.email%><span
+                      class="text-danger">*</span></label>
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-sm" name="email" required=""
+                      value="<%= profile.email %>" placeholder="<%= translation.email%>"
+                      aria-label="<%= translation.email%>" required="" aria-describedby="emailLabel"
+                      data-msg="<%= translation.email%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+              <!-- Input -->
+              <div class="col-sm-6 mb-3">
+                <div class="js-form-message">
+                  <label id="phoneNumberLabel" class="form-label"> <%= translation.profile_mobile%><span
+                      class="text-danger">*</span></label>
+                  <div class="form-group">
+                    <input class="form-control  form-control-sm" type="tel" id="mobile" name="mobile" required=""
+                      value="<%= profile.mobile %>" placeholder="<%= translation.profile_mobile%>"
+                      aria-label="<%= translation.profile_mobile%>" aria-describedby="phoneNumberLabel"
+                      data-msg="<%= translation.profile_mobile%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+            </div>
+
+            <div class="row d-none">
+              <!-- Input -->
+              <div class="col-sm-6 mb-3 ">
+                <div class="js-form-message">
+                  <label id="locationLabel" class="form-label">ตำแหน่ง</label>
+                  <div class="form-group">
+                    <select id="pos_name" name="pos_name" class="form-control form-control-sm" data-toggle="select2"
+                      data-allow-clear="false">
+                      <option value="0">โปรดเลือกตำแหน่ง</option>
+                      <option value="1"> นักบริหารระดับต้น </option>
+                      <option value="2"> ผู้อำนวยการ </option>
+                      <option value="3"> นักจัดการงานทั่วไป </option>
+                      <option value="4"> นักทรัพยากรบุคคล </option>
+                      <option value="5"> นิติกร </option>
+                      <option value="6"> เจ้าพนักงานคดี </option>
+                      <option value="7"> นักวิเคราะห์นโยบายและแผน </option>
+                      <option value="8"> นักประชาสัมพันธ์ </option>
+                      <option value="9"> นักวิชาการคอมพิวเตอร์ </option>
+                      <option value="10"> นักวิชาการพัสดุ </option>
+                      <option value="11"> นักวิชาการสถิติ </option>
+                      <option value="12"> นักวิเทศสัมพันธ์ </option>
+                      <option value="13"> นักวิชาการเงินและบัญชี </option>
+                      <option value="14"> นักวิชาการตรวจสอบภายใน </option>
+                      <option value="15"> นักวิเคราะห์งบประมาณ </option>
+                      <option value="16"> มัณฑนากร </option>
+                      <option value="17"> วิศวกรไฟฟ้า </option>
+                      <option value="18"> วิศวกรโยธา </option>
+                      <option value="19"> สถาปนิก </option>
+                      <option value="20"> บรรณารักษ์ </option>
+                      <option value="21"> เจ้าพนักงานธุรการ </option>
+                      <option value="22"> เจ้าพนักงานพัสดุ </option>
+                      <option value="23"> เจ้าพนักงานการเงินและบัญชี </option>
+                      <option value="24"> เจ้าพนักงานห้องสมุด </option>
+                      <option value="25"> เจ้าพนักงานสื่อสาร </option>
+                      <option value="26"> เจ้าพนักงานโสตทัศนศึกษา </option>
+                      <option value="27"> นายช่างโยธา </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Input -->
+              <!-- Input -->
+              <div class="col-sm-6 mb-3 ">
+                <div class="js-form-message">
+                  <label id="locationLabel" class="form-label">ระดับตำแหน่ง</label>
+                  <div class="form-group">
+                    <select id="pos_level" name="pos_level" class="form-control form-control-sm" data-toggle="select2"
+                      data-allow-clear="false">
+                      <option value="0">โปรดเลือกระดับตำแหน่ง</option>
+                      <option value="1"> ปฏิบัติงาน </option>
+                      <option value="2"> ชำนาญงาน </option>
+                      <option value="3"> อาวุโส </option>
+                      <option value="4"> ทักษะพิเศษ </option>
+                      <option value="5"> ปฏิบัติการ </option>
+                      <option value="6"> ชำนาญการ </option>
+                      <option value="7"> ชำนาญการพิเศษ </option>
+                      <option value="8"> เชี่ยวชาญ </option>
+                      <option value="9"> ทรงคุณวุฒิ </option>
+                      <option value="10"> อำนวยการต้น </option>
+                      <option value="11"> อำนวยการสูง </option>
+                      <option value="12"> บริหารต้น </option>
+                      <option value="13"> บริหารสูง </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- End Input -->
+
+
+            </div>
+            <hr class="my-2">
+            <button type="submit" class="btn btn-sm btn-primary-theme transition-3d-hover mr-1"><i
+                class="fas fa-user-edit"></i>
+                <%= translation.profile_update_save1%> </button>
+          </form>
+
+          <div class="row">
+            <!-- Input -->
+            <div class="col-sm-12 ">
+              <form action="<%= original_source %>/member/savepassword" id="EditPassword" class="js-validate"
+                method="post" accept-charset="utf-8">
+                <div class="js-form-message password_slot">
+                  <label id="passwordLabel" class="form-label"><%= translation.menu_text_login_password%></label>
+                  <div class="form-group">
+                    <input type="password" autocomplete="off" class="form-control form-control-sm" name="password" minlength="8"
+                      maxlength="20" placeholder="<%= translation.menu_text_login_password%>"
+                      aria-label="<%= translation.menu_text_login_password%>" aria-describedby="passwordLabel"
+                      data-msg="<%= translation.profile_password_warning%>" data-error-class="u-has-error"
+                      data-success-class="u-has-success">
+                    <small class="form-text text-muted"><%= translation.profile_password_warning%></small>
+                    <hr class="my-2">
+                    <button type="submit" class="btn btn-sm btn-primary-theme transition-3d-hover mr-1"><i
+                        class="fas fa-key"></i>
+                        <%= translation.profile_update_save2%> </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- End Input -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script>
+    function feedPage() {
+      $('.aside_menu_profile').addClass('active');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> 
+  <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb'); -%>
+    </div>
+    <!-- End Viwer Section -->
+
+    <!-- Pricing Section -->
+    <div class="container">
+      <div class="mt-4">
+        <h2 class="h4 mb-4 text-primary-theme heading-subject-text">
+          <%= heading.subject %>
+          <!-- Add to Favorites -->
+          <a href="#" onclick="addtofavorites(<%= course_id%>); return false;" class="btn btn-md btn-icon btn-soft-warning btn-bg-transparent rounded-circle addtofavorites 
+            <% if(body.favorites > 0){ %>
+            active
+            <% } %>
+            " title="<%= translation.course_add_to_favorites %>" id="addtofavorites__<%= course_id %>" data-toggle="tooltip" data-placement="top" data-original-title="<%= translation.course_add_to_favorites %>" >
+            <span class="far fa-star btn-icon__inner btn-lg"></span>
+          </a>
+          <!-- End Add to Favorites -->
+        </h2>
+      </div>
+      <div class="row heading-subject-detail">
+        <div class="col-md-7 col-lg-7">
+          <!-- List Group -->
+          <ul class="list-group list-group-transparent list-group-flush list-group-borderless mb-0">
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-exclamation-circle list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1"><%= translation.course_code %>:</span>
+                </div>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1 text-secondary"><%= heading.code %></span>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-clock list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1"><%= translation.course_duration %></span>
+                </div>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1 text-secondary"><%= heading.duration %></span>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-money-bill list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1"><%= translation.course_registration_fee %>:</span>
+                </div>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1 text-secondary"><%= heading.paymentstatus %></span>
+                </div>
+              </div>
+            </li>
+            <% if (heading.discount != 0) { %>
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-comment-dollar list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1"><%= translation.course_discount %>:</span>
+                </div>
+                <div class="media-body text-lh-sm">
+                  <ul class="list-group list-group-flush list-group-borderless">
+                    <li class="list-group-item">
+                      <div class="d-flex align-items-center">
+                        <span class="btn btn-xs btn-icon btn-soft-success rounded-circle mr-3">
+                          <span class="fas fa-check btn-icon__inner"></span>
+                        </span>
+                        <%= heading.discount %>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <% } %>
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-globe list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1"><%= translation.course_language %>:</span>
+                </div>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1 text-secondary"><%= heading.language %></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- End List Group -->
+        </div>
+      </div>
+      <hr class="mt-1 mb-3" />
+      <div class="mb-5 align-items-center subject-detail">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" /> <%=
+                    translation.course_description %>
+                </h2>
+                <p class="text-black-70">
+                  <%-body.description %>
+                </p>
+              </div>
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" /> <%=
+                    translation.course_subject_name %>
+                </h2>
+                <% Object.keys(body.subjectlists).forEach(function(prop) { %>
+                <div class="text-black-70 course-list"
+                <% if (body.subjectlists[prop]['cover'] != '') { %>
+                  style="background-image: url(<%=body.subjectlists[prop]['cover']%>)"
+                <% } %>
+                >
+                    <%- body.subjectlists[prop]['subject'] %>
+                </div>
+                <% }); %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="row">
+              <% if(body.learning_objectives != '[NULL]'){ %>
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" /> <%=
+                    translation.course_learning_objectives %>
+                </h2>
+                <p class="text-black-70">
+                  <%-body.learning_objectives %>
+                </p>
+              </div>
+              <% } %>
+              <% /* if(body.result_learn != '[NULL]'){  %>
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" />
+                  <%= translation.course_outcomes %>
+                </h2>
+                <p class="text-black-70"><%-body.result_learn %></p>
+              </div>
+              <%  } */ %>
+              <% if(body.qualification != '[NULL]'){ %>
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" /> <%=
+                    translation.course_qualifications %>
+                </h2>
+                <p class="text-black-70"><%-body.qualification %></p>
+              </div>
+              <% } %>
+              <% if(body.evaluation != '[NULL]'){ %>
+              <div class="col-md-12">
+                <h2 class="h5 text-primary-theme mt-5 mb-3">
+                  <img src="/images/Artboard2.png" width="30px" /> <%=
+                    translation.course_evaluation %>
+                </h2>
+                <p class="text-black-70"><%-body.evaluation %></p>
+              </div>
+              <% } %>
+
+            </div>
+          </div>
+        </div>
+        <hr class="my-3" />
+        <div class="row">
+          <%
+          
+          let find_length = body.teachers.length;
+          let col_width = "col-sm-12";
+          if(find_length % 4 == 0){
+             col_width = "col-sm-3"
+          }else if(find_length % 3 == 0){
+             col_width = "col-sm-4"
+          }else if(find_length % 2 == 0){
+             col_width = "col-sm-6"
+          }
+          
+          if(find_length > 0){
+          %>
+          <div class="col">
+            <h2 class="h5 text-primary-theme mt-5 mb-3 text-center">
+              <img src="/images/Artboard5.png" width="30px" /> <%=
+                translation.course_teacher %>
+            </h2>
+            <div class="row col-lg-12 col-md-12 col-sm-12">
+              <% 
+              Object.keys(body.teachers).forEach(function(prop) { %>
+              <div class=" <%- col_width %> mt-3 text-center">
+                <a><img class="u-xl-avatar rounded-circle"
+                    src="<%- body.teachers[prop]['avatar'] %>" /></a>
+                <div class="card-body">
+                  <h2 class="h6 font-weight-normal user-avatar">
+                    <span class="text-black-70 mr-1"><%- body.teachers[prop]['firstname'] %> <%- body.teachers[prop]['lastname'] %></span>
+                    <span class="text-black-70"></span><br />
+                    <span class="text-secondary d-none"></span><br />
+                    <span class="text-secondary"></span><br />
+                    <span class="text-secondary d-none"></span>
+                  </h2>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+          </div>
+          <% } %>
+          <div class="row col-lg-12 mb-5 mt-4 align-items-center">
+            <div class="col text-center"></div>
+          </div>
+        </div>
+      </div>
+
+      <% if (body.congratulation < 2) { %>
+      <div class="row col-lg-12 mb-5 mt-4 align-items-center ">
+        <div class="col text-center"> 
+        <% if ((heading.user_paymentstatus == 0) && (heading.paymentstatus_key == 1)){ %>
+          <button type="button" class="btn btn-success transition-3d-hover " onclick="$('#payment_option').modal('toggle');"><%= translation.waiting_for_payment %></button>
+        <% }else if ((heading.user_paymentstatus == 2) && (heading.paymentstatus_key == 1)){ %>
+          <button type="button" class="btn btn-success transition-3d-hover "><%= translation.text_payment_waiting2 %></button>
+        <% }else{ %>
+          <button type="button" class="btn btn-success transition-3d-hover " onclick="window.location.href='<%- original_source %>/subject/<%= course_id%>/<%= seo_url %>'"><%= translation.registered_txt %></button>	
+        <% } %>			</div>
+      </div>
+      <% }else if (body.congratulation == 2) { %>
+      <div class="row col-lg-12 mb-5 mt-4 align-items-center ">
+        <div class="col text-center">
+        <% if (body.can_register == 1) { %>
+        <button type="button" id="submitCourse" data-id="<%= course_id%>" class="btn btn-primary-theme transition-3d-hover "> <%= translation.menu_text_login_register2 %></button>
+        <% }else if (body.can_register == 0) { %>
+        <button type="button" class="btn btn-secondary can_register" title="<%= translation.learning_group_is_incorrect %>"> 
+          <%= translation.menu_text_login_register2 %></button>
+        <% } %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <!-- End Pricing Section -->
+    <% if (heading.user_paymentstatus == 0){ %>
+      <!-- The Modal -->
+      <div class="modal fade" id="payment_option">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title text-center"><%= translation.text_payment %></h4>
+              <button type="button" onclick="$('#payment_option').modal('toggle');" class="close" data-dismiss="modal">x</button>
+            </div>
+            <!-- Modal body -->
+            <div class="card-body">
+              <div>
+                <img class="qr_payment" src="<%= file_path %><%=heading.paymentdetail%>"  onerror="this.onerror=null;this.src='/images/qr_payment.jpg'"> 
+              </div>
+              <div class="form_payment_attach">
+                <h5><%= translation.text_payment_attach %></h5>
+                <form id="payment_attach" action="<%= original_source %>/course/payment" enctype="multipart/form-data" method="post"
+                  accept-charset="utf-8">
+                  <input type="hidden" name="course_id" value="<%= course_id%>" />
+                  <input type="file" class="form-control" name="attach" id="attach" value="" required placeholder="Attach"
+                  aria-label="Attach" data-msg="" data-error-class="u-has-error" accept="image/*,application/pdf" data-success-class="u-has-success">
+                  <button type="submit" class="btn btn-primary transition-3d-hover"><i class="fas fa-save"></i>
+                    <%= translation.save_text %></button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="card-footer d-flex justify-content-end">
+              <button type="button" class="btn btn-sm btn-primary-theme transition-3d-hover "
+                data-dismiss="modal" onclick="$('#payment_option').modal('toggle');"><%= translation.close_txt %></button>
+            </div>
+            <!-- End Footer -->
+          </div>
+        </div>
+      </div>
+    <% } %>
+        <!-- The Modal -->
+        <div class="modal fade" id="register_successful">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title text-center"><%= translation.course_new_register %></h4>
+                <button type="button" class="close" data-dismiss="modal">x</button>
+              </div>
+              <!-- Modal body -->
+              <div class="card-body">
+                <p> <%= translation.course_new_register2 %> </p>
+              </div>
+    
+              <!-- Footer -->
+              <div class="card-footer d-flex justify-content-end">
+                <button type="button" class="btn btn-sm btn-primary-theme transition-3d-hover "
+                  data-dismiss="modal"><%= translation.close_txt %></button>
+              </div>
+              <!-- End Footer -->
+            </div>
+          </div>
+        </div>
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script async defer src="/javascripts/course.js"></script>
+  
+  <% if ((displaySuccessful == 'show') || (displaySuccessful == 'show2')) { %>
+  <script>
+    window.onload = function() {
+      <% if (displaySuccessful == 'show2') { %>
+        $("#register_successful .modal-title").text("<%= translation.text_payment %>");
+        $("#register_successful .card-body").text("<%= translation.text_payment_waiting %>");
+      <% } %>
+      $("#register_successful").modal("toggle");
+
+      $("#register_successful .close , #register_successful .card-footer button ").on('click',function(e){
+        $("#register_successful").modal("hide");
+      });
+    }
+  </script>
+  <% } %>
+</body>
+
+</html>

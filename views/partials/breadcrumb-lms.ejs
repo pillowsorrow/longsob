@@ -1,0 +1,27 @@
+<div class="col-lg-12 col-md-12 col-sm-12 table-dark breadcrumb-lms">
+    <ul class="nav nav-pills justify-content-center  flex-sm-row ">
+      <li class="nav-item m-1">
+        <a class="btn btn-sm btn-soft-white  text-nowrap transition-3d-hover <% if (breadcrumbs == 'classroom') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/classroom/?clang=<%= i18n_lang %>"><span class="fas fa-chalkboard-teacher u-sidebar--account__list-icon mr-2 text-white  "></span> <%= translation.aside_classroom %></a>
+      </li>
+      <li class="nav-item m-1">
+        <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover <% if (breadcrumbs == 'register') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/register/?clang=<%= i18n_lang %>"><span class="fas fa-edit u-sidebar--account__list-icon  mr-2  text-white"></span> <%= translation.aside_register %></a>
+      </li>
+      <li class="nav-item m-1">
+        <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover <% if (breadcrumbs == 'inbox') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/inbox/?clang=<%= i18n_lang %>"><span class="fas fa-envelope u-sidebar--account__list-icon  mr-2  text-white"></span>  <%= translation.aside_inbox %></a>
+      </li>
+      <li class="nav-item u-header__nav-item m-1">
+        <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover <% if (breadcrumbs == 'history') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/history/?clang=<%= i18n_lang %>"><span class="fas fa-history u-sidebar--account__list-icon  mr-2  text-white"></span>  <%= translation.aside_history %></a>
+      </li>
+      <li class="nav-item u-header__nav-item m-1">
+        <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover <% if (breadcrumbs == 'log') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/log/?clang=<%= i18n_lang %>"><span class="fas fa-history u-sidebar--account__list-icon  mr-2  text-white"></span>  <%= translation.aside_log %></a>
+      </li>
+      <li class="nav-item u-header__nav-item m-1">
+        <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover <% if (breadcrumbs == 'training') { %> active bg-theme-primary text-white <% } %>" href="<%= original_source %>/lms/training/?clang=<%= i18n_lang %>"><span class="fas fa-user-tie u-sidebar--account__list-icon mr-2  text-white"></span>  <%= translation.lms_training %></a>
+      </li>
+      <% if (isAdmin == 1) { %>
+      <li class="nav-item u-header__nav-item m-1">
+              <a class="btn btn-sm btn-soft-white text-nowrap transition-3d-hover " href="<%= original_source %>/admin/"><i class="fas fa-cog  u-sidebar--account__list-icon  mr-2  text-white"></i>  <%= translation.aside_administrator %></a>
+              </li>
+      <% } %>
+      </ul>
+    </div>

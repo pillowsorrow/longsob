@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+
+          <div class="container space-1">
+            <div class="card  bg-theme-second">
+              <div class="card-header py-4 px-0 mx-4  bg-theme-second">
+                <form action="/lms/saveavatar" id="formavatar" class="media align-items-center mb-7" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+                  <div class="row  col-sm-12 align-items-sm-center">
+                    <div class="col-md-12 mb-2 mb-md-0  text-primary-theme">
+                      <h4><span class="fas fa-user-tie  mr-2 mb-4"></span>ประวัติส่วนตัว</h4>
+                    </div>
+                    <div class="col-sm-12 mt-4">
+                      <div class="media-body">
+                        <img class="u-lg-avatar rounded-circle" style="width: 150px; height: 150px;" src="#" alt="Image Description">
+                          <label class="btn btn-sm btn-primary-theme transition-3d-hover file-attachment-btn mb-1 mb-sm-0 mr-1" for="avatar">
+                              เปลี่ยนรูปภาพ                    <input id="avatar" name="avatar" type="file" class="file-attachment-btn__label" onchange="$('#formavatar').submit(); ">
+                          </label>
+                        </div>
+                      </div>
+                      
+                    </div></form>
+                  </div>
+                  <div class="card-body">
+                    <form action="#" class="js-validate" method="post" accept-charset="utf-8" novalidate="novalidate">
+                      <div class="row">
+                          <!-- Input -->
+                          <div class="col-sm-6 mb-3">
+                            <div class="js-form-message">
+                              <label class="form-label"><%= translation.profile_gender%> </label>
+                              <div class="form-group">
+                                <select name="gender" id="gender" class="form-control form-control-sm" data-msg="เพศ" data-error-class="u-has-error" data-success-class="u-has-success">
+                                  <option value=""> <%= translation.profile_gender_choice%> </option>
+                                  <option value="1"> <%= translation.profile_gender_male%> </option>
+                                  <option value="2"> <%= translation.profile_gender_female%> </option>
+                                  <option value="3"> <%= translation.profile_gender_other%> </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                            <!-- Input -->
+                            <div class="col-sm-6 mb-3">
+                            <div class="js-form-message">
+                              <label id="passwordLabel" class="form-label"><%= translation.profile_citizen_id%></label>
+                              <div class="form-group">
+                                <input type="text" class="form-control form-control-sm" name="citizen_id" value="">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                          <!-- Input -->
+                          <div class="col-sm-6 mb-3">
+                            <div class="js-form-message">
+                              <label id="nameLabel" class="form-label">
+                                ชื่อ                        <span class="text-danger">*</span>
+                              </label>
+                              <div class="form-group">
+                                <input type="text" class="form-control form-control-sm" name="firstname" value="วรรณรุจ" placeholder="ชื่อ" aria-label=" ชื่อ" required="" aria-describedby="nameLabel" data-msg="ชื่อ" data-error-class="u-has-error" data-success-class="u-has-success">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                          <!-- Input -->
+                          <div class="col-sm-6 mb-3">
+                            <div class="js-form-message">
+                              <label id="usernameLabel" class="form-label">
+                                นามสกุล                      </label>
+                              <div class="form-group">
+                                <input type="text" class="form-control form-control-sm" name="lastname" value="บุญแสง" placeholder=" นามสกุล" aria-label=" นามสกุล" aria-describedby="usernameLabel" data-msg=" นามสกุล" data-error-class="u-has-error" data-success-class="u-has-success">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                           <!-- Input -->
+                           <div class="col-sm-6">
+                            <div class="js-form-message">
+                              <label id="passwordLabel" class="form-label">รหัสผ่าน</label>
+                              <div class="form-group">
+                                <input type="password" autocomplete="off" class="form-control form-control-sm" name="password" minlength="8" maxlength="20" placeholder="รหัสผ่าน" aria-label="อีเมล์" aria-describedby="passwordLabel" data-msg="รหัสผ่านต้องมากกว่า 8-20 ตัว" data-error-class="u-has-error" data-success-class="u-has-success">
+                                  <small class="form-text text-muted">รหัสผ่านต้องมากกว่า 8-20 ตัว</small>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                          <!-- Input -->
+                          <div class="col-sm-6">
+                            <div class="js-form-message">
+                              <label id="emailLabel" class="form-label">อีเมล์<span class="text-danger">*</span></label>
+                              <div class="form-group">
+                                <input type="email" class="form-control form-control-sm" name="email" value="wan.ball@gmail.com" placeholder="อีเมล์" aria-label="อีเมล์" required="" aria-describedby="emailLabel" data-msg="อีเมล์" data-error-class="u-has-error" data-success-class="u-has-success">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                          <!-- Input -->
+                          <div class="col-sm-6 mb-3">
+                              <div class="js-form-message">
+                              <label id="phoneNumberLabel" class="form-label"> มือถือ </label>
+                              <div class="form-group">
+                                <input class="form-control  form-control-sm" type="tel" id="mobile" name="mobile" value="0816660249" placeholder="มือถือ" aria-label="มือถือ" aria-describedby="phoneNumberLabel" data-msg="มือถือ" data-error-class="u-has-error" data-success-class="u-has-success">
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                             <!-- Input -->
+                             <div class="col-sm-6 mb-3 d-none">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">ที่อยู่</label>
+                              <div class="form-group">
+                              <textarea type="text" class="form-control form-control-sm" id="workplace" name="workplace" placeholder="ที่อยู่">s</textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 d-none">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">จังหวัด</label>
+                              <div class="form-group">
+                              <select id="province_id" name="province_id" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="1"> กรุงเทพมหานคร </option><option value="2"> สมุทรปราการ </option><option value="3"> นนทบุรี </option><option value="4"> ปทุมธานี </option><option value="5"> พระนครศรีอยุธยา </option><option value="6"> อ่างทอง </option><option value="7"> ลพบุรี </option><option value="8"> สิงห์บุรี </option><option value="9" selected=""> ชัยนาท </option><option value="10"> สระบุรี </option><option value="11"> ชลบุรี </option><option value="12"> ระยอง </option><option value="13"> จันทบุรี </option><option value="14"> ตราด </option><option value="15"> ฉะเชิงเทรา </option><option value="16"> ปราจีนบุรี </option><option value="17"> นครนายก </option><option value="18"> สระแก้ว </option><option value="19"> นครราชสีมา </option><option value="20"> บุรีรัมย์ </option><option value="21"> สุรินทร์ </option><option value="22"> ศรีสะเกษ </option><option value="23"> อุบลราชธานี </option><option value="24"> ยโสธร </option><option value="25"> ชัยภูมิ </option><option value="26"> อำนาจเจริญ </option><option value="27"> บึงกาฬ </option><option value="28"> หนองบัวลำภู </option><option value="29"> ขอนแก่น </option><option value="30"> อุดรธานี </option><option value="31"> เลย </option><option value="32"> หนองคาย </option><option value="33"> มหาสารคาม </option><option value="34"> ร้อยเอ็ด </option><option value="35"> กาฬสินธุ์ </option><option value="36"> สกลนคร </option><option value="37"> นครพนม </option><option value="38"> มุกดาหาร </option><option value="39"> เชียงใหม่ </option><option value="40"> ลำพูน </option><option value="41"> ลำปาง </option><option value="42"> อุตรดิตถ์ </option><option value="43"> แพร่ </option><option value="44"> น่าน </option><option value="45"> พะเยา </option><option value="46"> เชียงราย </option><option value="47"> แม่ฮ่องสอน </option><option value="48"> นครสวรรค์ </option><option value="49"> อุทัยธานี </option><option value="50"> กำแพงเพชร </option><option value="51"> ตาก </option><option value="52"> สุโขทัย </option><option value="53"> พิษณุโลก </option><option value="54"> พิจิตร </option><option value="55"> เพชรบูรณ์ </option><option value="56"> ราชบุรี </option><option value="57"> กาญจนบุรี </option><option value="58"> สุพรรณบุรี </option><option value="59"> นครปฐม </option><option value="60"> สมุทรสาคร </option><option value="61"> สมุทรสงคราม </option><option value="62"> เพชรบุรี </option><option value="63"> ประจวบคีรีขันธ์ </option><option value="64"> นครศรีธรรมราช </option><option value="65"> กระบี่ </option><option value="66"> พังงา </option><option value="67"> ภูเก็ต </option><option value="68"> สุราษฎร์ธานี </option><option value="69"> ระนอง </option><option value="70"> ชุมพร </option><option value="71"> สงขลา </option><option value="72"> สตูล </option><option value="73"> ตรัง </option><option value="74"> พัทลุง </option><option value="75"> ปัตตานี </option><option value="76"> ยะลา </option><option value="77"> นราธิวาส </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 d-none">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">เขต/อำเภอ</label>
+                              <div class="form-group">
+                              <select id="district_id" name="district_id" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="110"> เมืองชัยนาท </option><option value="111"> มโนรมย์ </option><option value="112" selected=""> วัดสิงห์ </option><option value="113"> สรรพยา </option><option value="114"> สรรคบุรี </option><option value="115"> หันคา </option><option value="116"> หนองมะโมง </option><option value="117"> เนินขาม </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 d-none">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">แขวง/ตำบล</label>
+                              <div class="form-group">
+                              <select id="subdistrict_id" name="subdistrict_id" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="777" selected=""> วัดสิงห์ </option><option value="778"> มะขามเฒ่า </option><option value="779"> หนองน้อย </option><option value="780"> หนองบัว </option><option value="781"> หนองขุ่น </option><option value="782"> บ่อแร่ </option><option value="783"> วังหมัน </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+                        </div>
+                        <div class="row">
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 ">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">ตำแหน่ง</label>
+                              <div class="form-group">
+                              <select id="pos_name" name="pos_name" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="0">โปรดเลือกตำแหน่ง</option><option value="1"> นักบริหารระดับต้น </option><option value="2"> ผู้อำนวยการ </option><option value="3"> นักจัดการงานทั่วไป </option><option value="4"> นักทรัพยากรบุคคล </option><option value="5"> นิติกร </option><option value="6"> เจ้าพนักงานคดี </option><option value="7"> นักวิเคราะห์นโยบายและแผน </option><option value="8"> นักประชาสัมพันธ์ </option><option value="9"> นักวิชาการคอมพิวเตอร์ </option><option value="10"> นักวิชาการพัสดุ </option><option value="11"> นักวิชาการสถิติ </option><option value="12"> นักวิเทศสัมพันธ์ </option><option value="13"> นักวิชาการเงินและบัญชี </option><option value="14"> นักวิชาการตรวจสอบภายใน </option><option value="15"> นักวิเคราะห์งบประมาณ </option><option value="16"> มัณฑนากร </option><option value="17"> วิศวกรไฟฟ้า </option><option value="18"> วิศวกรโยธา </option><option value="19"> สถาปนิก </option><option value="20"> บรรณารักษ์ </option><option value="21"> เจ้าพนักงานธุรการ </option><option value="22"> เจ้าพนักงานพัสดุ </option><option value="23"> เจ้าพนักงานการเงินและบัญชี </option><option value="24"> เจ้าพนักงานห้องสมุด </option><option value="25"> เจ้าพนักงานสื่อสาร </option><option value="26"> เจ้าพนักงานโสตทัศนศึกษา </option><option value="27"> นายช่างโยธา </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- End Input -->
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 ">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">ระดับตำแหน่ง</label>
+                              <div class="form-group">
+                              <select id="pos_level" name="pos_level" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="0">โปรดเลือกระดับตำแหน่ง</option><option value="1"> ปฏิบัติงาน </option><option value="2"> ชำนาญงาน </option><option value="3"> อาวุโส </option><option value="4"> ทักษะพิเศษ </option><option value="5"> ปฏิบัติการ </option><option value="6"> ชำนาญการ </option><option value="7"> ชำนาญการพิเศษ </option><option value="8"> เชี่ยวชาญ </option><option value="9"> ทรงคุณวุฒิ </option><option value="10"> อำนวยการต้น </option><option value="11"> อำนวยการสูง </option><option value="12"> บริหารต้น </option><option value="13"> บริหารสูง </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+        
+                           <!-- Input -->
+                           <div class="col-sm-6 mb-3 d-none ">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">ส่วนกลาง / ต่างจังหวัด</label>
+                              <div class="form-group">
+                              <select id="sector_id" name="sector_id" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="0">โปรดเลือกส่วนกลาง / ต่างจังหวัด</option><option value="1"> ภาค1 </option><option value="2"> ภาค2 </option><option value="3"> ภาค3 </option><option value="4"> ภาค4 </option><option value="5"> ภาค5 </option><option value="6"> ภาค6 </option><option value="7"> ภาค7 </option><option value="8"> ภาค8 </option><option value="9"> ภาค9 </option><option value="10"> ส่วนกลาง </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+        
+                            <!-- Input -->
+                            <div class="col-sm-6 mb-3 d-none  ">
+                            <div class="js-form-message">
+                              <label id="locationLabel" class="form-label">สำนักงาน</label>
+                              <div class="form-group">
+                              <select id="office_id" name="office_id" class="form-control form-control-sm" data-toggle="select2" data-allow-clear="false">
+                                <option value="0">โปรดเลือกสำนักงาน</option><option value="8"> &nbsp;สำนักงานการสอบสวน 4 </option><option value="45"> &nbsp;สำนักงานอัยการพิเศษฝ่ายคุ้มครองผู้บริโภค </option><option value="46"> &nbsp;สำนักงานอัยการพิเศษฝ่ายคุ้มครองสิทธิ </option><option value="47"> &nbsp;สำนักงานอัยการพิเศษฝ่ายคุ้มครองสิทธิประชาชนระหว่างประเทศ </option><option value="49"> &nbsp;สำนักงานอัยการพิเศษฝ่ายช่วยเหลือทางกฎหมาย 1 </option><option value="50"> &nbsp;สำนักงานอัยการพิเศษฝ่ายช่วยเหลือทางกฎหมาย 4 (มีนบุรี) </option><option value="51"> &nbsp;สำนักงานอัยการพิเศษฝ่ายบริหารจัดการความรู้ (KM) </option><option value="53"> &nbsp;สำนักงานอัยการพิเศษฝ่ายพัฒนากฎหมาย </option><option value="54"> &nbsp;สำนักงานอัยการพิเศษฝ่ายสารสนเทศ </option>                      </select>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- End Input -->
+        
+          
+                        </div>
+                        <hr class="my-2">
+                        <button type="submit" class="btn btn-sm btn-primary-theme transition-3d-hover mr-1"><i class="fas fa-user-edit"></i> 
+                        บันทึกข้อมูลส่วนตัว </button>
+                      </form>
+                  </div>
+                </div>
+            </div>
+
+
+ 
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+    <script>
+      function feedPage(){}
+     
+    </script>
+</body>
+
+</html>

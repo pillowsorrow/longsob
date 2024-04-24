@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb-ebook'); -%>
+    </div>
+    <!-- End Viwer Section -->
+    <div class="container" id="ebookPage">
+      <div class="row space-bottom-xs-1 py-2">
+        <div class="col-lg-9 ">&nbsp;
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 ">
+          <select class="form-control custom-select d-none" name="sortby" id="sortby">
+            <option value="1" selected="">เรียงตามวันที่</option>
+            <option value="2">เรียงตามเปิดดู</option>
+            <option value="3">เรียงตามถูกใจ</option>
+            <option value="4">เรียงตามความคิดเห็น</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-9 order-lg-2 mb-9 mb-lg-0">
+          <div class="mb-2 ">
+            <!-- text-center -->
+            <h4 class="h4 mb-4 text-primary-theme heading-subject-text"><%= category_active %></h4>
+
+          </div>
+          <!-- Blog List News -->
+
+          <% if(total_ebook > 0){ %>
+          <% many_ebook.forEach((ebook) => { %>
+          <div class="row">
+            <div class="col-sm-3 col-mb-3 col-lg-3 mb-2 mb-sm-0 border-1 space-bottom-1">
+              <a class=" u-media-viewer  transition-3d-hover"
+                href="<%= ebook.location %>" target="_blank" data-speed="700">
+                <div class="card border-1 h-100 shadow-sm transition-3d-hover">
+                  <header id="SVGwaveWithDots2"
+                    class="card-header border-0 position-relative bg-primary text-white p-0">
+                    <img class="img-fluid w-100" src="<%= ebook.cover %>">
+                    <div class="position-absolute right-0 bottom-0 left-0">
+
+                    </div>
+                  </header>
+                  <div class="card-body pt-0 px-4 pb-0 bg-primary text-white d-none">
+                    <ul class="list-group list-group-flush list-group-borderless mb-4">
+                      <li class="list-group-item bg-primary text-white">
+                        <div class="d-flex align-items-center">
+                          <h2 class="h6 mb-1 bg-primary text-white"><%= ebook.subject %></h2>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-sm-9 col-mb-9 col-lg-9">
+              <div class="pt-1 pr-4">
+                <div class="mb-7">
+                  <!-- <small class="text-black-70 d-block text-muted mb-2"><i class="far fa-clock"></i> Jan 01,1970</small> -->
+                  <h2 class="h5 text-primary-theme"><%= ebook.subject %></h2>
+                  <p class="text-black-70"> : <%= ebook.book_year %></p>
+                  <p class="text-black-70"> <%= translation.text_author%> <%= ebook.author %></p>
+                  <p class=" fix-line text-line-clamp line-clamp-5">Summary : <%= ebook.book_detail %> <a
+                      href="<%= ebook.location %>" target="_blank"
+                      class="ml-3"><%= translation.more_txt2%>...</a></p>
+                </div>
+                <span
+                  class="btn btn-sm btn-icon btn-soft-danger btn-bg-transparent position-absolute top-0 right-0 rounded-circle mt-3 mr-3 "></span>
+                <a href="javascript:;"
+                  class="btn btn-sm btn-icon btn-soft-warning btn-bg-transparent position-absolute top-0 right-0 rounded-circle mt-3 mr-3 addbooktofavorites  d-none "
+                  id="addbooktofavorites__10" data-placement="top"><span class="far fa-star btn-icon__inner"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+
+          <% if(pagination > 1){ %>
+          <!-- Pagination -->
+          <nav aria-label="Page navigation" class="">
+            <ul class="pagination mb-0">
+              <% for(var i=1; i <= pagination; i++) {%>
+              <% if(page_active == i){ %>
+              <li class="page-item active"><a class="page-link-primary-theme"
+                  href="#"><%= i %></a>
+                <% }else{ 
+                  var link_page = search_path.category_id + '/' + i;
+                  if(search_path.query != 0){
+                    link_page = link_page + '?search=' + search_path.query
+                  }   
+                %>
+              <li class="page-item"><a class="page-link-primary-theme"
+                  href="<%= original_source %>/knowledge/<%= link_page %>"><%= i %></a>
+                <% } %>
+              </li>
+              <% } %>
+            </ul>
+          </nav>
+          <!-- End Pagination -->
+          <% } %>
+        </div>
+
+        <% }else{ %>
+        <div>
+          <article class="d-block card border-0 mb-7">
+            <span class="no_news"><%= translation.no_ebook%></span>
+          </article>
+        </div>
+      </div>
+      <% } %>
+
+      <div id="stickyBlockStartPoint" class="col-lg-3 order-lg-1">
+
+        <div class="js-sticky-block" data-offset-target="#logoAndNav" data-parent="#stickyBlockStartPoint"
+          data-sticky-view="lg" data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint"
+          data-offset-top="32" data-offset-bottom="170" style="top: 193.275px;">
+          <h3 class="h4 text-tcg-info heading-subject-text mb-4">
+            <%= translation.menu_text_category%>
+          </h3>
+          <% sidebar_datas.forEach((sidebar_data) => { %>
+          <article class="card border-0 mb-5 transition-3d-hover">
+            <div class="card-body p-0">
+              <div class="media">
+                <div class="u-avatar">
+                  <i class="fas fa-book font-size-3 text-primary-theme"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="h5 font-weight-normal mb-0">
+                    <a href="<%= original_source %>/knowledge/ebook/<%= sidebar_data.category_id%>"
+                      class=""><%= sidebar_data.category_title %></a>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </article>
+          <% }) %>
+          <hr class="my-7">
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script>
+    function feedPage(){}
+  </script>
+</body>
+
+</html>

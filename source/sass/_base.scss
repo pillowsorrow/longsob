@@ -1,0 +1,53 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+$color-black: #000000;
+$color-light-black: #2A2A2A;
+$color-light-white: #f5f5f5;
+
+:root {
+    --primary-theme: #F04A23;
+    --second-theme: #EAEAEA;
+    --dark-primary-theme: #6d4e2f;
+    --soft-primary-theme: #ffaa55;
+    --dark-blue: #0b1854;
+    --blue: #00A5E8;
+    --indigo: #2d1582;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #de4437;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #00c9a7;
+    --cyan: #00dffc;
+    --white: #fff;
+    --gray: #8c98a4;
+    --gray-dark: #343a40;
+    --primary: #00A5E8;
+    --secondary: #77838f;
+    --success: #00c9a7;
+    --info: #00dffc;
+    --warning: #ffc107;
+    --danger: #de4437;
+    --light: #f8f9fa;
+    --dark: #1e2022;
+    --indigo: #2d1582;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Kanit", Helvetica, Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    color: var(--primary-theme);
+}
+a#langMenu{
+    #pagesSubMenu{
+        min-width: 230px;
+    }
+}

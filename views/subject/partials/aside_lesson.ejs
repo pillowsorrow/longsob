@@ -1,0 +1,77 @@
+<div class=" sidemenu_top card shadow-sm bg-white shadow-soft mt-3 p-0" data-parent="#stickyBlockStartPoint2" data-sticky-view="lg" data-start-point="#stickyBlockStartPoint2" data-end-point="#stickyBlockEndPoint2" data-offset-top="80" data-offset-bottom="24">
+	<ul class="js-scroll-nav list-group list-group-transparent list-group-flush list-group-borderless list-unstyled animated fadeInUp"
+	id="sidebarNav" role="tablist">
+
+	<li class="pt-1 pb-1" onclick="$( '.sidemenu1 , .sidemenu2' ).toggleClass( 'sidemenu' )">
+		<!-- border-bottom -->
+		<a class="list-group-item list-group-item-action-primary-theme font-weight-medium" href="#" role="tab">
+			<span class="media ml-3 mr-3">				
+				<span class="media-body"><i class="fas fa-bars"></i> <%= translation.text_menu %></span>
+			</span>
+		</a>
+	</li>
+	</ul>
+</div>
+<div class="card shadow-sm bg-white shadow-soft p-2 sidemenu sidemenu1" data-parent="#stickyBlockStartPoint" data-sticky-view="lg"
+        data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint" data-offset-top="80"
+        data-offset-bottom="24">
+        <!-- js-sticky-block -->
+
+        <ul class="js-scroll-nav list-group list-group-transparent list-group-flush list-group-borderless list-unstyled u-timeline"
+            id="sidebarNav" role="tablist">
+            <% data.lesson_aside.forEach(function(aside, index){ %>
+            <li class="u-timeline__item border-bottom mt-0 mb-0 pt-1 pb-1 animated fadeInUp ">
+                <% if(aside.lesson_id == data.lesson_active){ %>
+                    <span class="u-timeline__icon btn btn-icon btn-sm btn-soft-warning rounded-circle">
+                        <span class="far fa-play-circle btn-icon__inner"></span>
+                    </span>
+                    <a href="<%= original_source %>/<%= aside.url %>?clang=<%= i18n_lang %>"
+                        class="list-group-item list-group-item-action-primary-theme font-weight-medium active text-primary-theme" id="lessonid_<%= aside.lesson_id %>"
+                        role="button" aria-expanded="true" aria-controls="sidebarNavCollapse<%= aside.lesson_id %>"
+                        data-target="#sidebarNavCollapse<%= aside.lesson_id %>">
+                <% }else if(aside.status == 1){ %>
+                    <span class="u-timeline__icon btn btn-icon btn-sm btn-soft-success rounded-circle">
+                        <span class="fas fa-check-circle btn-icon__inner"></span>
+                    </span>
+                    <a href="<%= original_source %>/<%= aside.url %>?clang=<%= i18n_lang %>"
+                            class="list-group-item list-group-item-action-primary-theme font-weight-medium " id="lessonid_<%= aside.lesson_id %>"
+                            role="button" aria-expanded="true" aria-controls="sidebarNavCollapse<%= aside.lesson_id %>"
+                            data-target="#sidebarNavCollapse<%= aside.lesson_id %>">
+                <% }else{ %>
+                    <span class="u-timeline__icon btn btn-icon btn-sm btn-soft-secondary rounded-circle">
+                        <span class="far fa-play-circle btn-icon__inner"></span>
+                    </span>
+                    <a href="<%= original_source %>/<%= aside.url %>?clang=<%= i18n_lang %>"
+                        class="list-group-item list-group-item-action-primary-theme font-weight-medium " id="lessonid_<%= aside.lesson_id %>"
+                        role="button" aria-expanded="true" aria-controls="sidebarNavCollapse<%= aside.lesson_id %>"
+                        data-target="#sidebarNavCollapse<%= aside.lesson_id %>">
+                <% } %>
+                    <span class="media">
+                        <span class="ml-1 mr-1"></span>
+                        <span class="media-body"><%= aside.lesson_title %></span>
+                    </span>
+                </a>
+                <% if(aside.id_ref != 0){ %>
+                    <ul class="list-group list-group-transparent list-group-flush list-group-borderless list-unstyled lessonid_<%= aside.lesson_id %>" id="sidebarNavCollapse<%= aside.lesson_id %>" data-parent="#sidebarNav"> 
+                    <% aside.id_ref.forEach(function(id_refs, index){ %>    
+                        <li class="border-bottom mt-0 mb-0 pt-0 pb-0 animated fadeInUp">
+                            
+                        <a href="<%= original_source %>/<%= id_refs.url %>" class="list-group-item list-group-item-action-primary-theme " id="lessonid_<%= id_refs.lesson_id %>" role="tab" aria-expanded="true" aria-controls="sidebarNavCollapse<%= id_refs.lesson_id %>" data-target="#sidebarNavCollapse<%= id_refs.lesson_id %>">
+                            <% if(id_refs.lesson_id == data.lesson_active){ %>
+                                <i class="far fa-play-circle text-warning"></i>
+                            <% }else if(id_refs.status == 1){ %>
+                                <i class="far fa-play-circle text-success"></i>
+                            <% }else{ %>
+                                <i class="far fa-play-circle text-secondary"></i>
+                            <% } %>                               
+                               <span class="media-body"><%= id_refs.lesson_title %></span> 
+                        </a>
+                        </li> 
+                    <% }) %>
+                    </ul>
+                <% } %>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+    <!-- End Sidebar Content -->

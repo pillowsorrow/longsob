@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <%- include('meta'); -%>
+
+</head>
+
+<body>
+  <%- include('header'); -%>
+  
+  <main role="main" class="container-fluid">
+    <div class="container mt-4">
+      <section class="jumbotron text-center">
+        <div class="container" id="news">
+          <div>
+            <h1 class="jumbotron-heading">หลักสูตรยอดนิยม</h1>
+            <div class="line-title"></div>
+          </div>
+          <div class="row coruse-group justify-content-md-center">
+
+            <% course_recommended.forEach(function(recommended, index){ %>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <a href="<%= recommended.link %>">
+                  <img class="card-img-top" src="<%= recommended.cover %>" alt="<%= recommended.course_subject %>">
+                </a>
+                <div class="card-body">
+                  <p class="card-text"><%= recommended.course_subject %></p>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+
+          </div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <%- include('footer'); -%>
+
+</body>
+
+</html>

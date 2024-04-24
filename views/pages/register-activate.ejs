@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="bg-theme-second">
+      <%- include('../partials/breadcrumb'); -%>
+    </div>
+    <!-- End Viwer Section -->
+    <div class="container space-bottom-xs-1 mt-4 py-2 px-sm-0">
+      <div class="row">
+        <div class="text-center col-12">
+          <form action="<%= original_source %>/" method="get">
+            <div >
+              <% if (error == 0) { %>
+              <div class="alert alert-success registration_successful" role="alert">
+                <h4 class="alert-heading"> <%= translation.activate_successful1 %> </h4>
+                <p><%= translation.activate_successful2 %></p>
+              </div>
+              <% }else{ %>
+                <div class="alert alert-danger registration_successful" role="alert">
+                  <h4 class="alert-heading"> <%= translation.activate_unsuccessful1 %> </h4>
+                  <% if (error == 1) { %>
+                  <p><%= translation.activate_unsuccessful2 %></p>
+                  <% }else if (error == 2) { %>
+                  <p><%= translation.activate_unsuccessful3 %></p>
+                  <% } %>
+                </div>
+              <% } %>
+              <div class="form-actions text-center">
+                <button type="submit" class="btn btn-primary-theme ml-auto btn-md"><%= translation.close_txt%></button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+  <script>
+    function feedPage() {}
+  </script>
+</body>
+
+</html>

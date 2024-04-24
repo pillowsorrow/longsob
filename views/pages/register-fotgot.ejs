@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="space-top-3 d-none d-md-block d-lg-block d-xl-block"></div>
+
+    <div class="container space-2">
+      <form role="form" method="post" action="./forgot"
+        class="js-validate w-md-75 w-lg-50 mx-md-auto">
+        <% /* <input type="hidden" value="" name="g_recaptcha_response" id="g-recaptcha-response" /> */ %>
+
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="email"><%= translation.menu_text_login_forgot%></label>
+          <input type="email" class="form-control" name="recoveremail" id="email" placeholder="<%= translation.enter_your_email%>" required />
+        </div>
+
+
+        <!-- End Form Group -->
+
+        <!-- Button -->
+        <div class="row align-items-center mb-5">
+          <div class="col-6">
+            <%= translation.remember_your_password%>
+            <a class="link-muted text-capitalize font-weight-normal target-of-invoker-has-unfolds"
+              href="../login">
+              <%= translation.login_txt%></a>
+          </div>
+
+          <div class="col-6 text-right">
+            <button type="submit" class="btn btn-primary-theme transition-3d-hover" id="b-submit-login">
+              <%= translation.menu_text_login_forgot%>?</a>
+            </button>
+          </div>
+        </div>
+        <!-- End Button -->
+      </form>
+    </div>
+
+    <div class="space-top-3 d-none d-md-block d-lg-block d-xl-block"></div>
+	 <!-- The Modal -->
+   <div class="modal fade" id="loginerror">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-center">ล็อกอินผิดพลาด</h4>
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+        <!-- Modal body --> <div class="card-body">
+	   		<p  > กรอกรหัสผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง <br>กรุณาลองใหม่ </p>
+        </div>
+
+		 <!-- Footer -->
+		<div class="card-footer d-flex justify-content-end">
+		  <button type="button" class="btn btn-sm btn-primary-theme transition-3d-hover " data-dismiss="modal">ปิด</button>
+		</div>
+		<!-- End Footer -->
+      </div>
+    </div>
+  </div>
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+    <script>
+      function feedPage(){}
+     
+    </script>
+</body>
+
+</html>

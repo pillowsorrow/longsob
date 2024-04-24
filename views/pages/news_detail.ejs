@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../partials/head'); -%>
+    <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+    <%- include('../partials/header'); -%>
+    <div class="bg-theme-second page_detail">
+        <%- include('../partials/breadcrumb'); -%>
+    </div>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <!--  Article Section -->
+        <div class="container mt-4 space-bottom-0 ">
+            <div class=" mx-lg-auto ">
+                <!-- Article -->
+                <div class="card shadow-sm p-5 news_zone">
+                    <h2 class="h4 mb-4 text-primary-theme"><%= web_data.news_title %></h2>
+    
+                    <% if(web_data.cover != null){ %>
+                    <p class="text-center"><img class="img-fluid rounded w-md-60 w-sm-100" src="<%= web_data.cover %>"></p>
+                    <% } %>
+
+                    <p><%- web_data.news_detail %></p>
+                    <!-- Resolved -->
+                    <div class="text-center  border-bottom my-4 py-4 "></div>
+                    <!-- End Resolved -->
+
+                    <!-- Comments Section -->
+                    <div class="container ">
+                        <div class=" mx-auto">
+                            <!-- Header -->
+                            <header class="row justify-content-between align-items-center">
+                                <div class="col-12">
+                                    <h6 class="h6 mb-0" style="font-size: 1rem;">
+                                        <span class="far fa-eye ml-1 fa-lg text-success"></span>
+                                        <%= web_data.news_numview %>
+                                        เปิดดู&nbsp;&nbsp;
+
+                                        <% if(web_data.likeAction == 1){ %>
+                                        <span id="likeNews" class="fas fa-thumbs-up fa-lg ml-1  text-primary "></span>
+                                        <% }else{ %>
+                                        <span id="likeNews" class="far fa-thumbs-up  fa-lg ml-1  text-primary "></span>
+                                        <% } %>
+                                        <span id="showlike"><%= web_data.news_numlike %></span> ถูกใจ&nbsp;&nbsp;
+                                    </h6>
+                                </div>
+                                <div class="col-6 col-sm-4 col-md-3">
+                                    <select class="custom-select border-0 d-none">
+                                        <option selected="">เรียง</option>
+                                        <option value="comments1">ยอดนิยม</option>
+                                        <option value="comments2">วันที่</option>
+                                    </select>
+                                </div>
+                            </header>
+                            <!-- End Header -->
+                            <hr class="my-6">
+                            <!-- <a class="btn btn-block btn-soft-primary transition-3d-hover" href="#">Load More</a> -->
+                        </div>
+                    </div>
+                    <!-- End Comments Section -->
+                    <% if(relate_news.length > 0){ %>
+                    <!-- Related Articles -->
+                    <div class="mb-4">
+                        <h3 class="h5 font-weight-medium news-relate-title"><%= translation.relatednews%></h3>
+                    </div>
+
+                    <ul class="list-unstyled">
+                        <% relate_news.forEach((relate_news_only) => { %>
+                        <li class="pb-3"><a class="link-muted"
+                                href="<%= original_source %>/news/detail/<%= relate_news_only.web_url %>"><%= relate_news_only.web_title %></a>
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <!-- End Related Articles -->
+                    <% } %>
+                </div>
+                <!-- End Article -->
+            </div>
+        </div>
+
+        <!-- End Article Section -->
+
+        <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%>
+    <%- include('../partials/script'); -%>
+    <script> function feedPage(){ 
+        $(document).on('click', '#likeNews',function(e){
+          let profile = getCookie('cookieProfileID') || 0;
+          if(profile === 0){
+            window.location.href = site_path + '/login'
+          }else{
+            likePage(<%= web_data.web_id %>,profile,'<%= page_owner %>')
+          }
+        });
+
+    } </script>
+</body>
+
+</html>

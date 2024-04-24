@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+      <div class="bg-theme-second">
+        <%- include('../partials/breadcrumb'); -%>
+      </div>
+      <!-- End Viwer Section -->
+      <div class="container space-bottom-xs-1 mt-4 py-2">
+        <h2 class="text-center mb-4 h2 text-primary-theme heading-subject-text"> <%= translation.title_contactus%></h2>
+        <hr>
+        <div class="row ">
+          <div class="row col-md-12 col-sm-12">
+            <div class="col-md-8 col-sm-8 ">
+              <div class="pt-1 pr-4 ml-3">
+                <h4 class="text-primary-theme"><%= translation.footer_org_name%></h4>
+                <div class="mb-7">
+                  <h6 class="text-black-70"><i class="fas fa-building fa-lg text-primary-theme mr-2"></i> <%= translation.footer_org_address%></span></h6>
+                  <p class="my-1 text-black-70"><i class="fas fa-phone fa-lg text-primary-theme mr-2"></i> <%= translation.footer_org_contact_phone%> </p>
+                  <p class="my-1 text-black-70"><i class="fas fa-envelope-open-text fa-lg text-primary-theme mr-2"></i> Email : <a href="mailto:<%= translation.footer_org_contact_email%>" target="_blank"><%= translation.footer_org_contact_email%></a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 linecontact">
+              <h6>แจ้งปัญหาการเข้าใช้งานระบบหรือสอบถามเพิ่่มเติม</h6>
+              <img src="/images/qr_contactus.jpg" alt="contact us"/>
+              <p>หรือ Link : <a href="https://lin.ee/WDWpwMj" target="_blank">https://lin.ee/WDWpwMj</a></p>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="pt-1 pr-4">
+              <embed src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5761.673763038601!2d100.56141292539355!3d13.87970462852412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e283f4f004b0db%3A0xf9d0f28422ecca53!2z4Liq4Liz4LiZ4Lix4LiB4LiH4Liy4LiZ4LiE4LiT4Liw4LiB4Lij4Lij4Lih4LiB4Liy4Lij4LiB4Liy4Lij4LmB4LiC4LmI4LiH4LiC4Lix4LiZ4LiX4Liy4LiH4LiB4Liy4Lij4LiE4LmJ4Liy!5e0!3m2!1sth!2sth!4v1662864430389!5m2!1sth!2sth" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="w-100"></embed>
+            </div>
+          </div>
+        </div>
+        <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%>
+    <%- include('../partials/script'); -%>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "background": {
+        "type": "image", "x":0, "y": 0, "key": "background-game", "url": "images/bg_and_icon/bg_game.png"
+    },
+    "imm" : "images/bg_and_icon/bg_game.png"
+}

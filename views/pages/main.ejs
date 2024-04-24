@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+    <%- include('../partials/header'); -%>
+        <!-- ========== MAIN CONTENT ========== -->
+        <main id="content" role="main">
+            <!-- Hero Section -->
+            <div class="">
+                <div class="position-relative mobile-none">
+                    <!-- Slick Carousel -->
+                    <div id="herobanner" class="js-slick-carousel u-slick" data-speed="10000" data-adaptive-height="true"
+                        data-arrows-classes="d-lg-inline-block u-slick__arrow-classic u-slick__arrow-centered--y rounded-circle"
+                        data-arrow-left-classes="fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
+                        data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
+                        data-fade="true" data-autoplay="true" data-infinite="true"
+                        data-pagi-classes="text-center u-slick__pagination u-slick__pagination--white position-absolute right-0 bottom-0 left-0 mb-4 mb-0">
+                        <div class="js-slide">
+                            <div class="d-lg-flex align-items-lg-center u-hero-v1__main"></div>
+                        </div>
+                    </div>
+                    <!-- End Slick Carousel -->
+                </div>
+            </div>
+            <!-- End Hero Section -->
+            <!-- Nav Classic -->
+            <div class="bg-white pt-6">
+                <ul class="w-md-80 w-sm-100 nav nav-classic nav-justified container pr-0" role="tablist">
+                    <li class="nav-item nav-item-theme">
+                        <a class="nav-link font-weight-medium py-0 p-sm-0 py-sm-2 active" id="rec-course-tab"
+                            data-toggle="pill" href="#rec-course" role="tab" aria-controls="rec-course"
+                            aria-selected="true">
+                            <div class="d-flex justify-content-center align-items-center fix-line-50">
+                                <%= translation.title_recommended%>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-theme">
+                        <a class="nav-link font-weight-medium py-0 p-sm-0 py-sm-2" id="pop-course-tab"
+                            data-toggle="pill" href="#pop-course" role="tab" aria-controls="pop-course"
+                            aria-selected="false">
+                            <div class="d-flex justify-content-center align-items-center fix-line-50">
+                                <%= translation.title_popular%>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-item-theme d-none">
+                        <a class="nav-link font-weight-medium py-0 p-sm-0 py-sm-2" id="month-course-tab"
+                            data-toggle="pill" href="#month-course" role="tab" aria-controls="month-course"
+                            aria-selected="false">
+                            <div class="d-flex justify-content-center align-items-center fix-line-50">
+                                วิชาประจำเดือนนี้
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- End Nav Classic -->
+            <!-- Tab Content -->
+            <div class="container tab-content">
+                <div class="tab-pane fade pt-6 show" id="rec-course" role="tabpanel"
+                    aria-labelledby="rec-course-tab">
+                    <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text">
+                        <span class="px-sm-6"> <%= translation.title_recommended%></span>
+                    </h2>
+                    <div class="row p-7 px-sm-2">
+                        <!-- Rec Course -->
+                        <div class="col-sm-12 col-md-6 col-lg-4 card bg-transparent border-0 transition-3d-hover mb-5"
+                            >
+                            <img class="card-img-top bg-white"
+                                src="#"
+                                alt="Image Description" />
+                            <div class="card-body p-4 bg-white">
+                                <h2 class="h5 mb-0 fix-line h-65-px text-black-70 mb-1">
+                                    
+                                </h2>
+                                <small class="text-secondary fix-line-50 mobile-none text-line-clamp d-none"></small>
+                                <small class="text-secondary fix-line-50 mobile-none text-line-clamp d-none"></small>
+                                <%= translation.price%> <var class="price"></var> <%= translation.baht%>
+                            </div>
+                            <div class="card-footer text-center course-btn">
+                                <a href="#" class="more">
+                                    <%= translation.text_course_more%></a>
+                                <a href="#">
+                                    <%= translation.text_course_select%></a>
+                            </div>
+                        </div>
+                        <!-- End Rec Course -->
+
+
+                        <div class="col-md-12 text-center">
+                            <a href="<%= original_source %>/course" class="btn btn-soft-primary btn-wide">
+                                <%= translation.more_txt%></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade pt-6" id="pop-course" role="tabpanel" aria-labelledby="pop-course-tab">
+                    <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text">
+                        <span class="px-sm-4"><%= translation.title_popular%></span>
+                    </h2>
+                    <div class="row p-7 px-sm-2">
+                        <!-- pop Course-->
+                        <div class="col-sm-12 col-md-6 col-lg-4 card bg-transparent border-0 transition-3d-hover mb-5"
+                            href="#">
+                            <img class="card-img-top bg-white"
+                                src="#"
+                                alt="Image Description" />
+                            <div class="card-body p-4 bg-white">
+                                <h2 class="h5 mb-0 fix-line h-65-px text-black-70 mb-1"></h2>
+                                <small class="text-secondary fix-line-50 mobile-none text-line-clamp d-none"></small>
+                                <small class="text-secondary fix-line-50 mobile-none text-line-clamp d-none"></small>
+                                <var class="price"></var>
+                            </div>
+                            <div class="card-footer text-center course-btn">
+                                <a href="#" class="more">
+                                    <%= translation.text_course_more%></a>
+                                <a href="#">
+                                    <%= translation.text_course_select%></a>
+                            </div>
+                        </div>
+                        <!-- End pop Course-->
+
+                        <div class="col-md-12 text-center">
+                            <a href="<%= original_source %>/course" class="btn btn-soft-primary btn-wide">
+                                <%= translation.more_txt%></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container2 tab-content min-zone">
+                    <div class="row">
+                        <div class="col-md-12  text-center">
+                            <h6>ระบบช่วยคุณเตรียมความพร้อมในการสอบอย่างไร...</h6>
+                        </div>
+                    </div>
+                    <div class="row min-zone-block">
+                        <div class="col-md-4 col-sm-12">
+                            <span>รู้ความพร้อมในแต่ละเนื้อหา</span>
+                            <img src="<%= path_source %>/images/min-image-1.png" alt="" />
+                            <div>ระบบมีการประเมินความพร้อมในแต่ละเนื้อหา ว่าผู้สอบมีความพร้อมในเนื้อหาอย่างไร หัวข้อใดควรอ่านเพิ่มเติม  และมีเฉลยคำตอบ  วิธีคิด วิธีทำอย่างละเอียด</div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <span>รู้เวลาในการทำข้อสอบรายข้อ</span>
+                            <img src="<%= path_source %>/images/min-image-2.png" alt="" />
+                            <div>รู้เวลาในการทำข้อในทุกมิติ ระบบจะช่วยประเมิน การบริหารจัดการเวลาในการทำข้อสอบ ในแต่ละเรื่อง มีสถิติระยะเวลาในการทำรายข้อ สร้างความมั่นใจในการทำข้อสอบมากยิ่งขึ้น</div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <span>เปรียบเทียบพฤติกรรมการสอบ</span>
+                            <img src="<%= path_source %>/images/min-image-3.png" alt="" />
+                            <div>มีระบบการประเมินพฤติกรรมและอารมณ์ ของผู้สอบทำให้สามารถวิเคราะห์เชิงลึกได้ว่า ในเรื่องนั้นๆ หรือข้อสอบข้อนั้นๆ ต้องทบทวนหรือสร้างความเข้าใจเพิ่มเติมหรือไม่่</div>
+                        </div>
+                    </div>
+                </div>
+           
+
+            <!-- start news -->
+            <div class="container2 tab-content">
+                <div class="tab-pane fade pt-6 show active" id="rec-course4" role="tabpanel"
+                    aria-labelledby="rec-course-tab">
+                    <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text"><span
+                            class="px-sm-6"><%= translation.menu_text_news_and_activity%></span></h2>
+                    <div class="row p-7 px-sm-2">
+                        <a class="col-sm-12 col-md-6 col-lg-4 card bg-transparent border-0 transition-3d-hover mb-5"
+                            href="#">
+                            <img class="card-img-top bg-white"
+                                src="#"
+                                alt="Image Description">
+                            <div class="card-body p-4 bg-white ">
+                                <div class="d-block text-secondary d-none"></div>
+                                <h2 class="h5 mb-0 fix-line h-65-px text-black-70 mb-1"></h2>
+                                <small class="text-secondary fix-line-50 mobile-none text-line-clamp"></small>
+                            </div>
+                            <div class="card-footer text-center">
+                                <small class="text-black-70"><span
+                                        class="btn btn-primary-theme btn-wide">อ่านต่อ</span></small>
+                            </div>
+                        </a>
+
+                        <div class="col-md-12 text-center">
+                            <a href="<%= original_source %>/news" class="btn btn-soft-primary btn-wide">
+                                <%= translation.more_txt%></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end news -->
+            <div class="container2 tab-content ads">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 ads-title">
+                        <h6>ปฏิวัติรูปแบบการเตรียมตัวสอบ!!!... ให้ AI ช่วยคุณ... เตรียมความพร้อมในการสอบทุกมิติ....</h6>
+                        <p>เป็นแพลตฟอร์มการเรียนการสอนและการสอบรุปแบบดิจิทัล ที่มีคอร์สการเตรียมตัวสอบ เข้าราชการและรัฐวิสาหกิจหลากหลายวิชาและหลากหลายหัวข้อ ครอบคลุมทุกหน่วยงาน แพลตฟอร์มนี้สามารถช่วยในการเตรียมตัว ให้พร้อมสำหรับการสอบราชการ และการทำงาน ในสาขาต่างๆ ด้วยการใช้เทคโนโลยีในการวิเคราะห์เชิงลึก และเทคโนโลยี AI เพื่อให้คำแนะนำ ที่เหมาะสมสำหรับผู้สอบ</p>
+                        <button type="button" class="btn btn-lg btn-block">ทดลองใช้ฟรี !!!</button>
+                    </div>
+                    <div class="col-md-6 col-sm-12 ads-image">
+                    </div>
+                </div>
+            </div>
+             <!-- start news -->
+             <div class="container2 tab-content">
+                <div class="tab-pane fade pt-6 show active" id="rec-course3" role="tabpanel"
+                    aria-labelledby="rec-course-tab">
+                    <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text">
+                        <span class="px-sm-6"><%= translation.survey_title%></span>
+                    </h2>
+                    <div class="row p-7 px-sm-2">
+                        <!-- Info -->
+                        <div class="media col-md-12 survey-row">
+                            <span class="btn btn-sm btn-icon btn-primary rounded-circle mr-3">
+                                <span class="btn-icon__inner">0</span>
+                            </span>
+                            <div class="media-body">
+                                <p>
+                                    <a href="#"></a>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Info -->
+
+                        <div class="col-md-12 text-center survey-row"><!--
+                            <a href="<%= original_source %>/survey" class="btn btn-soft-primary btn-wide">
+                                <%= translation.more_txt%></a>-->
+                        </div>
+                        <div class="col-md-12 text-center survey-row-no-reult"><%= translation.no_survey%></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end news -->
+            <!-- Clients Section -->
+            <div class="container2 tab-content ">
+                <div class="tab-pane fade pt-6  show active" id="rec-course5" role="tabpanel"
+                    aria-labelledby="rec-course-tab">
+                    <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text"><span
+                            class="px-sm-6">ลิงค์ที่น่าสนใจ</span></h2>
+                    <div id="linkbanner" class="js-slick-carousel u-slick u-slick--gutters-1 p-2 " data-autoplay="true"
+                        data-speed="5000" data-infinite="true" data-slides-show="6" data-responsive='[{
+                         "breakpoint": 1200,
+                         "settings": {
+                           "slidesToShow": 4
+                         }
+                       }, {
+                         "breakpoint": 992,
+                         "settings": {
+                           "slidesToShow": 4
+                         }
+                       }, {
+                         "breakpoint": 768,
+                         "settings": {
+                           "slidesToShow": 3
+                         }
+                       }, {
+                         "breakpoint": 576,
+                         "settings": {
+                           "slidesToShow": 3
+                         }
+                       }, {
+                         "breakpoint": 480,
+                         "settings": {
+                           "slidesToShow": 2
+                         }
+                       }]'>
+                        <div class="js-slide">
+                            <div class="bg-white rounded py-3 px-3 transition-3d-hover">
+                                <a href="#" target=_blank><img class="u-clients"
+                                        src="#" alt="dit"></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Clients Section -->
+
+            <!-- Viwer Section -->
+            
+<div class="container2 tab-content  ">
+    <div class="tab-pane fade pt-6 show active" id="rec-course6" role="tabpanel" aria-labelledby="rec-course-tab">
+       <h2 class="h4 heading-subject-text text-center text-dark-primary-theme pt-2 line-mid-text mb-3"><span class="px-sm-6">จำนวนผู้เข้าใช้</span></h2>
+  
+          <div class="row text-center">
+              <div class="col-md-4 col-sm-12">
+              <div class="counter">
+        <i class="fa fa-user fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="0" data-speed="1500">0</h2>
+         <p class="count-text ">จำนวนผู้เข้าใช้วันนี้</p>
+      </div>
+              </div>
+                <div class="col-md-4 col-sm-12">
+                 <div class="counter">
+        <i class="fas fa-user-friends fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="6" data-speed="1500">0</h2>
+        <p class="count-text ">จำนวนผู้เข้าใช้เดือนนี้</p>
+      </div>
+                </div>
+  
+                <div class="col-md-4 col-sm-12">
+                <div class="counter">
+        <i class="fas fa-users fa-2x"></i>
+        <h2 class="timer count-title count-number" data-to="37" data-speed="1500">0</h2>
+        <p class="count-text ">จำนวนผู้เข้าใช้ทั้งหมด</p>
+      </div>
+                </div>
+           </div>
+            </div>
+      </div>
+      <!-- End Viwer Section -->
+      <%- include('../partials/aside'); -%> 
+        </main>
+        <!-- ========== END MAIN CONTENT ========== -->
+        <%- include('../partials/footer'); -%> 
+        <%- include('../partials/script'); -%>
+        <script async defer src="/javascripts/index.js"></script>
+</body>
+
+</html>

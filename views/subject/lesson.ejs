@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css"
+		integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.fancybox-slide--iframe .fancybox-content {
+			max-height: 800px !important;
+    		background-color: black;
+		}
+	</style>
+</head>
+
+<body id="lesson-page">
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav_without_goto'); -%>
+		<div class="container mt-3 mb-6">
+			<div class="row  ">
+				<!-- Learn Menu -->
+				<div id="stickyBlockStartPoint" class="col-md-4 col-lg-4 mb-7 mb-md-0 d-lg-block d-xl-block">
+					<%- include('../subject/partials/aside_lesson'); -%>
+				</div>
+				<!-- End Learn menu -->
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6 animated fadeInUp lesson-block ">
+					<!-- space-lg-2 -->
+					<div class="card shadow-soft p-1 pt-3 pl-0 pr-0 ">
+						<div class="col-lg-12 tab-pane active" id="tab-f-pretest" role="tabpanel"
+							aria-labelledby="tab-1">
+							<div class="d-lg-flex justify-content-lg-between">
+								<h4 class="h5 d-flex justify-content-between text-primary-theme">
+									<%= data.lesson.title %></h4>
+							</div>
+						</div> <!-- tab-1 -->
+						<hr class="my-1">
+						<div class="col-lg-12">
+							<% if(data.lesson.type == 1){ %>
+							<!-- Video Section -->
+							<div class="row justify-content-center  containerplay ">
+
+								<div class=" mb-3 mt-3  content">
+									<video style="width:100%;max-width:100%;" controlslist="nodownload" id="lessonvideo"
+										onclick="PlayPause(this);" class="pointer " preload="auto"
+										ontimeupdate="seektimeupdate(this)">
+										<source src="<%= data.lesson.video %>" type="video/mp4">Your browser does not
+										support the video tag.
+									</video>
+									<div id="video_controls_bar" class="bg-muted">
+										<div class="d-inline"><input id="seekslider" name="seekslider"
+												class="slider-color myslider" type="range" min="0" max="100" value="0"
+												step="1" style="width:70%;" oninput="setRange(this.value);"
+												onchange="setRange(this.value);" title=""></div>
+										<div class="d-inline"><span id="curtimetext">00:00</span> / <span
+												id="durtimetext">00:00</span></div>
+										<div class="float-right d-inline"><b class="d-none">FULL HD</b></div>
+									</div>
+								</div>
+								<span class="btnplay">
+									<a class="media align-items-center u-media-player min-width-21 ml-1"
+										href="javascript:;" onclick="butPlay();">
+										<span class="u-media-player__icon mr-1">
+											<span class="fas fa-play u-media-player__icon-inner"></span>
+										</span>
+									</a>
+								</span>
+							</div>
+							<div class="row">
+								<div class="col-2 text-center">
+									<a class="text-center align-items-center u-media-player min-width-21  iconback"
+										href="<%= original_source %>/<%= data.back_page %>" title="ย้อนกลับ">
+										<span class="u-media-player__icon u-media-player__icon--primary-theme "
+											style="width: 3rem; height: 3rem;">
+											<span class="	fas fa-arrow-left fa-lg u-media-player__icon-inner "></span>
+										</span>
+									</a>
+								</div>
+								<div class="col-8 text-center">
+									<ul class="list-inline md-1">
+										<li class="list-inline-item ">
+											<a class=" align-items-center u-media-player min-width-21  "
+												href="javascript:;" onclick="PlayPauseButton();">
+												<span class="u-media-player__icon u-media-player__icon--primary-theme "
+													style="width: 3rem; height: 3rem;">
+													<span
+														class="fas fa-play u-media-player__icon-inner iconPlay"></span>
+												</span>
+											</a>
+										</li>
+
+										<li class="list-inline-item ">
+											<a class=" align-items-center u-media-player min-width-21 "
+												href="javascript:;" onclick="butReplay();">
+												<span class="u-media-player__icon u-media-player__icon--primary-theme "
+													style="width: 3rem; height: 3rem;">
+													<span
+														class="fas fa-redo-alt u-media-player__icon-inner iconReplay"></span>
+												</span>
+											</a>
+										</li>
+										<li class="list-inline-item">
+											<a class=" align-items-center u-media-player min-width-21 "
+												href="javascript:;" onclick="butMute();">
+												<span class="u-media-player__icon u-media-player__icon--primary-theme "
+													style="width: 3rem; height: 3rem;">
+													<span
+														class="fas fa-volume-up fa-lg u-media-player__icon-inner iconMute"></span>
+												</span>
+											</a>
+										</li>
+										<li class="list-inline-item">
+											<a class=" align-items-center u-media-player min-width-21  "
+												href="javascript:;" onclick="butSpeed2x();">
+												<span class="u-media-player__icon u-media-player__icon--primary-theme "
+													style="width: 3rem; height: 3rem;">
+													<span class="u-media-player__icon-inner iconSpeed2x">2x</span>
+												</span>
+											</a>
+										</li>
+										<li class="list-inline-item ">
+											<a class=" align-items-center u-media-player min-width-21 "
+												href="javascript:;" onclick="butFullscreen();">
+												<span class=" u-media-player__icon u-media-player__icon--primary-theme "
+													style="width: 3rem; height: 3rem;">
+													<span
+														class="	fas fa-expand u-media-player__icon-inner iconfullscreen "></span>
+												</span>
+											</a>
+										</li>
+
+									</ul>
+								</div>
+								<div class="col-2 text-center ">
+									<a class=" align-items-center u-media-player min-width-21 iconnext"
+										href="<%= original_source %>/<%= data.next_page %>" title="ถัดไป">
+										<span class="u-media-player__icon u-media-player__icon--primary-theme "
+											style="width: 3rem; height: 3rem;">
+											<span class="fas fa-arrow-right fa-lg u-media-player__icon-inner "></span>
+										</span>
+									</a>
+								</div>
+							</div>
+							<!-- End Video Section -->
+							<% }else if(data.lesson.type > 1){ %>
+								<% if(data.lesson.type == 14){ %>
+									<div><img class="img-fluid" src="<%= path_source %>/images/man-construction.jpg" alt="under construction"></div>								
+								<% }else if(data.lesson.type >= 10){ %>
+								<div class="control_frame" id="control_frame">
+									<iframe src="<%= file_path %><%= data.lesson.video %>" class="lesson_doc" scrolling="auto" allow="autoplay; fullscreen"></iframe>
+									<!--<span class="fas fa-times btn-icon__inner fa-3x" onclick="IframeInActive();"></span>-->
+								</div>
+								<% }else{ %>
+									<iframe src="<%= file_path %><%= data.lesson.video %>" class="lesson_doc" scrolling="auto"></iframe>
+								<% } %>	
+							<div class="row mt-2">
+								<div class="col-2 text-center">
+									<a class="text-center align-items-center u-media-player min-width-21  iconback"
+										href="<%= original_source %>/<%= data.back_page %>" title="ย้อนกลับ">
+										<span class="u-media-player__icon u-media-player__icon--primary-theme "
+											style="width: 3rem; height: 3rem;">
+											<span class="	fas fa-arrow-left fa-lg u-media-player__icon-inner "></span>
+										</span>
+									</a>
+								</div>
+								<div class="col-8 text-center">
+									
+								<% if(data.lesson.type != 14 && data.lesson.type >= 10){  %>
+									<ul class="list-inline md-1">
+									<li class="list-inline-item ">
+										<a class=" align-items-center u-media-player min-width-21 "
+											href="javascript:;" onclick="IframeActive();">
+											<span class=" u-media-player__icon u-media-player__icon--primary-theme "
+												style="width: 3rem; height: 3rem;">
+												<span
+													class="	fas fa-expand u-media-player__icon-inner iconfullscreen "></span>
+											</span>
+										</a>
+									</li>
+									</ul>
+									<%  } %>	
+
+								</div>
+								<div class="col-2 text-center ">
+									<a class=" align-items-center u-media-player min-width-21  iconnext"
+										href="<%= original_source %>/<%= data.next_page %>" title="ถัดไป">
+										<span class="u-media-player__icon u-media-player__icon--primary-theme "
+											style="width: 3rem; height: 3rem;">
+											<span class="fas fa-arrow-right fa-lg u-media-player__icon-inner "></span>
+										</span>
+									</a>
+								</div>
+							</div>
+							<% } %>
+
+							<!-- block medie -->
+							<!-- card -->
+							<div class="mt-3 p-2 pl-4 pr-4 d-none">
+								<div class="row">
+									<div class="col-lg-12 mb-3 p-0">
+										<span class="media">
+											<span class="btn btn-xs btn-icon rounded-circle mr-1">
+												<span class="btn-icon__inner">
+													<span class="fas fa-magic fa-2x text-primary-theme"> </span>
+												</span>
+											</span>
+											<span class="media-body">
+												<h4 class="h5 text-secondary"> คำอธิบายรายวิชา </h4>
+												<span class="text-black-70 py-2" style="text-indent:30px;">-</span>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- End Card -->
+							<!-- card -->
+							<div class="mt-3 p-2 pl-4 pr-4  ">
+								<div class="row">
+									<div class="col-lg-12 mb-3 p-0">
+										<span class="media">
+											<span class="btn btn-xs btn-icon rounded-circle mr-1">
+												<span class="btn-icon__inner">
+													<span class="fas fa-book-reader fa-2x text-primary-theme"> </span>
+												</span>
+											</span>
+											<span class="media-body lesson_result">
+												<h4 class="h5 text-secondary">สรุปเนื้อหาบทเรียน
+													<span class="fas fa-play hide_lesson_result"></span>
+												</h4>
+												<span class="text-black-70 py-2"><%- data.lesson.result %></span>
+											</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!-- End Card -->
+							<!-- card -->
+
+							<div class="mt-3 p-2 pl-4 pr-4 ">
+								<div class="row">
+									<div class="col-lg-12 mb-3 p-0">
+
+										<span class="media">
+											<span class="btn btn-xs btn-icon rounded-circle mr-1">
+												<span class="btn-icon__inner"> <span
+														class="fas fa-play-circle fa-2x text-primary-theme"> </span>
+												</span>
+											</span>
+											<span class="media-body">
+												<h4 class="h5 text-secondary"> แหล่งการเรียนรู้เพิ่มเติม </h4>
+											</span>
+										</span>
+
+									</div>
+								</div>
+
+								<!--  collapse -->
+								<div class="row p-0" id="basicsAccordion">
+
+									<!--  collapse head  -->
+									<div class="col-3 col-lg-3">
+										<!-- Card -->
+										<a href="#collapse1" id="collapseHead1" role="button" data-toggle="collapse"
+											data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+											<div class="d-block text-center">
+												<img class="text-center  transition-3d-hover mr-1"
+													src="/images/learn/icon_page_learn-12.png" alt="Image Description">
+												<div class="text-center py-2">
+													<span
+														class="d-block text-secondary font-size-1 mb-0">คลังหนังสือ</span>
+												</div>
+											</div>
+										</a>
+										<!-- End Card -->
+									</div>
+
+									<div class="col-3 col-lg-3">
+										<!-- Card -->
+										<a href="#collapse2" id="collapseHead2" role="button" data-toggle="collapse"
+											data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+											<div class="d-block text-center">
+												<img class="text-center  transition-3d-hover mr-1"
+													src="/images/learn/icon_page_learn-13.png" alt="Image Description">
+												<div class="text-center py-2">
+													<span class="d-block text-secondary font-size-1 mb-0"> เอกสาร</span>
+												</div>
+											</div>
+										</a>
+										<!-- End Card -->
+									</div>
+									<div class="col-3 col-lg-3">
+										<!-- Card -->
+										<a href="#collapse3" id="collapseHead3" role="button" data-toggle="collapse"
+											data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+											<div class="d-block text-center">
+												<img class="text-center  transition-3d-hover mr-1"
+													src="/images/learn/icon_page_learn-14.png" alt="Image Description">
+												<div class="text-center py-2">
+													<span
+														class="d-block text-secondary font-size-1 mb-0">มัลติมีเดีย</span>
+												</div>
+											</div>
+										</a>
+										<!-- End Card -->
+									</div>
+									<div class="col-3 col-lg-3">
+										<!-- Card -->
+										<a href="#collapse4" id="collapseHead3" role="button" data-toggle="collapse"
+											data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+											<div class="d-block text-center">
+												<img class="text-center  transition-3d-hover mr-1"
+													src="/images/learn/icon_page_learn-15.png" alt="Image Description">
+												<div class="text-center py-2">
+													<span
+														class="d-block text-secondary font-size-1 mb-0">เชื่อมโยง</span>
+												</div>
+											</div>
+										</a>
+										<!-- End Card -->
+									</div>
+
+									<!--  end collapse head   -->
+									<!-- collapse detail -->
+									<div class="collapse col-12 p-0" id="collapse1" aria-labelledby="collapseHead1"
+										data-parent="#basicsAccordion">
+										<div class="card card-body col-12 p-0">
+											<ul class="list-group ">
+												<% if(data.supplymentary.digitallibrary.length > 0) { 
+													data.supplymentary.digitallibrary.forEach(function(supplymentary_item, index){
+												%>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center">
+													<% /* %>
+													<a data-fancybox data-type="iframe"
+														href="<%= supplymentary_item.path %>"
+														onclick="Modalurl('<%= supplymentary_item.path %>',<%= supplymentary_item.id %>,1)"
+														;="" data-type="iframe"
+														data-src="<%= supplymentary_item.path %>"
+														data-caption="<%= supplymentary_item.title %>" data-speed="700">
+													<% */ %>
+													<a href="<%= supplymentary_item.path %>" target="_blank">
+														<i class="fas fa-caret-right fa-lg text-primary"></i>
+														<%= supplymentary_item.title %>
+													</a>
+												</li>
+												<% })
+												}else{ %>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center text-center">
+													- ไม่มีสื่อเสริม</li>
+												<% } %>
+											</ul>
+										</div>
+									</div>
+									<!-- end collapse detail -->
+									<!-- collapse detail -->
+									<div class="collapse col-12 p-0" id="collapse2" aria-labelledby="collapseHead2"
+										data-parent="#basicsAccordion">
+										<div class="card card-body col-12 p-0">
+											<ul class="list-group ">
+												<% if(data.supplymentary.document.length > 0) { 
+														data.supplymentary.document.forEach(function(supplymentary_item, index){
+													%><li class="list-group-item d-flex justify-content-between align-items-center">
+													<a data-fancybox data-type="iframe"
+														href="<%= supplymentary_item.path %>"
+														onclick="Modalurl('<%= supplymentary_item.path %>',<%= supplymentary_item.id %>,1)"
+														;="" data-type="iframe"
+														data-src="<%= supplymentary_item.path %>"
+														data-caption="<%= supplymentary_item.title %>" data-speed="700">
+														<i class="fas fa-caret-right fa-lg text-primary"></i>
+														<%= supplymentary_item.title %>
+													</a>
+												</li>
+												<% })
+													}else{ %>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center text-center">
+													- ไม่มีสื่อเสริม</li>
+												<% } %>
+											</ul>
+										</div>
+									</div>
+									<!-- end collapse detail -->
+									<!-- collapse detail -->
+									<div class="collapse col-12 p-0" id="collapse3" aria-labelledby="collapseHead3"
+										data-parent="#basicsAccordion">
+										<div class="card card-body col-12 p-0">
+											<ul class="list-group ">
+												<% if(data.supplymentary.multimedia.length > 0) { 
+															data.supplymentary.multimedia.forEach(function(supplymentary_item, index){
+														%><li class="list-group-item d-flex justify-content-between align-items-center">
+													<a data-fancybox data-type="iframe"
+														href="<%= supplymentary_item.path %>"
+														onclick="Modalurl('<%= supplymentary_item.path %>',<%= supplymentary_item.id %>,1)"
+														;="" data-type="iframe"
+														data-src="<%= supplymentary_item.path %>"
+														data-caption="<%= supplymentary_item.title %>" data-speed="700">
+														<i class="fas fa-caret-right fa-lg text-primary"></i>
+														<%= supplymentary_item.title %>
+													</a>
+												</li>
+												<% })
+														}else{ %>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center text-center">
+													- ไม่มีสื่อเสริม</li>
+												<% } %>
+											</ul>
+										</div>
+									</div>
+									<!-- end collapse detail -->
+									<!-- collapse detail -->
+									<div class="collapse col-12 p-0" id="collapse4" aria-labelledby="collapseHead4"
+										data-parent="#basicsAccordion">
+										<div class="card card-body col-12 p-0">
+											<ul class="list-group ">
+												<% if(data.supplymentary.link.length > 0) { 
+															data.supplymentary.link.forEach(function(supplymentary_item, index){
+														%>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center">
+													<a class="transition-3d-hover" href="<%= supplymentary_item.path %>"
+														target="blank">
+														<i class="fas fa-caret-right fa-lg text-primary"></i>
+														<%= supplymentary_item.title %>
+													</a>
+												</li>
+												<% })
+														}else{ %>
+												<li
+													class="list-group-item d-flex justify-content-between align-items-center text-center">
+													- ไม่มีสื่อเสริม</li>
+												<% } %>
+											</ul>
+										</div>
+									</div>
+									<!-- end collapse detail -->
+								</div>
+								<!-- end collapse-->
+								<!-- Create Project Modal Window -->
+								<!-- js-modal-window svg-preloader u-modal-window position-relative -->
+								<div id="ModalMedia" class="js-modal-window u-modal-window position-relative p-0"
+									style="width:95%;height:100%;max-width:95%;">
+									<button type="button"
+										class="close close-light position-absolute top-0 right-0 z-index-2 p-2"
+										style="right: -30px;" aria-label="Close" onclick="Custombox.modal.close();">
+										<span aria-hidden="true">×</span>
+									</button>
+									<div class="card border-0 bg-primary text-white text-center" style="height:100%;">
+										<iframe id="iframeSrc" name="iframeSrc" width="100%" height="100%" src=""
+											scrolling="auto" frameborder="0" webkitallowfullscreen=""
+											mozallowfullscreen="" allowfullscreen="">
+										</iframe>
+									</div>
+								</div>
+								<!-- End Create Project Modal Window -->
+							</div>
+							<!-- end card -->
+
+
+							<!-- end block medie -->
+						</div>
+					</div>
+
+
+
+				</div>
+				<!-- end card block 1 -->
+			</div>
+			<!--End Learn Detail -->
+		</div>
+		</div>
+		<!-- End Content Section -->
+
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+	
+	<!-- Go to Top -->
+
+	<a class="js-go-to u-go-to animated" href="javascript:#"
+		data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400"
+		data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown"
+		style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+		<span class="fas fa-arrow-up u-go-to__inner"></span>
+	</a>
+	<!-- End Go to Top -->
+	<%- include('../subject/partials/script'); -%>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+		integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/javascripts/components/hs.video-player.js"></script>
+	<script async defer src="/javascripts/lesson.js"></script>
+	<script>
+		const video_currentTime = <%= data.lesson.starttime %>;
+		const pageID = <%= pageID %>;
+		const lessonID = <%= data.lesson.id %>;
+		const courseID = <%= courseID %>;
+
+		// initialization of fancybox
+		//$.HSCore.components.HSFancyBox.init(".js-fancybox");
+		$('[data-fancybox]').fancybox({
+			protect: true
+		}); 
+		<% if (data.lesson.type == 1) { %>
+			setInterval(function () {
+
+				if (vid.ended) $.ajax({
+					url: local_api + "switcher/success",
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + access_token,
+					},
+					data: JSON.stringify({
+						ProfileID: getCookie("cookieProfileID"),
+						pageID: pageID,
+						lessonID: lessonID,
+						courseID: courseID
+					}),
+					success: function (result) {						
+						$(".iconnext").removeClass("d-none");
+						if(result == 'congratulation'){
+							congratulation(pageID,lessonID);
+						}
+					}
+				}).fail(function () {
+					refreshtoken()
+				});
+			}, 2000);
+			setInterval(function () {
+
+				if (vid.currentTime > 0) $.ajax({
+					url: local_api + "switcher/updatevidtime/" + vid.currentTime,
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + access_token,
+					},
+					data: JSON.stringify({
+						ProfileID: getCookie("cookieProfileID"),
+						pageID: pageID,
+						lessonID: lessonID
+					})
+				}).fail(function () {
+					refreshtoken()
+				});
+			}, 3000); 
+			<% } else if (data.lesson.type > 1) { %>
+			let timeDuration = 0;
+			var topFrame = 0;
+			var leftFrame = 0;
+			var heightFrame = 0;
+			var widthFrame = 0;
+
+			setInterval(function () {
+				timeDuration += 5000;
+
+				$.ajax({
+					url: local_api + "switcher/updatelog",
+					type: 'PUT',
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + access_token,
+					},
+					data: JSON.stringify({
+						ProfileID: getCookie("cookieProfileID"),
+						pageID: pageID,
+						lessonID: lessonID,
+						duration: timeDuration
+					})
+				}).fail(function () {
+					refreshtoken()
+				});
+				
+			}, 5000); 
+
+			$(".lesson_doc").on("load", function () {
+				$(".lesson_doc").contents().find("#menuTOC").remove();
+				$(".lesson_doc").contents().find(".container-fluid").remove();
+
+			//if ($("#control_frame").hasClass("control_frame")) {
+
+				// topFrame = 0 - $( ".control_frame" ).offset().top;
+				// leftFrame = 0 - $( ".control_frame" ).offset().left;
+				// heightFrame = $( window ).height();
+				// widthFrame = $( window ).width();
+				//IframeActive();
+			//}
+			});
+
+		function IframeActive(){
+			//$("#control_frame").addClass('control_frame_active').css({'top' : topFrame, 'left' : leftFrame, 'width' : widthFrame , 'height' : heightFrame});
+
+				$.fancybox.open({
+					src  : '<%= file_path %><%= data.lesson.video %>',
+					type : 'iframe',
+					opts : {
+						afterShow : function( instance, current ) {
+							console.info( 'done!' );
+						}
+					},
+					css : {
+						width : '80%'
+					}
+				});	
+		}
+		function IframeInActive(){
+			//$("#control_frame").removeClass('control_frame_active').removeAttr('style');
+		}
+		<% } %>
+	</script>
+
+</html>

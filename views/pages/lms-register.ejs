@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+    <!-- Two Block -->
+    <div class="bg-white">
+      <div class="container mt-3 lms-block-register">
+        <div class="row justify-content-between align-items-center mb-4">
+          <div class="col-sm-4 col-md-6 mb-3 mb-sm-0">
+            <h2 class="h6 mb-0"></h2>
+          </div>
+          <div class="col-sm-8 col-md-6 text-sm-right">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item ">
+                <!-- Select -->
+                <div class="dropdown">
+                  <button class="btn btn-sm btn-soft-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <%= translation.lms_resgiter_asc %>
+                  </button>
+                
+                </button>
+                  
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item"
+                        href="<%= original_source %>/lms/register/asc"><%= translation.lms_resgiter_asc %></a></li>
+                    <li><a class="dropdown-item"
+                        href="<%= original_source %>/lms/register/desc"><%= translation.lms_resgiter_desc %></a></li>
+                  </ul>
+                </div>
+                
+              </li>
+              <li class="list-inline-item  ">
+                <a class="btn btn-sm btn-soft-primary " href="<%= original_source %>/lms/register/favorites">
+                  <span class="far fa-heart text-warning"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+
+        <div class="row lms-block">
+          <!-- Left block -->
+          <div class="col-lg-12">
+            <ul class="list-unstyled">
+              <% classroom_data.forEach((classroom) => { %>
+              <!-- Products -->
+              <li class="card card-frame mb-5 bg-theme-second">
+                <div class="row" id="course ACED004">
+                  <div class="col-lg-3 col-sm-12 pr-0 img-hover justify-center">
+                    <img class="card-img-top" src="<%= classroom.cover %>">
+                  </div>
+                  <div class="col-lg-7 col-md-12">
+                    <div class="card-body py-2 px-md-4">
+                      <div class="mb-2">
+                        <!-- <span class="btn text-secondary btn-pill mb-2">เรียนถึงวันที่ </span> -->
+                        <span class="btn text-secondary btn-pill mb-2"></span>
+                        <a href="<%= original_source %>/course/<%= classroom.course_id %>/detail" class="text-">
+                          <h4 class="h5 d-flex justify-content-between text-black-70 heading-subject-text">
+                            <%= classroom.course_subject %></h4>
+                        </a>
+                        <ul class="list-group list-group-flush list-group-borderless">
+                          <% classroom.lesson.forEach((lesson) => { %>
+                          <li class="list-group-item" style="background-color: transparent !important;">
+                            <div class="d-flex align-items-center">
+                              <span class="btn btn-xs btn-icon btn-soft-primary-theme rounded-circle mr-3">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"></i>
+                              </span>
+                              <%= lesson.subject %> </div>
+                          </li>
+                          <% }) %>
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 align-self-sm-end p-3">
+                    <!-- Button -->
+                    <div class="text-sm-right mr-3">
+
+                      <% if (classroom.learner == 1) { %>
+                        <% if (classroom.expired == 0) { %>
+                          <a class="btn btn-sm btn-soft-second bg-danger text-white transition-3d-hover"
+                            href="<%= original_source %>/course/<%= classroom.course_id %>/detail">
+                            <span class="fas fa-edit  mr-2"></span>
+                            <%= translation.register_expired2 %>
+                          </a>
+                        <% }else{ %>
+                      <!-- Time -->
+                      <span class="RegisterEndDate"><%= translation.register_expired1 %> <%= classroom.expired %></span>
+                      <!-- End -->
+                      <a class="btn btn-sm btn-soft-second bg-success text-white transition-3d-hover"
+                        href="<%= original_source %>/lms/classroom">
+                        <span class="fas fa-edit  mr-2"></span>
+                        <%= translation.registered_txt %>
+                      </a>
+                      <% } %>
+                      <% }else{ %>
+                      <a class="btn btn-sm btn-soft-second text-white transition-3d-hover"style="background-color:darkred"
+                        href="<%= original_source %>/course/<%= classroom.course_id %>/detail">
+                        <span class="fas fa-edit  mr-2"></span>
+                        <%= translation.register_txt %>
+                      </a>
+                      <% } %> </div>
+                    <!-- End Button -->
+                  </div>
+                  <!-- Add to Favorites -->
+                  <a href="javascript:;" onclick="addtofavorites(<%= classroom.course_id%>); return false;" class="btn btn-sm btn-icon btn-soft-warning btn-bg-transparent position-absolute top-0 right-0 rounded-circle mt-3 mr-3 addtofavorites 
+                    <% if(classroom.favorites == 0){ %>
+                      " data-original-title="<%= translation.course_add_to_favorites %>" <% }else{ %> active"
+                    data-original-title="<%= translation.course_remove_favorites %>" <% } %>
+                    id="addtofavorites__<%= classroom.course_id %>" data-toggle="tooltip" data-placement="top" title="">
+                    <span class="far fa-heart btn-icon__inner"></span>
+                  </a>
+                  <!-- End Add to Favorites -->
+                </div>
+              </li>
+              <!-- End Products -->
+              <% }) %>
+              <li class="classZeroRow"><%= translation.lms_classroom_not_result %></li>
+            </ul>
+          </div>
+          <!-- End Left block -->
+
+          <!-- Filters -->
+        </div>
+      </div>
+    </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script async defer src="/javascripts/course.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Content Section -->
+    <div class="bg-light">
+      <div class="container space-1">
+        <div class="card bg-theme-second">
+          <div class="card-header px-0 mx-4 bg-theme-second">
+            <div class="col-md-5 col-lg-4 mb-2 mb-md-0  text-primary-theme">
+              <h4><span class="fas fa-history mr-2 "></span><%= translation.lms_history_title%></h4>
+            </div>
+            <!-- End Activity Menu -->
+          </div>
+          <div class="card-body px-4 py-0">
+            <!-- Activity Table -->
+            <div id="printdatatable" class="table-responsive-md u-datatable ">
+              <table
+                class="js-datatable table table-border-success u-datatable__striped u-datatable__content u-datatable__trigger mb-5">
+                <thead>
+                  <tr class="text-uppercase text-center">
+                    <th class="font-weight-medium text-center"><%= translation.lms_order%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_history_subject%></th>
+                    <th class="font-weight-medium"><%= translation.lms_history_score%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_history_status%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_history_congratulation%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_history_certificate%></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% histories.forEach(function(history, index){ %>
+                  <tr>
+                    <td class="align-middle text-center text-secondary"><%= index + 1 %></td>
+                    <td class="align-middle text-secondary font-weight-normal history_display"><%= history.course_subject %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= history.score %></td>
+                    <td class="align-middle text-secondary text-center font-weight-normal">
+                      <% if (history.congratulation == 1) { %>
+                        <span class="fas fa-circle text-success small mr-1"></span> <%= translation.lms_history_success %> 
+                      <% }else if (history.congratulation == 2) { %>
+                        <span class="fas fa-circle text-danger small mr-1"></span> <%= translation.lms_history_notsuccess %> 
+                      <% }else{ %>
+                        <span class="fas fa-circle text-warning small mr-1"></span> <%= translation.lms_history_learning %> 
+                      <% } %>
+                    </td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= history.realcongratulationdate %> </td>
+                    <td class="align-middle text-center">
+                      <% if(history.cetificate == true){ %>
+                                                  <a class="js-fancybox u-media-viewer" href="javascript:;" data-fancybox="attach" data-src="certificate/<%= history.course_id %>" data-caption="พิมพ์ใบประกาศนียบัตร" data-speed="700">
+                            <img class="u-sidebar--account__toggle-img mr-3" src="/images/icon_page_learn-06.png">
+                          </a>
+
+                        <% }else{ %>
+                      <img class="u-sidebar--account__toggle-img mr-3"
+                        src="/images/icon_page_learn-07.png"
+                        data-toggle="tooltip" data-placement="top" title="ยังไม่สำเร็จ">
+                        <% } %> </td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Activity Table -->
+
+            <!-- Pagination -->
+            <div class="d-flex align-items-center">
+              <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+
+              <small id="datatableInfo" class="text-secondary ml-auto"></small>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    </div>
+    </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/components/jquery.dataTables.min.js"></script>
+  <script>
+    function feedPage() {
+
+    }
+
+    $(document).ready(function () {
+      let table = new DataTable('#printdatatable table');
+    });
+  </script>
+
+</body>
+
+</html>

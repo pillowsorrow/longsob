@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quiz>
+	<config>
+		<counttime>180</counttime><!-- second -->
+		<threestar>500</threestar>
+		<twostar>400</twostar>
+		<onestar>300</onestar>
+		<howtoplaymode>0</howtoplaymode><!-- 0 = all mode, 1 = how to play mode only, 2 = information mode only, 3 = none mode  -->
+		<numpagetip>2</numpagetip>
+		<hasanswer>N</hasanswer>
+		<answerfile>answer.pdf</answerfile>
+	</config>
+	<numquestion>5</numquestion>
+	<randomquestion>N</randomquestion>
+	<randomchoice>N</randomchoice>
+	<repeat>N</repeat>
+	<questions>
+		<question><!-- 1 -->
+			<command></command>
+			<description>
+				<text X="0" Y="77" W="980" H="70" Fsize="20" R="51" G="51" B="51" ></text>
+				<text X="130" Y="140" W="720" H="200" Fsize="35" R="51" G="51" B="153" ></text>
+			</description>
+			<score>
+				<right>100</right>
+				<wrong>0</wrong>
+			</score>
+			<choices>
+					<choice isanswer="Y" X="240" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="256" targetY="610" targetW="80" targetH="80"></choice>
+					<choice isanswer="N" X="570" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="715" targetY="610" targetW="80" targetH="80"></choice>
+			</choices>
+		</question>
+		<question><!-- 2 -->
+			<command></command>
+			<description>
+				<text X="0" Y="77" W="980" H="70" Fsize="20" R="51" G="51" B="51" ></text>
+				<text X="130" Y="140" W="720" H="200" Fsize="35" R="51" G="51" B="153" ></text>
+			</description>
+			<score>
+				<right>100</right>
+				<wrong>0</wrong>
+			</score>
+			<choices>
+					<choice isanswer="N" X="240" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="256" targetY="610" targetW="80" targetH="80"></choice>
+					<choice isanswer="Y" X="570" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="715" targetY="610" targetW="80" targetH="80"></choice>
+			</choices>
+		</question>
+		<question><!-- 3 -->
+			<command></command>
+			<description>
+				<text X="0" Y="77" W="980" H="70" Fsize="20" R="51" G="51" B="51" ></text>
+				<text X="130" Y="140" W="720" H="200" Fsize="35" R="51" G="51" B="153" ></text>
+			</description>
+			<score>
+				<right>100</right>
+				<wrong>0</wrong>
+			</score>
+			<choices>
+					<choice isanswer="N" X="240" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="256" targetY="610" targetW="80" targetH="80"></choice>
+					<choice isanswer="Y" X="570" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="715" targetY="610" targetW="80" targetH="80"></choice>
+			</choices>
+		</question>
+		<question><!-- 4 -->
+			<command></command>
+			<description>
+				<text X="0" Y="77" W="980" H="70" Fsize="20" R="51" G="51" B="51" ></text>
+				<text X="130" Y="140" W="720" H="200" Fsize="35" R="51" G="51" B="153" ></text>
+			</description>
+			<score>
+				<right>100</right>
+				<wrong>0</wrong>
+			</score>
+			<choices>
+					<choice isanswer="N" X="240" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="256" targetY="610" targetW="80" targetH="80"></choice>
+					<choice isanswer="Y" X="570" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="715" targetY="610" targetW="80" targetH="80"></choice>
+			</choices>
+		</question>
+		<question><!-- 5 -->
+			<command></command>
+			<description>
+				<text X="0" Y="77" W="980" H="70" Fsize="20" R="51" G="51" B="51" ></text>
+				<text X="130" Y="140" W="720" H="200" Fsize="35" R="51" G="51" B="153" ></text>
+			</description>
+			<score>
+				<right>100</right>
+				<wrong>0</wrong>
+			</score>
+			<choices>
+					<choice isanswer="N" X="240" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="256" targetY="610" targetW="80" targetH="80"></choice>
+					<choice isanswer="Y" X="570" Y="500" W="170" H="80" R="51" G="51" B="51" targetX="715" targetY="610" targetW="80" targetH="80"></choice>
+			</choices>
+		</question>		
+	</questions>
+</quiz>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../partials/head'); -%>
+    <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+    <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <div class="bg-theme-second">
+            <%- include('../partials/breadcrumb'); -%>
+        </div>
+        <!-- End Viwer Section -->
+        <div class="container">
+            <div class="row space-bottom-xs-1 py-2">
+                <div class="col-lg-9 ">&nbsp;
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 ">
+                    <select class="form-control custom-select d-none" name="sortby" id="sortby">
+                        <option value="1" selected="">เรียงตามวันที่</option>
+                        <option value="2">เรียงตามเปิดดู</option>
+                        <option value="3">เรียงตามถูกใจ</option>
+                        <option value="4">เรียงตามความคิดเห็น</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row news-list-box">
+                <div class="col-lg-9 order-lg-2 mb-9 mb-lg-0">
+                    <div class="mb-2 ">
+                        <!-- text-center -->
+                        <h4 class="h4 mb-4 text-primary-theme heading-subject-text"><%= category_active %></h4>
+                    </div>
+                    <% if(total_news > 0){ %>
+                    <% many_news.forEach((news) => { %>
+                    <!-- News Classic -->
+                    <div>
+                    <article class="d-block card border-0 mb-7">
+                        <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-sm-4 mb-4 mb-sm-0">
+
+                                        <picture>
+                                            <source media="(min-width:650px)" srcset="<%= news.cover %>">
+                                            <img class="img-fluid w-100 rounded news-cover" src="<%= news.cover %>" alt="<%= news.subject %>">
+                                          </picture>
+                                </div>
+
+                                <div class="col-sm-8">
+                                    <a href="<%= original_source %>/news/detail/<%= news.news_url %>">
+                                    </a>
+                                    <div class="pt-1 pr-4"><a <a
+                                            href="<%= original_source %>/news/detail/<%= news.news_url %>">
+                                            <small class="text-black-70 text-muted mb-2  d-none"><i
+                                                    class="far fa-clock"></i><%= news.web_date %></small>
+                                            <div class="mb-3">
+                                                <h2 class="h4 fix-line-50">
+                                                    <%= news.subject %>
+                                                </h2>
+                                                <p class="mb-0 text-black-70 fix-line text-truncate"><%- news.news_detail %></p>
+                                            </div>
+                                            <div class="row">
+                                                <span class="h5 text-black-70"><span
+                                                        class="far fa-eye ml-1 text-success"></span>
+                                                        &nbsp;&nbsp;<%= news.news_numview %>
+                                                    &nbsp;&nbsp;</span>
+                                                <span class="h5 text-black-70"><span
+                                                        class="far fa-thumbs-up   ml-1  text-primary"></span>&nbsp;&nbsp;<%= news.news_numlike %>
+                                                    &nbsp;&nbsp;</span>
+                                                <span style="margin-left: auto;"><%= translation.more_txt2%>
+                                                    &gt;&gt;</span>
+                                            </div>
+                                        </a>
+                                        <div class="card-footer px-0" style="background-color: transparent !important;">
+                                            <a href="<%= original_source %>/news/detail/<%= news.news_url %>">
+                                            </a>
+                                            <div class="media align-items-center">
+                                                <a href="<%= original_source %>/news/detail/<%= news.news_url %>">
+                                                    <div class="u-sm-avatar mr-3">
+                                                        <img class="img-fluid rounded-circle" src="/images/avatar.jpg">
+                                                    </div>
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="text-black-70 mb-0"><%= news.createby %></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                    <!-- End News Classic -->
+                    <% }) %>
+
+                    <div class="space-bottom-2"></div> <!-- Pagination -->
+                    <nav aria-label="Page navigation" class="mb-5 position-right-0">
+                        <ul class="pagination mb-0 justify-content-end">
+                            
+                            <% for(var i=1; i <= pagination; i++) {%>
+                                <% if(page_active == i){ %>
+                            <li class="page-item active"><a class="page-link-primary-theme" href="<%= pagination_url %>/#"><%= i %></a>
+                                <% }else{ %>
+                            <li class="page-item"><a class="page-link-primary-theme" href="<%= pagination_url %>/<%= i %>"><%= i %></a>
+                                <% } %>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </nav>
+                    <!-- End Pagination -->
+                </div>
+                <% }else{ %>
+                <div>
+                    <article class="d-block card border-0 mb-7">
+                        <span class="no_news"><%= translation.no_news%></span>
+                    </article>
+                </div></div>
+                <% } %>
+                <div id="stickyBlockStartPoint" class="col-lg-3 order-lg-1">
+
+                    <div class="js-sticky-block" data-offset-target="#logoAndNav" data-parent="#stickyBlockStartPoint"
+                        data-sticky-view="lg" data-start-point="#stickyBlockStartPoint"
+                        data-end-point="#stickyBlockEndPoint" data-offset-top="32" data-offset-bottom="170"
+                        style="top: 193.275px;">
+                        <h3 class="h4 text-tcg-info heading-subject-text mb-4">
+                            <%= translation.menu_text_category%>
+                        </h3>
+                        <% sidebar_datas.forEach((sidebar_data) => { %>
+                        <article class="card border-0 mb-5 transition-3d-hover">
+                            <div class="card-body p-0">
+                                <div class="media">
+                                    <div class="u-avatar">
+                                        <i class="fas fa-bullhorn font-size-3 text-primary-theme"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="h5 font-weight-normal mb-0">
+                                            <a href="<%= original_source %>/news/<%= sidebar_data.category_id%>"
+                                                class=""><%= sidebar_data.category_title %></a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <% }) %>
+                        <hr class="my-7">
+                        <h3 class="h5 text-primary font-weight-semi-bold mb-4 d-none">Tags</h3>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%>
+    <%- include('../partials/script'); -%>
+    <script> function feedPage(){ } </script>
+
+</body>
+
+</html>

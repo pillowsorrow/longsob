@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <div class="space-top-3 d-none d-md-block d-lg-block d-xl-block"></div>
+
+    <div class="container space-2">
+      <form role="form" method="post" action="
+      <% if(ldap == true){ %>
+        <%=original_source%>/ldap 
+      <% }else{ %>
+        <%=original_source%>/signin 
+      <% } %>
+      "
+        class="js-validate w-md-75 w-lg-50 mx-md-auto">
+        <% /* <input type="hidden" value="" name="g_recaptcha_response" id="g-recaptcha-response" /> */ %>
+
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="email2"><%= translation.menu_text_login_username%></label>
+          <input type="text" class="form-control" name="username" id="email2" placeholder="<%= translation.menu_text_login_username%>" required />
+        </div>
+        
+        <!-- Form Group -->
+        <div class="js-form-message form-group">
+          <label class="form-label" for="password2">
+            <span class="d-flex justify-content-between align-items-center">
+              <%= translation.menu_text_login_password%>
+            </span>
+          </label>
+          <input type="password" autocomplete="off" class="form-control" name="password" id="password2" required placeholder="********" />
+          <input type="hidden" name="project" value="<%= project %>" />
+          <input type="hidden" name="page" value="login" />
+        </div>
+        <!-- End Form Group -->
+
+        <!-- Button -->
+        <div class="row align-items-center mb-5">
+          <% if(ldap == false){ %>          
+          <div class="col-6">
+            <a class="link-muted text-capitalize font-weight-normal target-of-invoker-has-unfolds"
+              href="#sidebarContent" onclick="$('#linkforgotpassword').click()" role="button"
+              aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
+              data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+              data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight"
+              data-unfold-duration="500">
+              <%= translation.menu_text_login_forgot%>?</a>
+          </div>
+          <div class="col-6 text-right">
+          <% }else{ %>
+            <div class="col-12 text-right">
+          <% } %>
+            <button type="submit" class="btn btn-primary-theme transition-3d-hover" id="b-submit-login">
+              <%= translation.login_txt%>
+            </button>
+          </div>
+        </div>
+        <!-- End Button -->
+      </form>
+    </div>
+
+    <div class="space-top-3 d-none d-md-block d-lg-block d-xl-block"></div>
+	 <!-- The Modal -->
+   <div class="modal fade" id="loginerror">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-center">ล็อกอินผิดพลาด</h4>
+          <button type="button" class="close" data-dismiss="modal">x</button>
+        </div>
+        <!-- Modal body --> <div class="card-body">
+	   		<p  > กรอกรหัสผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง <br>กรุณาลองใหม่ </p>
+        </div>
+
+		 <!-- Footer -->
+		<div class="card-footer d-flex justify-content-end">
+		  <button type="button" class="btn btn-sm btn-primary-theme transition-3d-hover " data-dismiss="modal">ปิด</button>
+		</div>
+		<!-- End Footer -->
+      </div>
+    </div>
+  </div>
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%> <%- include('../partials/script');
+    -%>
+    <script>
+      const error_page =<%=error_page%>;
+      function feedPage(){}
+
+      
+        window.onload = function() {
+          if(error_page){
+          $("#loginerror").modal("toggle");
+
+        }  
+
+        $("#loginerror .close , #loginerror .card-footer button ").on('click',function(e){
+          $("#loginerror").modal("hide");
+        });
+      } 
+      
+    </script>
+    <%- captcha %>
+</body>
+
+</html>

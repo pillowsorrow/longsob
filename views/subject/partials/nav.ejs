@@ -1,0 +1,127 @@
+<% /* %>
+<div id="searchPushTop" class="u-search-push-top u-unfold--jquery-slide u-unfold--hidden p-4">
+    <div class="container position-relative">
+        <div class="u-search-push-top__content ">
+            <!-- Close Button -->
+            <button type="button" class="close u-search-push-top__close-btn target-of-invoker-has-unfolds"
+                aria-haspopup="true" aria-expanded="false" aria-controls="searchPushTop"
+                data-unfold-type="jquery-slide" data-unfold-target="#searchPushTop">
+                <span aria-hidden="true">×</span>
+            </button>
+            <!-- End Close Button -->
+            <!-- Input -->
+            <form class="js-focus-state input-group">
+                <input type="search" class="form-control" placeholder="ค้นหา" aria-label="ค้นหา">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-warning">ค้นหา</button>
+                </div>
+            </form>
+            <!-- End Input -->
+
+        </div>
+    </div>
+</div>
+<!-- End Search  -->
+<% */ %>
+<div class="bg-theme-primary">
+    <div class="float-right">
+        <div class="ml-lg-auto pt-3">
+            <ul class="list-inline ml-2 mb-0 animated pulse">
+				<% /* %>
+                <!-- Search -->
+                <li class="list-inline-item mr-3 d-none " style="z-index: 999 !important;">
+                    <a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+                        href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="searchPushTop" data-unfold-type="jquery-slide"
+                        data-unfold-target="#searchPushTop">
+                        <span class="fas fa-search btn-icon__inner fa-2x"></span>
+                    </a>
+                </li>
+                <!-- End Search -->
+                <!-- notification -->
+                <li class="list-inline-item mr-3 d-none" style="z-index: 999 !important;">
+                    <a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+                        href="javascript:;" role="button">
+                        <span class="fas fa-bell btn-icon__inner fa-2x"></span>
+                        <span class="badge badge-sm badge-danger badge-pos rounded-circle">3</span>
+                    </a>
+                </li>
+                <!-- End notification -->
+                <!-- Account Login -->
+                <li class="list-inline-item mr-3 " style="z-index: 999 !important;">
+                    <!-- Account Sidebar Toggle Button -->
+
+                    <a id="sidebarNavToggler"
+                        class="btn btn-xs btn-text-white u-sidebar--account__toggle-bg ml-3" href="javascript:;"
+                        role="button" aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false"
+                        data-unfold-event="click" data-unfold-hide-on-scroll="false"
+                        data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+                        data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight"
+                        data-unfold-duration="500">
+
+                        <span class="position-relative">
+                            <span class=" btn-icon__inner font-size-3">
+                                <img class="u-sm-avatar rounded-circle"
+                                    src="<%= path_source %>/images/icon_user-01.png"></span>
+                        </span>
+                    </a>
+                    <!-- End Account Sidebar Toggle Button -->
+                </li>
+                <!-- End Account Login -->
+				<% */ %>
+                <!-- notification -->
+                <li class="list-inline-item mr-3 ml-3 ">
+                    <a class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+                        href="<%= original_source %>/lms" role="button">
+                        <span class="fas fa-times btn-icon__inner fa-3x"></span>
+                    </a>
+                </li>
+                <!-- End notification -->
+            </ul>
+        </div>
+    </div><!-- end float-right -->
+    <div
+        class="container ml-xs-0 ml-sm-0 ml-md-auto ml-lg-auto ml-xl-auto pl-xs-0 pl-sm-0 pl-md-auto pl-lg-auto pl-xl-auto">
+        <div class="p-2 ml-0 pl-0 col-7 ">
+            <ul class="list-inline mb-0 animated pulse pl-0 ">
+                <li class="list-inline-item mr-2 d-lg-none d-xl-none">
+                    <a id="sidebarNavTogglerMenu2"
+                        class="btn btn-xs btn-icon btn-text-white target-of-invoker-has-unfolds"
+                        href="javascript:;" role="button" aria-controls="sidebarContentMenu"
+                        aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
+                        data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContentMenu"
+                        data-unfold-type="css-animation" data-unfold-animation-in="fadeInLeft"
+                        data-unfold-animation-out="fadeOutLeft" data-unfold-duration="500">
+                        <span class="fas fa-bars btn-icon__inner fa-2x"></span>
+                    </a>
+                </li>
+                <li class="list-inline-item mr-0 ml-0">
+                    <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mr-0 "
+                        href="<%= original_source %>/lms" aria-label="Front">
+                        <span class="badge badge-white"><img class="img-fluid" style="height:30px"
+                                src="<%= path_source %>/upload/upload-files/logo/logo.png"
+                                alt="logo"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end container-->
+</div>
+<div class="bg-theme-second">
+    <div class="container">
+        <div class="d-lg-flex justify-content-lg-between">
+            <div class="d-flex justify-content-between w-md-100 w-lg-100 pt-1">
+                <h4 class="heading-subject-text text-primary-theme animated fadeInRight p-1 pt-2">
+                    <i class="fas fa-book-reader"></i> <%= data.subject_title %> </h4>
+            </div>
+
+            <a class="my-2" href="<%= original_source %>/subject/<%= courseID %>/<%= pageID %>/lesson/<%= data.url %>">
+                <button type="button"
+                    class="btn btn-sm btn-primary-theme btn-sm-wide btn-pill transition-3d-hover mr-1 p-0">
+                    <span class="fas fa-play-circle mr-1 "style="width:350px;"></span> เข้าเรียน
+                </button>
+            </a>
+        </div>
+    </div>
+</div>

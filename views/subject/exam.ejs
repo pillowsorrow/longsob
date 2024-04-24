@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav_without_goto'); -%>
+		<div class="container mt-3 mb-6" id="exam_page">
+			<div class="row">
+
+				<div id="stickyBlockStartPoint"
+					class="col-md-4 col-lg-4 mb-7 mb-md-0 d-none d-lg-block d-xl-block order-lg-1">
+					<!-- space-top-1 -->
+					<div class="js-sticky-block card shadow-sm bg-white shadow-soft p-2"
+						data-parent="#stickyBlockStartPoint" data-sticky-view="lg"
+						data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint"
+						data-offset-top="80" data-offset-bottom="24">
+						<!-- js-sticky-block -->
+
+						<h3 class="h4 text-primary-theme font-weight-semi-bold mb-2 "> <%= translation.answer_sheet %></h3>
+						<hr class="my-1">
+
+						<ul class="list-inline mb-0 ">
+							<% data.exams.forEach(function(exam, index){ %>
+								<li class="list-inline-item pb-3">
+									<a class="btn btn-xl  btn-danger btn-pill" href="#question_<%= exam.question_id %>" id="answer_<%= exam.question_id %>">
+										<div style="width:22px;"><%= index + 1 %></div>
+									</a>
+								</li>
+							<% }) %>
+
+						</ul>
+					</div>
+					<!-- End Sidebar Content -->
+				</div>
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6 animated fadeInUp ">
+					<!-- space-lg-2 -->
+					<div class="card shadow-soft p-1 pt-3 pl-0 pr-0 ">
+						<div class="col-lg-12 tab-pane active" id="tab-f-pretest" role="tabpanel"
+							aria-labelledby="tab-1">
+							<div class="d-lg-flex justify-content-lg-between">
+								<h4 class="h5 d-flex justify-content-between text-primary-theme">
+									<% if(type_test == 'pretest') { %>
+									<%= translation.exam_pre_test %>
+									<% }else if(type_test == 'posttest') { %>
+									<%= translation.exam_post_test %>
+									<% }else if(type_test == 'exercise') { %>
+									<%= translation.text_exercise %>
+									<% }else if(type_test == 'chapter') { %>
+									<%= translation.text_chapter_exercise %>
+									<% } %>	
+								</h4>
+							</div>
+						</div> <!-- tab-1 -->
+						<hr class="my-1">
+						<div class="col-lg-12">
+							<% 
+							let savepage = 'savescore';
+							if(type_test == 'chapter'){
+								savepage = 'savechapter';
+							}
+							%>
+							<form action="<%= original_source %>/exam/<%=data.courseID%>/<%=data.pageID%>/<%=savepage%>" id="examform"
+								name="examform" method="post" accept-charset="utf-8">
+								<div class="mb-7 mt-0 showanswer  ">
+									<!-- My Network -->
+									<% data.exams.forEach(function(exam, index){ %>
+									<!-- Title 1-->
+									<div id="question_<%= exam.question_id %>" class="row justify-content-between align-items-end ">
+										<div class="col-12">
+											<h2 class="h5 mt-3 mb-3"><%= (index+1) %>) <%- exam.question %></h2>
+										</div>
+									</div>
+									<!-- End Title -->
+
+									<div>
+										<% if(exam.question_type == '1'){ %>
+											<% for (var i = 0; i < exam.choices.length; i++) { %>
+											<!-- Checkbox Switch -->
+											<% if(exam.choices[i][0] == null) { %>
+											<div class="custom-control custom-radio ml-2 mb-1" style="display:none">
+											<% }else{ %>
+											<div class="custom-control custom-radio ml-2 mb-1">
+											<% } %>
+											
+												<input type="radio" name="answer[<%= exam.question_id %>]" value="<%= exam.choices[i][1] %>" class="custom-control-input"
+													id="answer_<%= exam.question_id %>_<%= exam.choices[i][1] %>" onclick="youranswer(<%= exam.question_id %>, <%= exam.choices[i][1] %> , <%= data.exam_status %>)"
+													data-error-class="u-has-error" data-success-class="u-has-success" <%= exam.choices[i][2] %>
+													required="">
+												<label class="custom-control-label" for="answer_<%= exam.question_id %>_<%= exam.choices[i][1] %>">
+													<span class="d-block   text-secondary "> <%- exam.choices[i][0] %> </span>
+
+												</label>
+											</div>
+											<!-- End Checkbox Switch -->
+											<% } %>
+										<% }else if(exam.question_type == '4'){ %>
+											<% 
+												let alphabet = ["A","B","C","D","E","F","G","H","I","J"]
+												let answer_choice = exam.choices[1][0].split(',');												
+												let question_choice = exam.choices[0][0].split(',');
+												let answer_count = answer_choice.length;
+												let question_count = question_choice.length;
+
+											%>
+											<div class="row">
+												<div class="col-lg-6 mb-4 mb-lg-0">
+												  <!-- Input -->
+												  <label class="d-block">
+													<span class="h5 d-block  mb-0 ml-11"><%= translation.exercise_choice_question %></span>
+												  </label>
+												  <% for(var j =0; j < question_count; j++){ %>
+												  <div class="js-focus-state mb-3">
+													<div class="input-group">
+													  <div class="input-group-append">
+														<span class="d-inline-flex">
+														  <select class="custom-select border-0 valid" name="answer[<%= exam.question_id %>][<%= j+1 %>]" onchange="youranswer(<%= exam.question_id %>,<%= j %>,4,this.value, <%= question_count %> )" required="" data-msg="<%= translation.exercise_choice_answer %>" data-error-class="u-has-error" data-success-class="u-has-success" aria-invalid="false">
+															<option value=""><%= translation.exercise_choice_answer %></option>
+															<% for(var k =0; k < answer_count; k++){ %>
+															<option value="<%= k+1 %>"><%= alphabet[k] %></option>
+															<% } %>
+														</select></span>
+													  </div>
+													  <input type="text" class="form-control" value="<%= question_choice[j] %>" name="questiondetail[<%=j%>]" readonly="">
+													</div>
+												  </div>
+												  <% } %>
+												  <!-- End Input -->
+												</div>
+  
+												<div class="col-lg-6 mb-4 mb-lg-0">
+												  <!-- Input -->
+												  <label class="d-block">
+													<span class="h5 d-block  mb-0"><%= translation.exercise_choice_select %></span>
+												  </label>
+												  <% for(var j =0; j < answer_count; j++){ %>
+												  <div class="js-focus-state mb-3">
+														<div class="input-group">
+														  <div class="input-group-append">
+															<span class="input-group-text">
+																<%= alphabet[j] %>
+															</span>
+														  </div>
+														  <input type="text" class="form-control" name="choicedetail[<%=j%>]" value="<%=answer_choice[j]%>" readonly="">
+														</div>
+													  </div>
+													  <% } %>
+													  <!-- End Input -->
+												</div>
+												<!-- End Checkbox -->
+											  </div>
+										<% }else if(exam.question_type == '5'){ %>
+											<div class="custom-control custom-radio custom-control-inline question_sortable"> 
+												<ul class="sortable" id="question_sortable_<%= exam.question_id %>">
+												<%  let answer_sortable = '['
+													for (var i = 0; i < exam.choices.length; i++) { 
+														answer_sortable += (i+1);
+														answer_sortable += ','
+												%>
+												<li class="ui-state-default" data-pos="<%= i+1 %>"><%- exam.choices[i][0] %></li>
+												<% } 
+												answer_sortable = answer_sortable.slice(0, -1);
+												answer_sortable += ']';
+												%>
+												</ul>
+												<input type="hidden" name="answer[<%= exam.question_id %>]" value="<%=answer_sortable%>" />
+											</div>
+										<% }else if(exam.question_type == '3'){ %>
+											<div class="custom-control custom-radio custom-control-inline ml-2 "> 
+												<input type="radio" name="answer[<%= exam.question_id %>]" value="1" class="custom-control-input" id="answer_<%= exam.question_id %>_1" onclick="youranswer(<%= exam.question_id %>, 1 , <%= data.exam_status %>)" data-error-class="u-has-error" data-success-class="u-has-success" required="">
+												<label class="custom-control-label" for="answer_<%= exam.question_id %>_1"> 
+												   <span class="d-block  text-secondary "><%= translation.exercise_choice_true %></span> 
+												</label>
+											</div>
+											<div class="custom-control custom-radio custom-control-inline ml-2 "> 
+												<input type="radio" name="answer[<%= exam.question_id %>]" value="2" class="custom-control-input" id="answer_<%= exam.question_id %>_2" onclick="youranswer(<%= exam.question_id %>, 2 , <%= data.exam_status %>)" data-error-class="u-has-error" data-success-class="u-has-success" required="">
+												<label class="custom-control-label" for="answer_<%= exam.question_id %>_2"> 
+												   <span class="d-block  text-secondary "><%= translation.exercise_choice_false %></span> 
+												</label>
+											</div>
+										<% } %>
+									</div>
+									<hr class="my-3"><!-- My Network -->									
+									<% }) %>
+	
+									<div class="text-center"><button type="submit"
+											class="btn  btn-primary-theme btn-wide transition-3d-hover">ส่งคำตอบ</button>
+									</div>
+								</div>
+								
+								<input type="hidden" id="exam_id" name="exam_id"  value="<%= data.exam_id %>">
+		<input type="hidden" id="question_original"  name="question_original" value='<%- JSON.stringify(data.question_original) %>'>
+		<input type="hidden" id="usertime" name="usertime"  value="0">
+		<input type="hidden" id="score_id" name="score_id"  value="0">
+		<input type="hidden" id="exam_type" name="exam_type"  value="<%= type_test %>">
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- End Learn Detail -->
+			</div>
+		</div>
+		<% if(data.timer.limittime == 1){ %>
+		<div class="timeupCover">
+			<div>
+			<h3><%= translation.exam_timeup %></h3>
+			<button onclick="$('#examform').submit()" type="button" class="btn  btn-primary-theme btn-wide transition-3d-hover">ส่งคำตอบ</button>
+			</div>
+		</div>
+		<div class="warn_timeup">
+			<i class="fas fa-exclamation-triangle"></i> <%= translation.exam_warning %>
+		</div>
+		<% } %>
+		<!-- Sticky Block End Point -->
+		<div id="stickyBlockEndPoint"></div>
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+	<!-- End Go to Top -->
+	<%- include('../subject/partials/script'); -%>
+	<script src="/javascripts/exam.js"></script>
+	<script>
+		$(document).ready(function (e) {
+	$('input:checked').each(function () {
+	var id = $(this).attr('name').replace("answer[", '');
+        id = id.replace("]", '');
+	$("#answer_" + id).removeClass('btn-danger').addClass("btn-success")
+    });
+});
+	<% if(data.timer.limittime == 1){ %>
+		$(document).ready(function (e) {
+		youranswer(0, 0 , 0, '' , '');
+	});
+		var minutes = <%=data.timer.minutes	%>;
+
+	<% } %>
+	</script>
+</html>

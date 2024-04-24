@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../partials/head'); -%>
+        <%- include('../partials/nav'); -%>
+</head>
+
+<body>
+    <%- include('../partials/header'); -%>
+        <!-- ========== MAIN CONTENT ========== -->
+        <main id="content" role="main">
+            <div class="bg-theme-second">
+                <%- include('../partials/breadcrumb'); -%>
+            </div>
+            <!-- End Viwer Section -->
+            <div class="container">
+                <div class="row space-bottom-xs-1 py-2">
+                    <div class="col-lg-9 ">&nbsp;
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-3 ">
+                        <% /*
+                        <select class="form-control custom-select d-none" name="sortby" id="sortby">
+                            <option value="1" selected="">เรียงตามวันที่</option>
+                            <option value="2">เรียงตามเปิดดู</option>
+                            <option value="3">เรียงตามถูกใจ</option>
+                            <option value="4">เรียงตามความคิดเห็น</option>
+                        </select>
+                        */ %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-9 order-lg-2 mb-9 mb-lg-0">
+                        <div class="mb-2 ">
+
+                            <h4 class="h4 mb-4 text-tcg-info heading-subject-text"> <%- title_page %></h4>
+                        </div>            
+                        <% if(total > 0){ 
+                            var index = 0; %>
+                            <div class="card-deck d-block d-md-flex card-md-gutters-2">
+                            <% datas.forEach((data) => { %>
+                            <article class="card border-0 shadow-dark mb-3 transition-3d-hover" style="max-width: 50%;">
+                                <div class="card-body p-5">
+                                    <a href="#" onclick="gotobigbluebutton('<%- data.live_title %>'); return false;">
+                                        <small class="text-black-70 d-block text-muted mb-2"> <%- data.startdate %> </small>
+                                        <h2 class="h4">
+                                            <%- data.live_title %> </h2>
+                                        <p class="mb-0 text-black-70"></p>
+                                    </a>
+                                </div>
+                                <div class="card-footer pb-5 px-0 mx-5">
+                                    <div class="media align-items-center">
+                                        <div class="u-sm-avatar mr-3">
+                                            <img class="img-fluid rounded-circle"
+                                                src="/images/avatar.png">
+                                        </div>
+                                        <div class="media-body">
+                                            <a href="#" onclick="gotobigbluebutton('<%- data.live_title %>'); return false;">
+                                                <h4 class="h6 text-tcg-info mb-0"><%- data.createby %></h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <% index++; 
+                            if(index == 2){ %>
+                            </div><div class="card-deck d-block d-md-flex card-md-gutters-2">
+                        <%  index = 0; 
+                            }
+                         }) %>
+                            <article class="card border-0 shadow-sm mb-3 transition-3d-hover "
+                                style="visibility:hidden ;">
+                                <div class="card-body p-5">&nbsp;</div>
+                            </article>
+                            
+                        </div>
+                        <% }else{ %>
+                            <div>
+                              <article class="d-block card border-0 mb-7">
+                                <span class="no_block"><%= translation.no_blog%></span>
+                              </article>
+                            </div>
+                        <% } %>
+                        <div class="space-bottom-2"></div>
+                        <% /*
+                        <nav aria-label="Page navigation" class="d-none">
+                            <ul class="pagination mb-0">
+                                <li class="page-item ml-0">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">12</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">»</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        */ %>
+                    </div>
+                    <div id="stickyBlockStartPoint" class="col-lg-3 order-lg-1">
+
+                        <div class="js-sticky-block" data-offset-target="#logoAndNav"
+                            data-parent="#stickyBlockStartPoint" data-sticky-view="lg"
+                            data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint"
+                            data-offset-top="32" data-offset-bottom="170" style="top: 193.275px;">
+                            <h3 class="h4 text-tcg-info heading-subject-text mb-4"><%= translation.menu_text_category%></a></h3>
+                            <% sidebar_datas.forEach((sidebar_data) => { %>
+                            <article class="card border-0 mb-5 transition-3d-hover">
+                                <div class="card-body p-0">
+                                    <div class="media">
+                                        <div class="u-avatar mr-3">
+                                            <img class="img-fluid rounded"
+                                                src="/images/cover.png"
+                                                alt="Image Description">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="h6 font-weight-normal mb-0">
+                                                <a href="<%= original_source %>/cop/<%= sidebar_href %>/<%= sidebar_data.category_id%>" class="">
+                                                    <%= sidebar_data.category_title %> </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <% }) %>
+
+
+                            <hr class="my-7">
+                            <h3 class="h5 text-primary font-weight-semi-bold mb-4 d-none">Tags</h3>
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                                <li class="list-inline-item pb-3">
+                                    <a class="btn btn-xs  btn-pill" href="#">&nbsp;</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <%- include('../partials/aside'); -%>
+        </main>
+        <!-- ========== END MAIN CONTENT ========== -->
+        <%- include('../partials/footer'); -%>
+            <%- include('../partials/script'); -%>
+<script>
+    function feedPage (){};
+function gotobigbluebutton(room){
+    <% if (isLoggedIn) { %>
+        <%= typeof(isAdmin); %>
+        <%= isAdmin; %>
+    <% if (isAdmin == 1) { %>
+    const role = 'moderator';
+    <% }else{ %>
+    const role = 'attendee';
+    <% }  %>
+  $.post( '<%-vc_path%>/join_bbb.php', { 
+    meeting: room, 
+    role: role,
+    username: getCookie('cookieProfileName') 
+  })
+  .done(function( data ) {
+    window.open(data);
+  });
+  <% } else { %>
+    window.location.href = site_path + '/login'
+    <% } %>
+}
+</script>
+</body>
+
+</html>

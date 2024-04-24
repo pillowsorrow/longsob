@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav'); -%>
+		<div class="container mt-3 mb-6">
+			<div class="row ">
+				<!-- Learn Menu -->
+				<div id="stickyBlockStartPoint" class="col-md-4 col-lg-4 mb-7 mb-md-0 d-lg-block d-xl-block">
+					<%- include('../subject/partials/aside'); -%>
+				</div>
+				<!-- End Learn menu -->
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6">
+					<!-- shadow-sm space-lg-2 -->
+
+					<!-- card block 1-->
+					<div class="card shadow-soft p-1 pt-1 pl-0 pr-0 pl-3 "style="margin-left:-50px">
+						<!-- title block -->
+						<div class="col-lg-12 tab-pane subject-title-tab active" id="tab-f-index" role="tabpanel" aria-labelledby="tab-1">
+							<div class="d-flex">
+								<h4 class="text-primary-theme mt-1 ">หน้าหลัก</h4>
+								<div class="ml-auto text-right">
+									<div class="align-items-center pt-0 mt-0">
+										<div class="align-items-center progress-tab">
+
+											<small class="text-primary-theme">ความคืบหน้า</small>
+											<div class="js-hr-progress progress bg-soft-secondary">
+												<div class="js-hr-progress-bar progress-bar bg-theme-primary text-white"
+													role="progressbar" style="width: <%= data.process %>%;" aria-valuenow="<%= data.process %>"
+													aria-valuemin="0" aria-valuemax="<%= data.process %>"><%= data.process %>%</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end title block  -->
+						<hr class="my-1">
+
+						<!-- detail block  -->
+						<div class="col-lg-12">
+							<!-- Alert -->
+							<div class="p-4 mb-5 d-none" role="alert">
+								<h2 class="h5 mt-5 mb-0"><span
+										class="fas fa-magic font-size-2 mt-1 mr-3 text-primary-theme"></span><span
+										class="link-muted text-primary-theme">แนะนำวิชา</span></h2>
+								<p class="text-black-70 py-2">-</p>
+							</div>
+							<h2 class="h5 mt-5 mb-0 d-none"><span class="link-muted">ข่าวประชาสัมพันธ์</span></h2>
+							
+								<div class="row">
+								  <div class="col border p-4 text-left bg-soft-secondary rounded m-2">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, minima aut maiores soluta mollitia laudantium animi, quibusdam molestias commodi amet temporibus aperiam vero voluptatibus error ut nemo molestiae labore repellendus nisi! Architecto ipsam asperiores sit perferendis. Voluptatem, optio, in debitis aperiam neque quibusdam ea molestiae iusto fugit laboriosam dicta tempora.
+								  </div>
+								
+							
+								</div>
+							  
+
+
+
+							<div class="row col-lg-12 col-md-12 col-sm-12">
+								<div class="col-lg-12 col-md-12 col-sm-12 position-relative text-left img-hover mt-3">
+									<img class="card-img-top pl-2 rounded  "
+										src="<%= path_source %>/images/iconslearn/TCCT.png"
+										alt="Image Description" style="width: 100%">
+								</div>
+
+							</div>
+
+
+							<div class="d-none dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll"
+								data-options='{direction: "normal"}'>
+								<!-- Apply your Parallax background image here -->
+								<div class="divimage dzsparallaxer--target"
+									style="height: 130%; background-image: url(<%= data.banner %>);">
+								</div>
+
+								<div class="container ">
+									<div class="text-center w-lg-80 mx-auto">
+										<h1 class="text-white display-1 font-size-md-down-5 font-weight-semi-bold">
+											&nbsp;</h1>
+									</div>
+
+									<div class="text-center w-lg-40 mx-auto">
+										<p class="lead text-white-70"><br>&nbsp;<br>&nbsp;</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						
+						<!-- <hr class="mt-3 mb-3"> -->
+						<h2 class="h5 mt-5 mb-0 px-2"><span class="link-muted text-primary-theme"><%= translation.page_course_description %></span></h2>
+						<p class="text-black-70 py-2 px-2">Lorem ipsum dolor sit amet consectetur adipisicing.<%- data.description %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_learning_objectives %></span></h2>
+						<p class="text-black-70 py-2">Lorem ipsum dolor sit amet.	<%- data.objectives %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_evaluation %></span></h2>
+						<p class="text-black-70 py-2">Lorem ipsum dolor sit amet.<%- data.evaluation %></p>
+						<hr class="mt-3 mb-3">
+						<h2 class="h5 mt-5 mb-0"><span class="link-muted text-primary-theme"><%= translation.page_course_schedule %></span></h2>
+						<p class="text-black-70 py-2">Lorem ipsum dolor sit amet.<%- data.schedule %></p>
+						<hr class="mt-3 mb-3">
+
+						<hr class="mt-3 mb-3">
+						<div class="col-lg-4 col-md-4 col-sm-12 ">
+							<img class="card-img-top pl-0 rounded ml-3"
+										src="<%= path_source %>/images/iconslearn/TCCTTEACHER.png"
+										alt="Image Description" style="width: 50%">	
+									</div>
+									<br>
+								<div class="fontcompany" style="font-size: 13px;margin-left: 25px;">
+									<p>คณะผู้จัดทำ ฝ่ายทรัพยากรบุคคล</p>
+									<p style="padding-left: 53px;">และองค์กร</p>
+									<p style="padding-left: 65px;">ผู้สอน</p>
+
+
+								</div>
+									
+									
+									
+									</div>
+
+							</div>
+
+
+
+
+
+						<div class="row col-lg-12 col-md-12 col-sm-12">
+							<% data.teachers.forEach(function(teacher, index){ %>
+							<div class="col-lg-4 col-md-4 col-sm-12 mt-3 text-center">
+								<img class="u-lg-avatar rounded-circle" style="width: 150px;height:150px"
+									src="<%= teacher.avatar %>" onerror="this.onerror=null;this.src='/images/icon_user-01.png';">
+								<div class="card-body  text-center">
+									<h2 class="h6 font-weight-normal">
+										<span class="text-black-70"><%= teacher.name %></span><br />
+										<span class="text-black-70">ผู้สอน</span>
+									</h2>
+								</div>
+							</div>
+							<% }) %>
+
+						</div>
+					</div>
+					<!-- end detail block  -->
+				</div>
+				<!-- end card block 1 -->
+			</div>
+			<!--End Learn Detail -->
+		</div>
+		</div>
+		<!-- End Content Section -->
+
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+	
+	<!-- Go to Top -->
+
+	<a class="js-go-to u-go-to animated" href="javascript:#"
+		data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400"
+		data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown"
+		style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+		<span class="fas fa-arrow-up u-go-to__inner"></span>
+	</a>
+	<!-- End Go to Top -->
+<%- include('../subject/partials/script'); -%>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+  <head>
+    <%- include('../partials/head'); -%> 
+    <%- include('../partials/nav'); -%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css" integrity="sha512-IBfPhioJ2AoH2nST7c0jwU0A3RJ7hwIb3t+nYR4EJ5n9P6Nb/wclzcQNbTd4QFX1lgRAtTT+axLyK7VUCDtjWA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.css" integrity="sha512-U7c1CgCHBkedUvS/lsK7fbE4LH/pRlAimNRHCSKgBJZy17ZZr0Y2dMfpaZZWPaRwr0uoT6BAf2/lfa+GraUDLA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.css" integrity="sha512-/Jnt6fX98n8zZyuCt4K81+1eQJhWQn/vyMph1UvHywyziYDbu9DFGcJoW8U73m/rkaQBIEAJeoEj+2Rrx4tFyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css" integrity="sha512-CN6oL2X5VC0thwTbojxZ02e8CVs7rii0yhTLsgsdId8JDlcLENaqISvkSLFUuZk6NcPeB+FbaTfZorhbSqcRYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/calendar.css">
+  </head>
+
+  <body>
+    <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+        <div class="bg-theme-second">
+            <%- include('../partials/breadcrumb'); -%>
+        </div>
+      <!-- End Viwer Section -->
+        <div class="container space-bottom-xs-1 mt-4 py-2 px-sm-0">
+            <div class="mb-2 ">
+                <h4 class="h4 mb-4 text-primary-theme heading-subject-text"> <%= translation.title_calendar %></h4>
+            </div>
+            <div id='calendar'></div>
+        </div>
+      <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%> 
+    <%- include('../partials/script'); -%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js" integrity="sha512-bg9ZLPorHGcaLHI2lZEusTDKo0vHdaPOjVOONi4XLJ2N/c1Jn2RVI9qli4sNAziZImX42ecwywzIZiZEzZhokQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/locales-all.min.js" integrity="sha512-VsrFSGgqerN0+6shpMgjAs+YVNWb9OWO5mi+Z9Itwe0Di12J/yiK15RzocX4iI3eRuu7RUDXz/I5iQ6D8DMd9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/interaction/main.min.js" integrity="sha512-9M3YQ9E3hEtjRZSQdU1QADaOGxI+JAzq6bieArw7nIxQbPmn10M7TYxhvJZCuvSjlncJG24l+/e5d1bTRN3m4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js" integrity="sha512-kebSy5Iu+ouq4/swjgEKwa217P2jf/hNYtFEHw7dT+8iLhOKB5PG5xaAMaVyxRK7OT/ddoGCFrg8tslo8SIMmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/timegrid/main.min.js" integrity="sha512-APuj9Rm7J37dj8cRB1qwznH+zrWD7/vkaodDwJVxpdk72m5c9u8mbbdLHn6JnSw5M4AhV8Zb1HnLrNMGoOfR/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/list/main.min.js" integrity="sha512-Iw4G4+WD3E3F0M+wVZ95nlnifX1xk2JToaD4+AB537HmOImFi79BTtWma57mJeEnK2qNTOgZrYLtAHVsNazzqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <% if (i18n_lang == 'th') { %><script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/locale/th.min.js" integrity="sha512-TfMd8KtzZAxuLTMQfrCdEGT+bC/84nOBglkGH1L+JJ+w9/YRcFxSzqiazHK/fRDIum9pvUVB9UwlvsRHbSZHkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <% }else if (i18n_lang == 'en') { %><script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/locale/en.min.js" integrity="sha512-iyDTbRuyXHdkW3lqUjbVYufzZcHjagbEor24TqiNM5do10L5zPPIb4h6eQiXffVaqAG27DwsjSyz7ygKJyyoNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <% } %>
+    <script src="/javascripts/calendar.js" defer ></script>
+    <script>
+      const initialLocaleCode = '<%= i18n_lang %>';
+      const initialdefaultDate = dayjs().format();
+    </script>
+  </body>
+</html>

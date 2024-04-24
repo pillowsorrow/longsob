@@ -1,0 +1,24 @@
+<div class="container py-3">
+    <div class="d-lg-flex align-items-center justify-content-lg-between align-items-lg-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-no-gutter font-size-0 space-0 mb-0">
+                <li class="breadcrumb-item">
+                    <a href="<%= original_source %>/?clang=<%= i18n_lang %>" class="h6 text-black-50"><%= translation.breadcrumbs_home%></a>
+                </li>
+                <% breadcrumbs.forEach((breadcrumb) => { %>
+                <li class="breadcrumb-item" aria-current="page">
+                    <a href="<%= breadcrumb.url %>" class="h6"> <%= breadcrumb.label %> </a>
+                </li>
+                <% }) %>
+            </ol>
+        </nav>
+        <div class="ml-lg-auto d-block mobile-none">
+            <ul class="list-inline ml-2 mb-0">
+                <li class="list-inline-item text-muted">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- text-primary-theme -->

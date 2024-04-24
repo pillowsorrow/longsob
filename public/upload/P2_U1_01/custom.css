@@ -1,0 +1,39 @@
+* {
+    transition: all 0.3s;
+}
+
+html, body {
+    height: 100%;
+}
+
+iframe, #divContentFrame {
+    width: 100%;
+    height: calc(100% - 32px);
+}
+
+#divContentFrame {
+    background-image: url('./data/posttest/asset/bg.png');
+    background-size: cover;
+}
+
+#menuTOC {
+    position: absolute;
+    bottom: 0;
+    left: -322px;
+    width: 300px !important;
+    height: calc(100% - 64px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 100;
+    border-right: 1px solid #656565;
+    font-size: 14px;
+    background-color: whitesmoke;
+}
+
+#menuTOC.active {
+    left: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    
+}

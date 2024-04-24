@@ -1,0 +1,290 @@
+<!-- ========== HEADER ========== -->
+<header id="header" class="u-header u-header--abs-top-md u-header--show-hide-md" data-header-fix-moment="500"
+  data-header-fix-effect="slide" style="background-color: #fff">
+  <!-- Search -->
+  <div id="searchPushTop" class="u-search-push-top u-unfold--jquery-slide u-unfold--hidden p-4" style="display: none">
+    <div class="container position-relative">
+      <div class="u-search-push-top__content">
+        <!-- Close Button -->
+        <button type="button" class="close u-search-push-top__close-btn target-of-invoker-has-unfolds"
+          aria-haspopup="true" aria-expanded="false" aria-controls="searchPushTop" data-unfold-type="jquery-slide"
+          data-unfold-target="#searchPushTop">
+          <span aria-hidden="true">x</span>
+        </button>
+        <!-- End Close Button -->
+        <% /* %>
+        <form id="searchForm" class="js-validate" role="form" method="post"
+          action="<%= original_source %>/search/">
+          <div class="row input-group">
+            <input type="search" class="form-control" id="searchtxt" name="searchtxt" placeholder="<%= translation.search_txt%>"
+              aria-label="<%= translation.search_txt%>" />
+            <div class="input-group-append">
+              <button type="submit" id="searchbtn" class="btn btn-primary-theme">
+                <%= translation.search_txt%>
+              </button>
+            </div>
+          </div>
+          <% */ %>
+          <!-- Content -->
+          <div class="row d-md-flex mt-7">
+            <div class="col-sm-8">
+              <strong class="d-block mb-2"><%= translation.category_search_txt%></strong>
+              <div class="row">
+                <!-- List Group -->
+                <div class="col-6">
+                  <ul class="list-group list-group-transparent list-group-flush list-group-borderless">
+                    <li class="list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_1"
+                        name="searchbox" value="1" />
+                      <label class="custom-control-label" for="searchcheckbox_1"><%= translation.menu_text_course%></label>
+                    </li>
+                    <li class="list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_2"
+                        name="searchbox" value="2" />
+                      <label class="custom-control-label" for="searchcheckbox_2"><%= translation.menu_text_news_and_activity%></label>
+                    </li>
+                    <li class="list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_3"
+                        name="searchbox" value="3" />
+                      <label class="custom-control-label" for="searchcheckbox_3"><%= translation.menu_text_e_book%></label>
+                    </li>
+                    <li class="d-none list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_4"
+                        name="searchbox" value="4" />
+                      <label class="custom-control-label" for="searchcheckbox_4">คลังความรู้หน้างาน</label>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_5"
+                        name="searchbox" value="5" />
+                      <label class="custom-control-label" for="searchcheckbox_5"><%= translation.menu_text_e_learning%></label>
+                    </li>
+                    <li class="d-none list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_7"
+                        name="searchbox" value="4" />
+                      <label class="custom-control-label" for="searchcheckbox_7">ศูนย์ข้อมูลและความรู้</label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- End List Group -->
+                <!-- List Group -->
+                <div class="col-6">
+                  <ul class="list-group list-group-transparent list-group-flush list-group-borderless">
+                    <li class="list-group-item list-group-item-action custom-control custom-radio mb-2">
+                      <input type="radio" class="custom-control-input searchcheckbox" id="searchcheckbox_6"
+                        name="searchbox" value="6" />
+                      <label class="custom-control-label" for="searchcheckbox_6"><%= translation.menu_text_survey%></label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- End List Group -->
+              </div>
+            </div>
+          </div>
+          <!-- End Content -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Search -->
+  <div id="logoAndNav" class="container w-md-90">
+    <!-- Nav -->
+    <nav class="js-mega-menu navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
+      <!-- Logo -->
+      <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center w-auto" href="<%= original_source %>/" aria-label="Front">
+        <img alt="logo"
+          src="<%= file_path %><%=main_logo%>" />
+      </a>
+      <!-- End Logo -->
+      
+      <!-- Responsive Toggle Button -->
+      <button type="button" class="navbar-toggler btn u-hamburger" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navBar" data-toggle="collapse" data-target="#navBar">
+        <span id="hamburgerTrigger" class="u-hamburger__box">
+          <span class="u-hamburger__inner"></span>
+        </span>
+      </button>
+      <!-- End Responsive Toggle Button -->
+
+      <!-- Navigation -->
+      <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
+        <ul class="navbar-nav u-header__navbar-nav ml-0">
+          <li class="nav-item u-header__nav-item d-md-none d-lg-none mt-6">
+            <a id="sidebarNavToggler" class="nav-link u-header__sub-menu-nav-link" href="#sidebarContent" role="button"
+              aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
+              data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+              data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight" data-unfold-duration="500"
+              style="font-size: 1.4rem">
+              <%= translation.login_txt%>
+            </a>
+          </li>
+          <li class="nav-item u-header__nav-item d-md-none d-lg-none">
+            <a style="font-size: 1.4rem" class="nav-link u-header__sub-menu-nav-link"
+               href="<%= original_source %>/course?clang=<%= i18n_lang %>"><%= translation.menu_text_course%></a>
+          </li>
+          <li class="nav-item u-header__nav-item d-none">
+            <a style="font-size: 1.4rem" class="nav-link u-header__sub-menu-nav-link"
+               href="<%= original_source %>/calendar?clang=<%= i18n_lang %>">
+              <%= translation.title_calendar %></a>
+          </li>
+          <li class="nav-item u-header__nav-item d-none">
+            <a style="font-size: 1.4rem" class="nav-link u-header__sub-menu-nav-link"
+               href="<%= original_source %>/news?clang=<%= i18n_lang %>"><%= translation.menu_text_news_and_activity%></a>
+          </li>
+          <% /* %>
+          <li class="nav-item u-header__nav-item d-md-none d-lg-none">
+              <a style="font-size: 1.4rem;" class="nav-link u-header__sub-menu-nav-link" href="#"><%= translation.menu_text_survey%></a>
+            </li>
+            <% */ %> 
+        </ul>
+        <ul class="navbar-nav u-header__navbar-nav">
+          <li class="nav-item u-header__nav-item">
+            <a class="nav-link u-header__sub-menu-nav-link top_link_menu"
+               href="<%= original_source %>/calendar?clang=<%= i18n_lang %>">
+              <%= translation.title_calendar %></a>
+          </li>
+          <li class="nav-item u-header__nav-item">
+            <a class="nav-link u-header__sub-menu-nav-link top_link_menu"
+               href="<%= original_source %>/contactus?clang=<%= i18n_lang %>"><%= translation.title_contactus %></a>
+          </li>
+          <li class="nav-item u-header__nav-item">
+            <a class="nav-link u-header__sub-menu-nav-link top_link_menu"
+               href="<%= original_source %>/help?clang=<%= i18n_lang %>"><%= translation.title_manual %></a>
+          </li>
+          <li class="nav-item u-header__nav-last-item">
+            <a class="btn btn-xs btn-icon btn-text-secondary target-of-invoker-has-unfolds d-none" href="javascript:;"
+              role="button" aria-haspopup="true" aria-expanded="false" aria-controls="searchPushTop"
+              data-unfold-type="jquery-slide" data-unfold-target="#searchPushTop">
+              <i class="fas fa-search btn-icon__inner font-size-2"> </i>
+            </a>
+          </li>
+          <!-- Account Login -->
+          <li class="nav-item u-header__nav-last-item">
+            <!-- Account Sidebar Toggle Button -->
+            <% if (isLoggedIn) { %>
+              <a id="sidebarNavToggler" class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1 target-of-invoker-has-unfolds" href="javascript:;" role="button" aria-controls="sidebarContent" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarContent" data-unfold-type="css-animation" data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight" data-unfold-duration="500">
+              <span class="position-relative MemberDisplay">
+                <span class="u-sidebar--account__toggle-text">{{Member}} </span>
+                <img class="u-sidebar--account__toggle-img" src="/images/icon_user-01.png" onerror="this.onerror=null;this.src='/images/icon_user-01.png';">
+                                  </span>
+            </a>
+            <% } else { %>
+            <a id="sidebarNavToggler" class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1"
+              href="#sidebarContent" role="button" aria-controls="sidebarContent" aria-haspopup="true"
+              aria-expanded="false" data-unfold-event="click" data-unfold-hide-on-scroll="false"
+              data-unfold-target="#sidebarContent" data-unfold-type="css-animation"
+              data-unfold-animation-in="fadeInRight" data-unfold-animation-out="fadeOutRight"
+              data-unfold-duration="500">
+              <span class="position-relative">
+                <span class="u-sidebar--account__toggle-text">
+                  <%= translation.login_txt%></span>
+                <span class="fas fa-user-circle font-size-2 u-sidebar--account__toggle-text"></span>
+              </span>
+            </a>
+            <% }  %>
+
+
+            <!-- End Account Sidebar Toggle Button -->
+          </li>
+          <li class="nav-item hs-has-sub-menu u-header__nav-item" data-event="hover" data-animation-in="slideInUp"
+            data-animation-out="fadeOut">
+            <% if (lang == "th") { %>
+            <a id="langMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="#"
+              aria-haspopup="true" aria-expanded="false" aria-labelledby="pagesSubMenu"><img class="dropdown-item-icon"
+                src="/images/flags/th.svg"
+                alt="SVG" />ไทย</a>
+
+            <!-- Pages - Submenu -->
+            <ul id="pagesSubMenu" class="hs-sub-menu u-header__sub-menu" aria-labelledby="langMenu">
+              <!-- Account -->
+              <li class="">
+                <a class="nav-link u-header__sub-menu-nav-link" href="?clang=en">&nbsp;English</a>
+              </li>
+            </ul>
+            <% }else if (lang == "en"){ %>
+              <a id="langMenu" class="nav-link u-header__nav-link u-header__nav-link-toggle" href="#"
+                aria-haspopup="true" aria-expanded="false" aria-labelledby="pagesSubMenu"><img class="dropdown-item-icon"
+                  src="/images/flags/en.svg"
+                  alt="SVG" />En</a>
+  
+              <!-- Pages - Submenu -->
+              <ul id="pagesSubMenu" class="hs-sub-menu u-header__sub-menu" aria-labelledby="langMenu">
+                <!-- Account -->
+                <li class="">
+                  <a class="nav-link u-header__sub-menu-nav-link" href="?clang=th">&nbsp;ไทย</a>
+                </li>
+              </ul>
+            <% } %>
+          </li>
+        </ul>
+      </div>
+      <!-- End Navigation -->
+    </nav>
+    <!-- End Nav -->
+  </div>
+
+  <div class="bg-theme-primary mobile-none">
+    <div class="container d-flex justify-content-center">
+      <ul class="nav">
+        <li class="nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" class="nav-link" href="<%= original_source %>/course?clang=<%= i18n_lang %>"><%= translation.menu_text_course%></a>
+        </li>
+  
+        <li class="position-relative nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" id="copDropdownHoverInvoker" class="nav-link" href="javascript:;" role="button"
+            aria-controls="copDropdownHover" aria-haspopup="true" aria-expanded="false" data-unfold-event="hover"
+            data-unfold-target="#copDropdownHover" data-unfold-type="css-animation" data-unfold-duration="300"
+            data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp"
+            data-unfold-animation-out="fadeOut">
+            <%= translation.menu_text_cop%>
+          </a>
+          <ul id="copDropdownHover" class="dropdown-menu dropdown-unfold" aria-labelledby="copDropdownHoverInvoker">
+            <li class="dropdown-item">
+              <a style="font-size: 1.4rem" class="nav-link"
+                 href="<%= original_source %>/cop/live"><%= translation.menu_text_streaming%></a>
+            </li>
+            <li class="dropdown-item">
+              <a style="font-size: 1.4rem" class="nav-link"
+                 href="<%= original_source %>/cop/meeting"><%= translation.menu_text_meeting%></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" class="nav-link d-none" href="<%= original_source %>/calendar?clang=<%= i18n_lang %>">
+            <%= translation.title_calendar %></a>
+        </li>
+        <li class="nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" class="nav-link" href="<%= original_source %>/news?clang=<%= i18n_lang %>"><%= translation.menu_text_activity1%></a>
+        </li>
+        <% /* %>
+        <li class="nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" class="nav-link d-none"
+            href="#"><%= translation.menu_text_survey%></a>
+        </li>
+        <% */ %>
+        <li class="position-relative nav-item nav-item-theme d-flex align-items-center mx-2 px-3 p-md-0">
+          <a style="font-size: 1.4rem" id="basicDropdownHoverInvoker" class="nav-link" href="javascript:;" role="button"
+            aria-controls="basicDropdownHover" aria-haspopup="true" aria-expanded="false" data-unfold-event="hover"
+            data-unfold-target="#basicDropdownHover" data-unfold-type="css-animation" data-unfold-duration="300"
+            data-unfold-delay="300" data-unfold-hide-on-scroll="true" data-unfold-animation-in="slideInUp"
+            data-unfold-animation-out="fadeOut">
+            <%= translation.menu_text_knowledge%>
+          </a>
+          <ul id="basicDropdownHover" class="dropdown-menu dropdown-unfold" aria-labelledby="basicDropdownHoverInvoker">
+            <li class="dropdown-item">
+              <a style="font-size: 1.4rem" class="nav-link"
+                 href="<%= original_source %>/knowledge/ebook?clang=<%= i18n_lang %>"><%= translation.menu_text_e_book%></a>
+            </li>
+
+            <li class="dropdown-item">
+              <a style="font-size: 1.4rem" class="nav-link"
+                 href="<%= original_source %>/knowledge/blog?clang=<%= i18n_lang %>"><%= translation.menu_text_e_learning%></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+<!-- ========== END HEADER ========== -->

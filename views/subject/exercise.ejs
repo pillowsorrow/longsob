@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+	<%- include('../subject/partials/head'); -%>
+</head>
+
+<body>
+	<!-- oncontextmenu="return false"-->
+	<!-- ========== MAIN CONTENT ========== -->
+	<main id="content" role="main">
+		<%- include('../subject/partials/nav'); -%>
+		<div class="container mt-3 mb-6 container-fullpage">
+			<div class="row ">
+				<!-- Learn Menu -->
+				<div id="stickyBlockStartPoint" class="col-md-4 col-lg-4 mb-7 mb-md-0 d-lg-block d-xl-block">
+					<%- include('../subject/partials/aside'); -%>
+				</div>
+				<!-- End Learn menu -->
+
+				<!-- Learn Detail -->
+				<div class="col-lg-8 tab-content p-0 mb-6">
+					<!-- shadow-sm space-lg-2 -->
+
+					<!-- card block 1-->
+					<div class="card shadow-soft p-1 pt-1 pl-0 pr-0 ">
+						<!-- title block -->
+
+						<!-- title block -->
+						<div class="col-lg-12 tab-pane active" id="tab-f-index" role="tabpanel" aria-labelledby="tab-1">
+							<div class="d-flex">
+								<h4 class="h5 text-primary-theme mt-1"><%= translation.text_exercise %></h4>
+							</div>
+						</div>
+						<!-- end title block  -->
+						<hr class="my-1">
+						<!-- detail block  -->
+						<div class="col-lg-12">
+							<!-- Accordion -->
+							<div id="exerciseDetails" class="accordion mb-9">
+								<!-- Card -->
+								<% if(exams.length > 0) { %>
+								<% exams.forEach(function(item, index){ %>
+								<div class="card" id="exercise<%=item.exam_id%>">
+									<div class="card-header card-collapse">
+										<h5 class="mb-0">
+											<button class="btn btn-link btn-block text-secondary card-btn p-3"
+												role="button" data-toggle="collapse" data-target="#card406"
+												aria-expanded="true" aria-controls="card406">
+												<span class="row align-items-center">
+													<span class="col-md-6 mb-2 mb-md-0">
+														<span class="media align-items-center">
+															<img class="max-width-9 mr-3"
+																src="<%= path_source %>/images/learn/icon_page_learn-03.png">
+															<span class="media-body">
+																<span class="font-size-1"><%=item.exam_title%></span>
+															</span>
+														</span>
+													</span>
+													<span class="col-4 col-md-2 text-md-right">
+														<% if(item.exam_status){ %>
+														<span class="btn btn-xs btn-soft-success btn-pill"><%= translation.text_exercise_done %></span>
+														<% } %>
+													</span>
+													<span class="col-6 col-md-3">
+														<span class="d-block font-size-1"><%=item.num_questions%> <%= translation.text_unit_questions %></span>
+													</span>
+													<span class="col-2 col-md-1 text-lg-right">
+														<span class="card-btn-arrow text-primary-theme card-inactive" data-id="<%=item.exam_id%>">
+															<span class="fas fa-arrow-down small"></span>
+														</span>
+													</span>
+												</span>
+											</button>
+										</h5>
+									</div>
+									<div class="collapse">
+										<div class="card-body px-4">
+											<!-- Card Details -->
+											<div class="row">
+												<% /* %>
+												<div class="col-sm-7 mb-2 mb-sm-0">
+													<h5 class="h6 mb-1">คำถาม : ไม่สุ่ม</h5>
+													<h5 class="h6 mb-1">กำหนดช่วงสอบ</h5>
+													<p class="small">
+														<span class="fas fa-info-circle mr-1"></span>
+														ไม่กำหนด
+													</p>
+													<p class="small">
+														<span class="fas fa-info-circle mr-1"></span>
+														เวลา ไม่กำหนด
+													</p>
+												</div>
+												<div class="col-sm-5 mb-2 mb-sm-0">
+													<h5 class="h6 mb-1">เข้าสอบ : ไม่จำกัดครั้ง</h5>
+													<h5 class="h6 mb-1 ">ตัวเลือก : ไม่สุ่ม</h5>
+													<h5 class="h6 mb-1">จำกัดเวลาสอบ </h5>
+													<p class="small">
+														<span class="fas fa-info-circle mr-1"></span>
+														ไม่กำหนด
+													</p>
+													<a href="#"
+														class="btn btn-xs btn-primary-theme  transition-3d-hover">เริ่มสอบ</a>
+												</div>
+												<% */ %>
+												<a href="<%= original_source %>/exam/exercise/<%=courseID%>/<%=item.exam_id%>/<%= item.exam_url %>" class="btn btn-xs btn-primary-theme  transition-3d-hover"><%= translation.text_exercise_start %></a>
+											</div>
+											<!-- End Card Details -->
+										</div>
+									</div>
+								</div>
+								<% }) %>
+								<%  }else{ %>
+									<div class="exercise-nofound"><%= translation.text_exercise_zero %></div>
+							<% } %>
+								<!-- End Card -->
+							</div>
+							<!-- End Accordion -->
+						</div>
+						<!-- end detail block  -->
+					</div>
+					<!-- end detail block  -->
+				</div>
+				<!-- end card block 1 -->
+			</div>
+			<!--End Learn Detail -->
+		</div>
+		</div>
+		<!-- End Content Section -->
+
+	</main>
+	<!-- ========== END MAIN CONTENT ========== -->
+	<!-- ========== FOOTER ========== -->
+	<%- include('../subject/partials/footer'); -%>
+	<!-- ========== END FOOTER ========== -->
+
+	<!-- Go to Top -->
+
+	<a class="js-go-to u-go-to animated" href="javascript:#"
+		data-position="{&quot;bottom&quot;: 15, &quot;right&quot;: 15 }" data-type="fixed" data-offset-top="400"
+		data-compensation="#header" data-show-effect="slideInUp" data-hide-effect="slideOutDown"
+		style="z-index:9999;display: inline-block; position: fixed; opacity: 0; bottom: 15px; right: 15px;border: 2px solid #fff;">
+		<span class="fas fa-arrow-up u-go-to__inner"></span>
+	</a>
+	<!-- End Go to Top -->
+	<%- include('../subject/partials/script'); -%>
+
+</html>

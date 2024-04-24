@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tincan xmlns="https://www.mylearntime.com/lrs_nacc/gov_03/tincan.xsd">
+<activities>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/gov_03" type="http://adlnet.gov/expapi/activities/course">
+		<name>หลักสูตรตามแนวทางรับราชการกลุ่มทหารและตำรวจ</name>
+		<description lang="en-US">หลักสูตรตามแนวทางรับราชการกลุ่มทหารและตำรวจ</description>
+		<launch lang="en-us">index.html</launch>
+	</activity>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/gov_03/data/m01/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">วิชาที่ 3 จิตพอเพียงต้านทุจริต</name>
+		<description lang="und">วิชาที่ 3 จิตพอเพียงต้านทุจริต</description>
+		
+	</activity>
+	
+	<activity id="https://www.mylearntime.com/lrs_nacc/gov_03/data/posttest/index.html" type="http://adlnet.gov/expapi/activities/module">
+		<name lang="und">แบบทดสอบหลังเรียน</name>
+		<description lang="und">แบบทดสอบหลังเรียน</description>
+		
+	</activity>
+   
+</activities>
+</tincan>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Content Section -->
+    <div class="bg-light">
+      <div class="container space-1">
+        <div class="card bg-theme-second">
+          <div class="card-header px-0 mx-4 bg-theme-second">
+            <div class="col-md-5 col-lg-4 mb-2 mb-md-0  text-primary-theme">
+              <h4><span class="fas fa-user-graduate mr-2 "></span><%= translation.lms_training%></h4>
+            </div>
+            <!-- End Activity Menu -->
+          </div>
+          <div class="card-body px-4 py-0">
+            <!-- Activity Table -->
+            <div id="printdatatable" class="table-responsive-md u-datatable ">
+              <table
+                class="js-datatable table table-border-success u-datatable__striped u-datatable__content u-datatable__trigger mb-5">
+                <thead>
+                  <tr class="text-uppercase text-center">
+                    <th class="font-weight-medium text-center"><%= translation.lms_order%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_items%></th>
+                    <th class="font-weight-medium"><%= translation.lms_training_institution%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_training_start_date%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_training_end_date%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_training_attach%></th>
+                    <th class="font-weight-medium"> <%= translation.lms_training_edit%></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% trainings.forEach(function(training, index){ %>
+                  <tr>
+                    <td class="align-middle text-center text-secondary"><%= index + 1 %></td>
+                    <td class="align-middle text-secondary font-weight-normal history_display"><%= training.title %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= training.institution %></td>
+                    <td class="align-middle text-secondary text-center font-weight-normal"><%= training.startdate %></td>
+                    <td class="align-middle text-secondary text-center font-weight-normal"><%= training.enddate %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal">
+                      <% if (training.attach != '-') { %>
+                        <a class="js-fancybox u-media-viewer" href="javascript:;" data-fancybox="attach" data-src="<%= path_source %>/upload/<%= training.attach %>" data-caption="<%= training.title %>" data-speed="700">
+                          <span class="far fa-file-alt fa-lg text- pointer"></span>
+                        </a>
+                      <% }else{ %>
+                      <%= training.attach %> 
+                      <% } %>
+                    </td>
+                    <td class="align-middle text-secondary">
+                      <a href="<%= original_source %>/lms/training/<%= training.id %>/edit"><span class="fas fa-edit fa-lg text- pointer"></span></a>
+                    </td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Activity Table -->
+
+            <!-- Pagination -->
+            <div class="d-flex align-items-center">
+              <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+
+              <small id="datatableInfo" class="text-secondary ml-auto"></small>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    </div>
+    </div>
+    <div class="fixed-bottom space-2 mr-5 text-right border-1"> 
+			<a class="text-secondary font-size-1" href="<%= original_source %>/lms/training/insert"> 
+				<button type="button" class="btn btn-icon btn-danger btn-pill btn-lg transition-3d-hover shadow-xl">   
+					 <i class="fas fa-pen btn-icon__inner"></i> 
+				</button>    
+			</a> 
+	  </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/javascripts/components/jquery.dataTables.min.js"></script>
+  <script>
+    function feedPage() {
+    }
+
+    $(document).ready(function () {
+      let table = new DataTable('#printdatatable table');
+
+    });
+  </script>
+
+</body>
+
+</html>

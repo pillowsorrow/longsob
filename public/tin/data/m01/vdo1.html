@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+ </head>
+<style> 
+			
+			
+</style>
+
+<body >
+
+
+
+<video  id="myVideo" width="1280"  autoplay controls controlsList="nodownload" >
+<source src="01.mp4" type="video/mp4">
+  video not supported
+</video>
+
+
+
+<script type='text/javascript'>
+    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        // What you want to do after the event
+		//if((window.location.protocol == "http:" || window.location.protocol == "https:") && typeof(parent.parent.isoffline) != "undefined" && typeof(parent.parent.tincan) != "undefined" && typeof(parent.parent.setContentStatusPassed) != "undefined"){
+		//parent.parent.setContentStatusPassed();
+	//}
+		parent.cp.goToNextSlide();
+    }
+
+/*
+var autoPlayVideo = document.getElementById("myVideo");
+    autoPlayVideo.oncanplaythrough = function() {
+        autoPlayVideo.muted = false;
+//        autoPlayVideo.play();
+        autoPlayVideo.pause();
+        autoPlayVideo.play();
+    }
+*/
+
+</script>
+
+
+ </body>
+</html>

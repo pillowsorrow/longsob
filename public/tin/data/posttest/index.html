@@ -1,0 +1,72 @@
+﻿<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <meta name="viewport" content="width=1280, maximum-scale=1, user-scalable=yes" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Script language="JavaScript" src="asset/APIWrapper.js"></Script>
+    <Script language="JavaScript" src="asset/SCOFunctions.js"></Script>
+    <Script language="JavaScript" src="asset/nolp_script.js"></Script>
+    <Script language="JavaScript" src="asset/nolp_media.js"></Script>
+    <!-- <Script language="JavaScript" src="asset/init.js"></Script> -->
+
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../scripts/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/javascript">
+
+        function vh(v) {
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            return (v * h) / 100;
+        }
+
+        function vw(v) {
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            return (v * w) / 100;
+        }
+
+        function vmin(v) {
+            return Math.min(vh(v), vw(v));
+        }
+
+        function vmax(v) {
+            return Math.max(vh(v), vw(v));
+        }
+
+        function resizeIFrameToFitContent(iFrame) {
+            // iFrame.width = iFrame.contentWindow.document.body.scrollWidth;
+            // iFrame.style.minHeight = iFrame.contentWindow.document.body.scrollHeight;
+            // $(iFrame).css("height", (iFrame.contentWindow.document.body.scrollHeight / 12) + "vh");
+            $(iFrame).css("width", "100%");
+            $(iFrame).css("min-height", "65vh");
+        }
+
+        document.addEventListener('DOMContentLoaded', function (e) {
+            var iFrame = document.getElementById('nolpifrm');
+            resizeIFrameToFitContent(iFrame);
+
+            // or, to resize all iframes:
+            var iframes = document.querySelectorAll("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+                resizeIFrameToFitContent(iframes[i]);
+            }
+
+            var btnRight = document.getElementById("btright");
+        });
+
+        function onMyFrameLoad() {
+            var iFrame = document.getElementById('nolpifrm');
+            resizeIFrameToFitContent(iFrame);
+
+            // or, to resize all iframes:
+            var iframes = document.querySelectorAll("iframe");
+            for (var i = 0; i < iframes.length; i++) {
+                resizeIFrameToFitContent(iframes[i]);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <Script language="JavaScript" src="asset/nolp.js"></Script>

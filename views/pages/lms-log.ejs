@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+  <%- include('../partials/nav'); -%>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    <!-- Breadcrumb Section -->
+    <%- include('../partials/breadcrumb-lms'); -%>
+    <!-- End Breadcrumb Section -->
+
+    <!-- Content Section -->
+    <div class="bg-light">
+      <div class="container space-1">
+        <div class="card bg-theme-second">
+          <div class="card-header px-0 mx-4 bg-theme-second">
+            <div class="col-md-5 col-lg-4 mb-2 mb-md-0  text-primary-theme">
+              <h4><span class="far fa-list-alt mr-2 "></span><%= translation.aside_log%></h4>
+            </div>
+            <!-- End Activity Menu -->
+          </div>
+          <div class="card-body px-4 py-0">
+            <!-- Activity Table -->
+            <div id="printdatatable" class="table-responsive-md u-datatable ">
+              <table
+                class="js-datatable table table-border-success u-datatable__striped u-datatable__content u-datatable__trigger mb-5">
+                <thead>
+                  <tr class="text-uppercase text-center">
+                    <th class="font-weight-medium text-center"><%= translation.lms_order%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_items%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_log_date%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_log_ip%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_log_browser%></th>
+                    <th class="font-weight-medium text-left"><%= translation.lms_log_os%></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% logs.forEach(function(log, index){ %>
+                  <tr>
+                    <td class="align-middle text-center text-secondary"><%= index + 1 %></td>
+                    <td class="align-middle text-secondary font-weight-normal log_display"><%= log.log_name %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= log.logdate %></td>
+                    <td class="align-middle text-secondary text-center font-weight-normal"><%= log.logip %></td>
+                    <td class="align-middle text-center text-secondary font-weight-normal"><%= log.logagents %> </td>
+                    <td class="align-middle text-secondary text-center font-weight-normal"><%= log.logplatform %></td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+            <!-- End Activity Table -->
+
+            <!-- Pagination -->
+            <div class="d-flex align-items-center">
+              <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+
+              <small id="datatableInfo" class="text-secondary ml-auto"></small>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    </div>
+    </div>
+    <!-- End Two Block -->
+    <%- include('../partials/aside'); -%>
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+  <%- include('../partials/footer'); -%>
+  <%- include('../partials/script'); -%>
+  <script src="/javascripts/components/jquery.dataTables.min.js"></script>
+  <script>
+    function feedPage() {
+
+    }
+
+    $(document).ready(function () {
+      let table = new DataTable('#printdatatable table');
+    });
+  </script>
+
+</body>
+
+</html>
