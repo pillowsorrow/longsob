@@ -225,6 +225,41 @@ app.get(DIR + ":site/bbnew", async (req, res) => {
   });
 });
 
+app.get(DIR + ":site/ttnew", async (req, res) => {
+  res.render("home/ttnew", {
+    title: req.i18n_texts.term_and_condition_breadcrumb,
+    isLoggedIn: req.session.isLoggedIn,
+    isAdmin: req.session.role || 2,
+    breadcrumbs: [{
+      label: req.i18n_texts.term_and_condition_breadcrumb,
+      url: "#",
+    }, ]
+  });
+});
+
+app.get(DIR + ":site/ttnewnew", async (req, res) => {
+  res.render("home/ttnewnew", {
+    title: req.i18n_texts.term_and_condition_breadcrumb,
+    isLoggedIn: req.session.isLoggedIn,
+    isAdmin: req.session.role || 2,
+    breadcrumbs: [{
+      label: req.i18n_texts.term_and_condition_breadcrumb,
+      url: "#",
+    }, ]
+  });
+});
+
+app.get(DIR + ":site/ttnewnewnew", async (req, res) => {
+  res.render("home/ttnewnewnew", {
+    title: req.i18n_texts.term_and_condition_breadcrumb,
+    isLoggedIn: req.session.isLoggedIn,
+    isAdmin: req.session.role || 2,
+    breadcrumbs: [{
+      label: req.i18n_texts.term_and_condition_breadcrumb,
+      url: "#",
+    }, ]
+  });
+});
 
 
 

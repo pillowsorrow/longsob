@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+  <%- include('../partials/head'); -%>
+    <%- include('../partials/nav'); -%>
+
+
+
+
+
+</head>
+
+<body>
+  <%- include('../partials/header'); -%>
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" role="main">
+      <div class="bg-theme-second">
+        <%- include('../partials/breadcrumb'); -%>
+      </div>
+      <!-- End Viwer Section -->
+
+
+      <style>
+        @media only screen and (max-width: 768px) {
+          #hamburg {
+            display: block;
+          }
+
+        }
+
+
+        .navbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          overflow: hidden;
+          padding: 10px 0;
+        }
+
+        .navbar {
+          position: block;
+          /* Ensure the container is positioned relatively */
+        }
+
+        .card-body {
+          background-color: rgb(235, 235, 235);
+        }
+
+
+
+
+
+        .content-container {
+          width: 100%;
+          /* Adjust this value as needed */
+          overflow-x: hidden;
+          white-space: nowrap;
+          border-block-start: 1px solid aliceblue;
+          /* top border */
+          border-inline-end: 1px dotted aliceblue;
+          /* right border */
+          border-block-end: 1px dashed aliceblue;
+          /* bottom border */
+          border-inline-start: 1px double aliceblue;
+          /* left border */
+        }
+
+        .content {
+          display: inline-block;
+        }
+
+        .buttonforleft {
+          padding: 1px;
+        }
+
+        .buttonforright {
+          padding: 1px;
+        }
+
+        button:hover {
+
+          background-color: rgb(255, 255, 255);
+        }
+
+        button:focus {
+
+          background-color: rgba(2, 209, 244, 255);
+          border-style: none;
+
+        }
+
+
+
+
+
+
+        .prev,
+        .next {
+          cursor: pointer;
+          position: absolute;
+          top: 90%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+
+
+        @media only screen and (min-width: 1024px) {
+          .hamburg1 {
+            display: none;
+          }
+        }
+
+        @media only screen and (max-width: 1199px) {
+          .storage-sob {
+            display: none;
+          }
+
+          .text-ministry {
+            font-size: 27px;
+          }
+        }
+
+        @media only screen and (min-width: 1198px) {
+          .hamburg3 {
+            display: none;
+          }
+        }
+
+        @media only screen and (min-width: 1198px) {
+          .hamburg5 {
+            display: none;
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+          .text-ministry {
+            font-size: 16px;
+          }
+        }
+
+        @media only screen and (max-width: 478px) {
+          .textklung {
+            font-size: 10px;
+            bottom: 37px !important;
+          }
+        }
+          
+
+
+
+
+        .scrollmenu-container {
+          display: flex;
+          width: 100%;
+        }
+
+        .scrollmenu-btn-right {
+          overflow-x: wrap;
+        }
+
+
+
+
+        .scrollmenu {
+          flex: 1;
+          overflow: hidden;
+          position: relative;
+          background-color: rgb(253, 253, 253);
+          white-space: nowrap;
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .scrollmenu-inner {
+          display: inline-flex;
+          transition: margin-left 0.3s ease-in-out;
+        }
+
+        .scrollmenu:after {
+          content: '';
+          width: 100%;
+          height: 200%;
+          top: -50%;
+          left: 0;
+          position: absolute;
+          pointer-events: none;
+
+
+        }
+
+        .scrollmenu-container button {
+          background-color: #c2c2c2;
+          color: #ccc;
+          border: none;
+          cursor: pointer;
+          padding: 0 0.5rem;
+        }
+
+
+
+        .scrollmenu a {
+          color: rgb(0, 0, 0);
+          text-align: center;
+          padding: 1rem;
+          text-decoration: none;
+        }
+
+        button {
+          color: black !important;
+          /* Override inline color */
+          border: 1px solid black !important;
+          /* Override inline border */
+        }
+
+        /* Clicked button style */
+        button:active,
+        button:focus {
+          outline: none;
+          /* Remove the focus outline */
+          border-color: transparent !important;
+          background-color: rgba(2, 209, 244, 255) !important;
+          color: white !important;
+        }
+
+        .no-border {
+          border: none !important;
+          /* Remove the border */
+        }
+      </style>
+
+
+
+
+
+
+      <!-- Pricing Section -->
+
+      <!-- หน้าPSD 4 -->
+
+      <div class="container mt-7 ">
+        <div class="row">
+          <div class="col-xl-4 dnone">
+            <!-- <div class="btnnaj" style="display: block;">
+            <span id="hamburg" class="hamburg1"  onclick="w3_open()">☰</span>
+            
+          </div> -->
+            <div id="mySidebar" class="storage-sob">
+              <h3 class="korsob" style="color: black;"> <img src="/images/iconslearn/storage.png" style="width:20% "
+                  alt="คลังข้อสอบ">คลังข้อสอบ<span id="hamburg" class="hamburg5"
+                  style="position: absolute;top: 0;right: 0;margin-right: 25px;" onclick="w3_close()">X</span></h3>
+                
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">สำนักงานนายกรัฐมนตรี</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงกลาโหม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงพลังงาน</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงแรงงาน</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงยุติธรรม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงศึกษาธิการ</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงสาธารณสุข</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงอุตสาหกรรม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงคมนาคม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงพาณิชย์</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงมหาดไทย</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงวัฒนธรรม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงการคลัง</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงการท่องเที่ยวและกีฬา</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงพัฒนาสังคมและความมั่นคงของมนุษย์</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงการอุดมศึกษาวิทยาศาสตร์วิจัยและนวัตรกรรม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงเกษตรและสหกรณ์</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงทรัยการธรรมชาติและสิ่งแวดล้อม</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">กระทรวงต่างประเทศ</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">ธนาคาร</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">รัฐวิสาหกิจ</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+              <span class="ministrymode">
+                <a href="#"style="color: black;">ส่วนราชการที่ไม่สังกัดสำนักนายกรัฐมนตรีกระทรวงหรือทบวง</a>
+              </span class="ministrymode">
+              <hr class="my-12 btn-dark" />
+
+
+
+
+
+
+
+            </div>
+          </div>
+          <div class="col-xl-8 col">
+            <div class="ministry-nav">
+              <div class="korsobinside"><span id="hamburg3" class="hamburg3"
+                  style="position: absolute; top: 0; left: 0;" onclick="handleClick()"><img
+                    src="/images/iconslearn/storage.png" style="width:14%;margin-left: 10px;" alt="คลังข้อสอบ">
+                  <p class="textklung"
+                    style="text-align: start;position: relative;margin-left: 45px;margin-top: 5px;bottom: 45px;color: black;">
+                    คลังข้อสอบ</p>
+                </span></div>
+              <h2 class="text-ministry" style="text-align: center;color:black;  ">
+                สำนักงานนายกรัฐมนตรี
+              </h2>
+
+              <hr class="my-12 btn-dark" />
+              <nav class="navbar">
+                <div class="scrollmenu-container">
+                  <button class="scrollmenu-btn-left no-border">&lt;</button>
+                  <div class="scrollmenu">
+                    <div class="scrollmenu-inner">
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">SSC
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">aBanking
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">Civil
+                          Services
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">Railways
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">Engineering
+                          Recruitment
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">ministry
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">Remington
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">HoneyBadger
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">123kaolarmhormok
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">456jingjokyudsai
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">789kaomaohoryai
+                          Exams</button></a>
+                      <a href="#"><button class="badge badge-pill " type="button"
+                          style="width:auto;height: 42px;color: rgb(0, 0, 0);font-size: 16px;background-color: white;">10aroimod
+                          Exams</button></a>
+                    </div>
+                  </div>
+                  <button class="scrollmenu-btn-right no-border" style="color: rgb(75, 75, 75);">&gt;</button>
+                </div>
+              </nav>
+              <hr class="my-12 btn-dark" />
+              <script>
+                const SLIDE_AMOUNT = 200;
+
+                const scrollMenu = document.querySelector('.scrollmenu');
+                const scrollMenuInner = scrollMenu.querySelector('.scrollmenu-inner');
+
+                const leftBtn = document.querySelector('.scrollmenu-btn-left');
+                const rightBtn = document.querySelector('.scrollmenu-btn-right');
+
+                leftBtn.addEventListener('click', slideLeft);
+                rightBtn.addEventListener('click', slideRight);
+
+                function getOffset() {
+                  const offset = parseInt(scrollMenuInner.style.marginLeft.slice(0, -2));
+                  return isNaN(offset) ? 0 : offset;
+                }
+
+                function slideRight() {
+                  const offset = getOffset();
+
+                  const diff = scrollMenuInner.clientWidth + offset - scrollMenu.clientWidth
+                  if (diff >= SLIDE_AMOUNT) {
+                    scrollMenuInner.style.marginLeft = `${offset - SLIDE_AMOUNT}px`;
+                  } else if (diff < SLIDE_AMOUNT && diff > 0) {
+                    scrollMenuInner.style.marginLeft = `${offset - diff}px`;
+                  }
+                };
+
+                function slideLeft() {
+                  const offset = getOffset();
+
+                  if (Math.abs(offset) >= SLIDE_AMOUNT) {
+                    scrollMenuInner.style.marginLeft = `${offset + SLIDE_AMOUNT}px`;
+                  } else if (Math.abs(offset) < SLIDE_AMOUNT && offset < 0) {
+                    scrollMenuInner.style.marginLeft = '0px';
+                  }
+                }
+                function handleClick() {
+                  // Do something here, for example, call w3_open()
+                  w3_open();
+
+                  // Hide the clicked element
+                  document.getElementById("hamburg3").style.display = "block";
+                }
+
+                // Define the w3_open() function
+                function w3_open() {
+                  // Define your w3_open() function logic here
+                  // For example:
+                  // document.getElementById("mySidenav").style.width = "250px";
+                  // document.getElementById("main").style.marginLeft = "250px";
+                }
+
+
+
+              </script>
+
+
+            </div>
+            <div class="pricing">
+              <div class="row">
+                <div class="col-md-4 mt-2">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-2">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-2">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mt-7">
+                  <div class="card-main">
+                    <div class="card">
+                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">หลักสูตร กฎหมายการ
+                          <br>
+                          แข่งขันทางกาารค้าพื้นฐาน
+                          <br>
+                          <br>
+                          ราคา 330 บาท
+                        </p>
+                        <a href="#" class="btn btn-primary w-100"
+                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                        <a href="#" class="btn btn-primary w-100 mt-3"
+                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="page-number mt-6 pb-1  ">
+        <style>
+          ul {
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+          }
+
+          li {
+            font-size: 20px;
+          }
+        </style>
+
+        <ul class="number-page" style="margin-right: 80px;color: black;">
+          <li style="color: black;margin-right: 10px;"><< </li>
+          <li style="color: black;margin-right: 10px;">1</li>
+          <li style="color: black;margin-right: 10px;">2</li>
+          <li style="color: black;margin-right: 10px;">3</li>
+          <li style="color: black;margin-right: 10px;">4</li>
+          <li style="color: black;margin-right: 10px;">5</li>
+          <li style="color: black;margin-right: 10px;">6</li>
+          <li style="color: black;margin-right: 10px;">7</li>
+          <li style="color: black;margin-right: 10px;">8</li>
+          <li style="color: black;margin-right: 10px;">9</li>
+          <li style="color: black;margin-right: 10px;">10</li>
+          <li style="color: black;margin-right: 10px;">>></li>
+        </ul>
+
+
+
+
+        <script>
+          function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+          }
+
+          function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+          }
+        </script>
+
+
+
+        <!-- End Pricing Section -->
+
+
+        <%- include('../partials/aside'); -%>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+    <%- include('../partials/footer'); -%> <%- include('../partials/script'); -%>
+        <script async defer src="/javascripts/course.js"></script>
+</body>
+
+</html>

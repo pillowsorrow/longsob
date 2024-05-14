@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="<%= i18n_lang %>">
+
+<head>
+    <%- include('../partials/head'); -%> <%- include('../partials/nav'); -%>
+
+</head>
+
+
+<style>
+    @media (max-width: 1199px) {
+        .status-text {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .head-new {
+            font-size: 20px;
+        }
+
+    }
+
+    @media only screen and (max-width: 426px) {
+        .layer {
+            font-size: 7px;
+        }
+
+    }
+
+
+
+    @media only screen and (max-width: 426px) {
+        .resultmode {
+            font-size: 1px;
+        }
+
+    }
+
+
+
+
+    .badge-lg {
+        font-size: 30px;
+
+
+    }
+
+
+
+    .custom-btn {
+        display: inline-block;
+        width: 100%;
+        padding: 8px;
+        border-radius: 15px;
+        background-color: rgb(66, 23, 23);
+        /* Change the background color as needed */
+        color: #ffffff;
+        /* Change the text color as needed */
+        font-size: 25 x;
+        /* Adjust the font size as needed */
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .resultmode {
+        display: inline-block;
+        width: 60%;
+        color: #000000;
+        /* Change the text color as needed */
+        text-decoration: none;
+    }
+
+    .text-result {
+        display: inline-block;
+        font-size: 30px;
+        width: 100%;
+        color: #000000;
+        /* Change the text color as needed */
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: 426px) {
+        .text-passornot {
+            font-size: 15px;
+        }
+
+    }
+
+    @media only screen and (max-width: 426px) {
+        .text-result {
+            font-size: 12px;
+        }
+
+    }
+
+    @media only screen and (max-width: 571px) {
+        .text-result {
+            font-size: 20px;
+        }
+
+    }
+
+    @media only screen and (max-width: 1440px) {
+        .text-result {
+            font-size: 18px;
+        }
+
+    }
+
+    @media only screen and (max-width: 426px) {
+        .layer {
+            display: none;
+        }
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        .text-result {
+            font-size: 15px;
+        }
+
+    }
+
+    @media only screen and (max-width: 1440px) {
+        .layer {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+    }
+
+    @media only screen and (max-width: 2000px) {
+        .text-passornot {
+            font-size: 33px;
+        }
+
+    }
+
+    @media only screen and (max-width: 900px) {
+        .text-passornot {
+            font-size: 26px;
+        }
+
+    }
+
+    @media only screen and (max-width: 767px) {
+        .text-passornot {
+            font-size: 18px;
+        }
+
+    }
+
+    @media only screen and (max-width: 734px) {
+        .text-passornot {
+            font-size: 20px;
+            text-align: end;
+        }
+
+    }
+
+    @media only screen and (min-width: 598px) and (max-width: 691px) {
+        .text-passornot {
+            font-size: 15px;
+            text-align: end;
+        }
+
+    }
+
+    @media only screen and (max-width: 320px) {
+        .text-passornot {
+            font-size: 17px;
+        }
+
+    }
+
+    @media only screen and (max-width: 2222px) {
+        .text-anywayshow {
+            font-size: 45px;
+        }
+
+    }
+
+    @media only screen and (max-width: 1440px) {
+        .text-anywayshow {
+            font-size: 35px;
+        }
+
+    }
+
+    @media only screen and (max-width: 1024px) {
+        .text-anywayshow {
+            font-size: 30px;
+        }
+
+    }
+
+    @media only screen and (max-width: 768px) {
+        .text-anywayshow {
+            font-size: 20px;
+        }
+
+    }
+
+    @media only screen and (max-width: 426px) {
+        .text-anywayshow {
+            font-size: 16px;
+        }
+
+    }
+
+    @media only screen and (max-width: 648px) {
+        .passornot-pic {
+            width: 25px;
+            height: 25px;
+        }
+
+    }
+    @media only screen and (max-width: 768px) {
+        .number-page {
+            justify-content: flex-start;
+            margin-left: 10px;
+        }
+
+    }
+    
+</style>
+
+
+
+
+
+
+
+<body>
+    <%- include('../partials/header'); -%>
+        <!-- ========== MAIN CONTENT ========== -->
+        <main id="content" role="main">
+            <!-- Breadcrumb Section -->
+            <%- include('../partials/breadcrumb-lms'); -%>
+
+
+            <!-- หน้า PSD6 -->
+
+                <div class="container mt-7"
+                    style="border: 1px solid;border-radius: 7px;background-color: rgb(235, 235, 235);border-color: rgb(203,217,242);">
+                    <div class="head-new">
+                        <div class="row">
+                            <div class="col-md-12 pl-4" style="font-size: 30px;color: rgb(84,51,30);">
+                                <span>
+                                    <h2 style="margin-top: 10px;margin: 10px;">หลักสูตรเตรียมสอบ ภาค ก. ปริญญาตรี
+                                        สำนักงาน ก.พ.</h2>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="status-text">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34);">สถานะ</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34)">คะแนนล่าสุด</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34);">รายงานโดยละเอียด</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ความสามารถในการคิดวิเคราะห์
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 118, 00);color: black;">25 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">10 : D</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            วิชาภาษาอังกฤษ
+
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(238, 255, 00);color: black;">60 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">80 : A</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            วิชาความรู้และลักษณะการเป็นข้าราชการที่ดี
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">42 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">40 : C</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="head-new">
+                        <div class="row">
+                            <div class="col-md-12 pl-6  " style="font-size: 30px;">
+                                <span>
+                                    <h3 style="color: rgb(84,51,30);">ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ.</h3>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="status-text">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-3" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 1
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">20 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-3" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 2
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 3
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">50 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 4
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">30 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 5
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 6
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 7
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">60 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 8
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">33 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 9
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 10
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">25 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn-lg w-100" style="background-color: rgb(26, 25, 25);">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 " style="padding-top: 25px;">
+                                        <p class="text-result" style="color: white;">ประเมินผลการเตรียมตัวสอบของคุณ</p>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-4">
+                                        <span class="resultmode pt-2 pl-5 pr-5"
+                                            style="background-color: rgb(255, 255, 255);margin-top: 20px;width: auto;;">
+                                            <p class="text-passornot" style="color: black;"><img class="passornot-pic"
+                                                    src="/images/iconslearn/notpass.png" alt=""
+                                                    style="width: 40px;height: 40px;margin-right: 25px;">ไม่ผ่าน</p>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-sm-12" style="color: white;">
+                                                <div class="layer">มีผู้ผ่านจำนวน 5 คน 5%</div>
+                                                <div class="layer">มีผู้ไม่ผ่านจำนวน 85 คน 85%</div>
+                                                <div class="layer">มีกำลังสอบจำนวน 10 คน 10%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </button>
+                    </div>
+                    <div class="row mt-4 pb-3">
+                        <div class="col-12">
+                            <button class="btn-lg w-100" style="background-color: rgb(253, 190, 0);">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 " style="text-align: center;">
+                                        <p class="text-anywayshow" style="color: white;">
+                                            ผลประเมินผลการเตรียมตัวสอบของคุณในภาพรวมของหลักสูตรนี้</p>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                    </button>
+                </div>
+                </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+                </div>
+
+
+                <div class="container mt-7"
+                    style="border: 2px solid;background-color: rgb(235, 235, 235);border-color: rgb(203,217,242);">
+                    <div class="head-new">
+                        <div class="row">
+                            <div class="col-md-12 pl-4" style="font-size: 30px;color: rgb(84,51,30);">
+                                <span>
+                                    <h2 style="margin-top: 10px;margin: 10px;">หลักสูตรเตรียมสอบ ภาค ก. ปริญญาตรี
+                                        สำนักงาน ก.พ.</h2>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="status-text">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34);">สถานะ</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34)">คะแนนล่าสุด</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p style="color: rgb(86,55,34);">รายงานโดยละเอียด</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ความสามารถในการคิดวิเคราะห์
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 118, 00);color: black;">25 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">10 : D</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            วิชาภาษาอังกฤษ
+
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(238, 255, 00);color: black;">60 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">80 : A</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            วิชาความรู้และลักษณะการเป็นข้าราชการที่ดี
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">42 %</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">40 : C</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="head-new">
+                        <div class="row">
+                            <div class="col-md-12 pl-6  " style="font-size: 30px;">
+                                <span>
+                                    <h3 style="color: rgb(84,51,30);">ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ.</h3>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="status-text">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="status-text" style="text-align: center;">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-3" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 1
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">20 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-3" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 2
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 3
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">50 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 4
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">30 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 5
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 6
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 7
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">60 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 8
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">33 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 9
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(255, 00, 00);">ยังไม่ทำ</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: rgb(242,84,71);">00 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(162,164,168);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-12 mb-3 pl-8 p-2" style="color: rgb(84,51,30);">
+                            <span class="btn btn-xs btn-icon btn-soft-primary rounded-circle mr-1"
+                                style="background-color: rgb(233, 205, 207);">
+                                <i class="fas fa-arrow-circle-right btn-icon__inner"
+                                    style="color: rgb(171, 25, 38);"></i>
+                            </span>
+                            ข้อสอบ ภาค ก. ปริญญาตรี สำนักงาน ก.พ. ชุดที่ 10
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(253, 190, 0);color: black;">ทำแล้ว</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn "
+                                style="font-size: 28px;background-color: rgb(251, 212, 155);color: black;">25 /
+                                100</span>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-4 mb-3" style="text-align: center;">
+                            <span class="custom-btn"
+                                style="font-size: 28px;background-color: rgb(66, 23, 23);">ดูรายละเอียด</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn-lg w-100" style="background-color: rgb(26, 25, 25);">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 " style="padding-top: 25px;">
+                                        <p class="text-result" style="color: white;">ประเมินผลการเตรียมตัวสอบของคุณ</p>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-4">
+                                        <span class="resultmode pt-2 pl-7 pr-7"
+                                            style="background-color: rgb(255, 255, 255);margin-top: 20px;width: auto;;">
+                                            <p class="text-passornot" style="color: black;"><img class="passornot-pic"
+                                                    src="/images/iconslearn/passex.png" alt="passex"
+                                                    style="width: 40px;height: 40px;margin-right: 25px;">ผ่าน</p>
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-sm-12" style="color: white;">
+                                                <div class="layer">มีผู้ผ่านจำนวน 5 คน 5%</div>
+                                                <div class="layer">มีผู้ไม่ผ่านจำนวน 85 คน 85%</div>
+                                                <div class="layer">มีกำลังสอบจำนวน 10 คน 10%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </button>
+                    </div>
+                    <div class="row mt-4 pb-3">
+                        <div class="col-12">
+                            <button class="btn-lg w-100" style="background-color: rgb(253, 190, 0);">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 " style="text-align: center;">
+                                        <p class="text-anywayshow" style="color: white;">
+                                            ผลประเมินผลการเตรียมตัวสอบของคุณในภาพรวมของหลักสูตรนี้</p>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                    </button>
+                </div>
+                </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+                </div>
+
+                <style>
+                    ul {
+                        text-align: right;
+                    }
+                </style>
+
+                <div class="page-number mt-6 pb-1  ">
+                    <style>
+                        ul {
+                            text-align: right;
+                            display: flex;
+                            justify-content: flex-end;
+                            list-style: none;
+                        }
+                        li {
+                            font-size: 20px;
+                        }
+                    </style>
+
+                    <ul class="number-page" style="margin-right: 140px;color: black;">
+                        <li style="color: black;margin-right: 10px;"><<</li>
+                        <li style="color: black;margin-right: 10px;">1</li>
+                        <li style="color: black;margin-right: 10px;">2</li>
+                        <li style="color: black;margin-right: 10px;">3</li>
+                        <li style="color: black;margin-right: 10px;">4</li>
+                        <li style="color: black;margin-right: 10px;">5</li>
+                        <li style="color: black;margin-right: 10px;">6</li>
+                        <li style="color: black;margin-right: 10px;">7</li>
+                        <li style="color: black;margin-right: 10px;">8</li>
+                        <li style="color: black;margin-right: 10px;">9</li>
+                        <li style="color: black;margin-right: 10px;">10</li>
+                        <li style="color: black;margin-right: 10px;">>></li>
+                    </ul>
