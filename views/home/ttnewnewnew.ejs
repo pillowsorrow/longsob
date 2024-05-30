@@ -4,11 +4,6 @@
 <head>
   <%- include('../partials/head'); -%>
     <%- include('../partials/nav'); -%>
-
-
-
-
-
 </head>
 
 <body>
@@ -21,7 +16,17 @@
       <!-- End Viwer Section -->
 
 
+      <!-- Pricing Section -->
+
       <style>
+          
+
+
+
+        
+
+
+
         @media only screen and (max-width: 768px) {
           #hamburg {
             display: block;
@@ -152,7 +157,7 @@
             bottom: 37px !important;
           }
         }
-          
+
 
 
 
@@ -245,7 +250,7 @@
       <!-- หน้าPSD 4 -->
 
       <div class="container mt-7 ">
-        <div class="row">
+        <div class="row" id="course-choose">
           <div class="col-xl-4 dnone">
             <!-- <div class="btnnaj" style="display: block;">
             <span id="hamburg" class="hamburg1"  onclick="w3_open()">☰</span>
@@ -255,107 +260,19 @@
               <h3 class="korsob" style="color: black;"> <img src="/images/iconslearn/storage.png" style="width:20% "
                   alt="คลังข้อสอบ">คลังข้อสอบ<span id="hamburg" class="hamburg5"
                   style="position: absolute;top: 0;right: 0;margin-right: 25px;" onclick="w3_close()">X</span></h3>
-                
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">สำนักงานนายกรัฐมนตรี</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงกลาโหม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงพลังงาน</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงแรงงาน</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงยุติธรรม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงศึกษาธิการ</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงสาธารณสุข</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงอุตสาหกรรม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงคมนาคม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงพาณิชย์</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงมหาดไทย</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงวัฒนธรรม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงการคลัง</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงการท่องเที่ยวและกีฬา</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงพัฒนาสังคมและความมั่นคงของมนุษย์</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงการอุดมศึกษาวิทยาศาสตร์วิจัยและนวัตรกรรม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงเกษตรและสหกรณ์</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงทรัยการธรรมชาติและสิ่งแวดล้อม</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">กระทรวงต่างประเทศ</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">ธนาคาร</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">รัฐวิสาหกิจ</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
-              <span class="ministrymode">
-                <a href="#"style="color: black;">ส่วนราชการที่ไม่สังกัดสำนักนายกรัฐมนตรีกระทรวงหรือทบวง</a>
-              </span class="ministrymode">
-              <hr class="my-12 btn-dark" />
 
-
-
-
-
-
-
+              <hr class="my-12 btn-dark" />
+              <!-- sidebar -->
+              <div class="ministrychoose">
+           
+                <div class="ministrymode">
+                  <h4 class="h5 font-weight-normal mb-0">
+                    <a href="#" class="text-black-100"> </a>
+                  </h4>
+                </div>
+                <hr class="my-12 btn-dark" />
+              </div>
+            
             </div>
           </div>
           <div class="col-xl-8 col">
@@ -367,9 +284,7 @@
                     style="text-align: start;position: relative;margin-left: 45px;margin-top: 5px;bottom: 45px;color: black;">
                     คลังข้อสอบ</p>
                 </span></div>
-              <h2 class="text-ministry" style="text-align: center;color:black;  ">
-                สำนักงานนายกรัฐมนตรี
-              </h2>
+                <h4 class="h4 mb-4 text-primary-theme heading-subject-text" style="text-align: center;">#<!-- {{group-subject}}--></h4>
 
               <hr class="my-12 btn-dark" />
               <nav class="navbar">
@@ -480,82 +395,74 @@
 
 
             </div>
-            <div class="pricing">
-              <div class="row">
-                <div class="col-md-4 mt-2">
-                  <div class="card-main">
-                    <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
-                      </div>
+            <!-- <div class="row " id="course-learner">
+              <div class="col-12 course-block-zero"></div>
+              <div class="col-sm-12 col-md-6 col-lg-4  ">
+                <div class="card-main course-block-detail-new">
+                  <div class="card">
+                    <div class="picturelaw">
+                      <picture>
+                    <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                       </picture>
+                  </div>
+                    <div class="card-body">
+                      <p class="card-text">12 3</p>
+                      <a href="#" class="btn btn-primary w-100"
+                        style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
+                      <a href="#" class="btn btn-primary w-100 mt-3"
+                        style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 mt-2">
-                  <div class="card-main">
+              </div> -->
+              <div class="col-md-12 ">
+                <div class="row" id="course-learner">
+                  <div class="col-12 course-block-zero"><%= translation.zero_result %></div>
+                  <div class="col-sm-12 col-md-6 col-lg-4 pb-3 course-block-detail">
+                    <!-- Product -->
                     <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
+                      <div class="position-relative  img-hover">
+                          <picture>
+                            <img src="/images/law01png" alt="#" loading="lazy" decoding="async">
+                          </picture>
+                      </div>
+                      <div class="card-body pt-4 px-3 pb-0 bg-theme-second">
+                        <div class="mb-2">
+                          <a href="#">
+                            <h2 class="h5 mb-0 fix-line h-65-px text-black-70 mb-1">#</h2>
+                            <small class="text-secondary fix-line-50 mobile-none text-line-clamp d-none"> </small>
+                            <small class="text-secondary fix-line-50 mobile-none text-line-clamp"></small>
+                            <%= translation.price%> <var class="price"></var> <%= translation.baht%>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-footer" style="background-color: rgb(235, 235, 235);">
+                        <p class="m-0 pt-3">
+                          <a href="#" class="btn btn-primary w-100 p-3"
+                        style="background-color:rgb(80, 35, 35) ;border: none;border-radius: 5px;">รายละเอียดเพิ่มเติม</a>
+                          <a href="#" class="btn btn-primary w-100 mt-3 p-3"
+                        style="background-color: rgb(228, 167, 0);border: none;border-radius: 5px;">เลือกข้อสอบนี้</a>
                         </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
                       </div>
                     </div>
+                    <!-- End Product -->
                   </div>
-                </div>
-                <div class="col-md-4 mt-2">
-                  <div class="card-main">
-                    <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
-                      </div>
-                    </div>
-                  </div>
+    
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-4 mt-7">
-                  <div class="card-main">
+
+              <!-- <div class="row " id="course-block-choose">
+                <div class="col-12 course-block-zero"></div>
+                <div class="col-sm-12 col-md-6 col-lg-4  ">
+                  <div class="card-main course-block-detail-new">
                     <div class="card">
+                      <div class="picturelaw">
+                        <picture>
                       <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
+                         </picture>
+                    </div>
                       <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
+                        <p class="card-text">12 3</p>
                         <a href="#" class="btn btn-primary w-100"
                           style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
                         <a href="#" class="btn btn-primary w-100 mt-3"
@@ -563,19 +470,15 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-4 mt-7">
+                </div> -->
+
+
+              <!-- <div class="col-sm-12 col-md-6 col-lg-4  ">
                   <div class="card-main">
                     <div class="card">
                       <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
+                        <p class="card-text">12 11113</p>
                         <a href="#" class="btn btn-primary w-100"
                           style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
                         <a href="#" class="btn btn-primary w-100 mt-3"
@@ -583,19 +486,13 @@
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-4 mt-7">
+                </div> -->
+              <!-- <div class="col-sm-12 col-md-6 col-lg-4  ">
                   <div class="card-main">
                     <div class="card">
                       <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
+                        <p class="card-text">12 3</p>
                         <a href="#" class="btn btn-primary w-100"
                           style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
                         <a href="#" class="btn btn-primary w-100 mt-3"
@@ -603,70 +500,11 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4 mt-7">
-                  <div class="card-main">
-                    <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 mt-7">
-                  <div class="card-main">
-                    <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 mt-7">
-                  <div class="card-main">
-                    <div class="card">
-                      <img class="card-img-top" src="/images/law01.png" alt="Card image cap">
-                      <div class="card-body">
-                        <p class="card-text">หลักสูตร กฎหมายการ
-                          <br>
-                          แข่งขันทางกาารค้าพื้นฐาน
-                          <br>
-                          <br>
-                          ราคา 330 บาท
-                        </p>
-                        <a href="#" class="btn btn-primary w-100"
-                          style="background-color:rgb(80, 35, 35) ;border: none;">รายละเอียดเพิ่มเติม</a>
-                        <a href="#" class="btn btn-primary w-100 mt-3"
-                          style="background-color: rgb(228, 167, 0);border: none;">เลือกข้อสอบนี้</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </div> -->
+
+
+
+
 
 
 
@@ -677,36 +515,29 @@
       </div>
       </div>
 
-      <div class="page-number mt-6 pb-1  ">
-        <style>
-          ul {
-            text-align: right;
-            display: flex;
-            justify-content: flex-end;
-            list-style: none;
-          }
 
-          li {
-            font-size: 20px;
-          }
-        </style>
-
-        <ul class="number-page" style="margin-right: 80px;color: black;">
-          <li style="color: black;margin-right: 10px;"><< </li>
-          <li style="color: black;margin-right: 10px;">1</li>
-          <li style="color: black;margin-right: 10px;">2</li>
-          <li style="color: black;margin-right: 10px;">3</li>
-          <li style="color: black;margin-right: 10px;">4</li>
-          <li style="color: black;margin-right: 10px;">5</li>
-          <li style="color: black;margin-right: 10px;">6</li>
-          <li style="color: black;margin-right: 10px;">7</li>
-          <li style="color: black;margin-right: 10px;">8</li>
-          <li style="color: black;margin-right: 10px;">9</li>
-          <li style="color: black;margin-right: 10px;">10</li>
-          <li style="color: black;margin-right: 10px;">>></li>
+      
+      <nav aria-label="Page navigation" class="mb-5 position-right-0">
+        <ul class="pagination justify-content-end" style="margin-right: 100px;">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
         </ul>
+      </nav>
 
-
+    
 
 
         <script>
@@ -719,16 +550,19 @@
           }
         </script>
 
-
-
         <!-- End Pricing Section -->
-
 
         <%- include('../partials/aside'); -%>
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
-    <%- include('../partials/footer'); -%> <%- include('../partials/script'); -%>
+    <%- include('../partials/footer'); -%>
+      <%- include('../partials/script'); -%>
         <script async defer src="/javascripts/course.js"></script>
+        <script>
+          let course_group = <%= course_group %>;
+          const registered_txt = '<%= translation.registered_txt %>';
+          console.log(course_group)
+        </script>
 </body>
 
 </html>

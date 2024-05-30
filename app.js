@@ -249,17 +249,6 @@ app.get(DIR + ":site/ttnewnew", async (req, res) => {
   });
 });
 
-app.get(DIR + ":site/ttnewnewnew", async (req, res) => {
-  res.render("home/ttnewnewnew", {
-    title: req.i18n_texts.term_and_condition_breadcrumb,
-    isLoggedIn: req.session.isLoggedIn,
-    isAdmin: req.session.role || 2,
-    breadcrumbs: [{
-      label: req.i18n_texts.term_and_condition_breadcrumb,
-      url: "#",
-    }, ]
-  });
-});
 
 
 

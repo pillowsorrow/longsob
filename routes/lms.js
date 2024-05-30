@@ -298,7 +298,7 @@ router.get(["/", "/classroom"], async (req, res) => {
         });
       }
 
-      res.render("pages/lms", {
+      res.render("home/lmsnew", {
         title: req.i18n_texts.title_home,
         isLoggedIn: req.session.isLoggedIn,
         isAdmin: req.session.role || 2,

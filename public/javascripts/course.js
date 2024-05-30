@@ -12,36 +12,39 @@ async function feedPage() {
 
 function asideFeedPage() {
   $.ajax({
-      url: local_api + "course/aside",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + access_token,
-      },
-      data: JSON.stringify({
-        lang: $("html").attr("lang"),
-        project: $('meta[name="api_project"]').attr('content')
-      }),
-    })
+    url: local_api + "course/aside",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + access_token,
+    },
+    data: JSON.stringify({
+      lang: $("html").attr("lang"),
+      project: $('meta[name="api_project"]').attr('content')
+    }),
+  })
     .done(function (response) {
       fail = 0;
-
+      
       if (response.total > 0) {
-        const e = $(".course-aside > div.media");
+        const e = $(".ministrychoose > .ministrymode");
         for (let i = 0; i < response.total; i++) {
           if (i > 0) {
             e.clone().insertAfter(e);
+            $("<hr class='my-12 btn-dark' />").insertAfter(e);
           }
         }
         let linkpath = site_path + "/course/";
         for (let i = 0; i < response.total; i++) {
-          $(".course-aside > div.media:eq(" + i + ") h4 > a").text(
+          $(".ministrychoose  > .ministrymode:eq(" + i + ") h4 > a").text(
             response.data[i].group_subject
+        
           );
-          $(".course-aside > div.media:eq(" + i + ") h4 > a").attr(
+          $(".ministrychoose  > .ministrymode:eq(" + i + ") h4 > a").attr(
             "href",
             linkpath + response.data[i].group_id + "/group"
           );
+          console.log( response.data[i])
         }
       }
     })
@@ -56,85 +59,85 @@ function asideFeedPage() {
 
 function courseFeedPage() {
   $.ajax({
-      url: local_api + "course/page",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + access_token,
-      },
-      data: JSON.stringify({
-        lang: $("html").attr("lang"),
-        project: $('meta[name="api_project"]').attr('content'),
-        group: course_group,
-        profileID: getCookie('cookieProfileID') || 0
-      }),
-    })
-    .done(function (response) {
-      fail = 0;
-      let linkpath = site_path + "/course";
+    url: local_api + "course/page",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + access_token,
+    },
+    data: JSON.stringify({
+      lang: $("html").attr("lang"),
+      project: $('meta[name="api_project"]').attr('content'),
+      group: course_group,
+      profileID: getCookie('cookieProfileID') || 0
+    }),
+  })
+  .done(function (response) {
+    fail = 0;
+    let linkpath = site_path + "/course";
 
-      if (response.result > 0) {
-        $("h4.heading-subject-text").text(response.group[0].subject);
-        course_group = response.group[0].id;
-        const course_data_length = response.data[0].course_data.length;
-        const e = $("#course-block > div.course-block-detail");
+    if (response.result > 0) {
+      $("h4.heading-subject-text").text(response.group[0].subject);
+      course_group = response.group[0].id;
+      const course_data_length = response.data[0].course_data.length;
+      const e = $("#course-learner > div.course-block-detail");
 
-        if (course_data_length == 0) {
-          e.remove()
-        } else {
-          $("#course-block > div.course-block-zero").remove();
+      if (course_data_length == 0) {
+        e.remove()
+      } else {
+        $("#course-learner > div.course-block-zero").remove();
 
-          for (let i = 0; i < course_data_length; i++) {
-            if (i > 0) {
-              e.clone().insertAfter(e);
-            }
-          }
-          let linkpath = site_path + "/course/";
-          for (let i = 0; i < course_data_length; i++) {
-
-            let course_src = path_validate(response.data[0].course_data[i].cover , location_file );
-
-            $("#course-block > div:eq(" + i + ") picture > img")
-              .attr({
-                src: course_src,
-                alt: response.data[0].course_data[i].subject,
-              })
-              .height(185);
-            $("#course-block > div:eq(" + i + ") .card-body h2").text(
-              response.data[0].course_data[i].subject
-            );
-            $("#course-block > div:eq(" + i + ") .card-body var.price").text(
-              response.data[0].course_data[i].price
-            );
-            let course_id = response.data[0].course_data[i].course_id;
-            $("#course-block > div:eq(" + i + ") > div.card a").attr(
-              "href",
-              linkpath + course_id + "/detail"
-            );
-            $("#course-block > div:eq(" + i + ") > div.card .card-footer a").attr('id', 'course' + course_id);
-            
-            
-            if (response.data[0].course_data[i].congratulation < 2) {
-              $('#course' + course_id).text(registered_txt).removeClass('btn-primary-theme').addClass('btn-success').attr("href",site_path + "/lms");
-            }
-
+        for (let i = 0; i < course_data_length; i++) {
+          if (i > 0) {
+            e.clone().insertAfter(e);
           }
         }
-      } else {
-        $("#course-block > div.course-block-detail").remove()
-        //window.location.href = linkpath;
+        let linkpath = site_path + "/course/";
+        for (let i = 0; i < course_data_length; i++) {
+
+          let course_src = path_validate(response.data[0].course_data[i].cover , location_file );
+
+          $("#course-learner > div:eq(" + i + ") picture > img")
+            .attr({
+              src: course_src,
+              alt: response.data[0].course_data[i].subject,
+            })
+            .height(185);
+          $("#course-learner > div:eq(" + i + ") .card-body h2").text(
+            response.data[0].course_data[i].subject
+          );
+          $("#course-learner > div:eq(" + i + ") .card-body var.price").text(
+            response.data[0].course_data[i].price
+          );
+          let course_id = response.data[0].course_data[i].course_id;
+          $("#course-learner > div:eq(" + i + ") > div.card a").attr(
+            "href",
+            linkpath + course_id + "/detail"
+          );
+          $("#course-learner > div:eq(" + i + ") > div.card .card-footer a").attr('id', 'course' + course_id);
+          
+          
+          if (response.data[0].course_data[i].congratulation < 2) {
+            $('#course' + course_id).text(registered_txt).removeClass('btn-primary-theme').addClass('btn-success').attr("href",site_path + "/lms");
+          }
+
+        }
       }
-    })
-    .fail(async function () {
-      if (fail < 3) {
-        await refreshtoken();
-        await courseFeedPage();
-        fail++;
-      }
-    });
+    } else {
+      $("#course-learner > div.course-block-detail").remove()
+      //window.location.href = linkpath;
+    }
+  })
+  .fail(async function () {
+    if (fail < 3) {
+      await refreshtoken();
+      await courseFeedPage();
+      fail++;
+    }
+  });
 }
 
-function courseDetailFeedPage() {}
+function courseDetailFeedPage() { }
 
 $('#submitCourse').on('click', function (e) {
   e.preventDefault();
@@ -143,21 +146,21 @@ $('#submitCourse').on('click', function (e) {
     window.location.href = site_path + '/login'
   } else {
     $.ajax({
-        url: local_api + "course/register",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + access_token,
-        },
-        data: JSON.stringify({
-          lang: $("html").attr("lang"),
-          project: $('meta[name="api_project"]').attr('content'),
-          profileID: +profileID,
-          course: $('#submitCourse').data('id')
-        }),
-      })
+      url: local_api + "course/register",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + access_token,
+      },
+      data: JSON.stringify({
+        lang: $("html").attr("lang"),
+        project: $('meta[name="api_project"]').attr('content'),
+        profileID: +profileID,
+        course: $('#submitCourse').data('id')
+      }),
+    })
       .done(function (response) {
-        
+
         let linkpath = site_path + "/course/" + $('#submitCourse').data('id') + "/detail/successful"
 
         window.location.href = linkpath;
@@ -172,33 +175,33 @@ $('#submitCourse').on('click', function (e) {
   }
 });
 
-function addtofavorites(id){
+function addtofavorites(id) {
   let profileID = +getCookie('cookieProfileID') || 0;
 
   if (profileID == 0) {
     window.location.href = site_path + '/login'
   } else {
     $.ajax({
-        url: local_api + "course/favorites",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + access_token,
-        },
-        data: JSON.stringify({
-          lang: $("html").attr("lang"),
-          project: $('meta[name="api_project"]').attr('content'),
-          profileID: profileID,
-          course: id
-        }),
-      })
+      url: local_api + "course/favorites",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + access_token,
+      },
+      data: JSON.stringify({
+        lang: $("html").attr("lang"),
+        project: $('meta[name="api_project"]').attr('content'),
+        profileID: profileID,
+        course: id
+      }),
+    })
       .done(function (response) {
-        if(response.result == 1){
+        if (response.result == 1) {
           let title = $('.addtofavorites').data('original-title2');
-          $('#addtofavorites__' + id).addClass('active').attr('title',title);;
-        }else{
+          $('#addtofavorites__' + id).addClass('active').attr('title', title);;
+        } else {
           let title = $('.addtofavorites').data('original-title');
-          $('#addtofavorites__' + id).removeClass('active').attr('title',title);
+          $('#addtofavorites__' + id).removeClass('active').attr('title', title);
         }
       })
       .fail(async function () {
