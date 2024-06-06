@@ -23,7 +23,7 @@ router.get(["/", "/:id([0-9]{0,11})/group"], ValidateLoggedin, async (req, res) 
 
   let course_group = +req.params.id || 0;
 
-  res.render("home/ttnewnewnew", {
+  res.render("home/course-newmeta", {
     title: req.i18n_texts.title_course,
     isLoggedIn: req.session.isLoggedIn,
     isAdmin: req.session.role || 2,
